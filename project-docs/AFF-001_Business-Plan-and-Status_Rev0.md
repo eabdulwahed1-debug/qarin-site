@@ -16,18 +16,18 @@ Owner decision: the site is now **Mom & Kids only** (speech/talking aids, focus 
 - Track B (regional): digital tools (design, AI, freelancing) for the Arab world → Canva, Fiverr, PartnerStack programs.
 - Content principle: honest guides based on published specs and verified buyer reviews; no invented testing or reviews.
 
-## 2. Integration status
-| Integration | Status | Required human action |
+## 2. Integration status (reviewed 2026-10-31)
+| Integration | Status | Notes / required human action |
 |---|---|---|
-| GitHub repo `eabdulwahed1-debug/qarin-site` | CONNECTED | — |
-| GitHub Pages hosting | CONNECTED | Live at https://eabdulwahed1-debug.github.io/qarin-site/ |
-| Domain qarinsa.com | CONNECTED | Bought at Namecheap 2026-10-31 (1 yr, renew before 2027-10-31). DNS: 4 GitHub A records + www CNAME. CNAME file in static/ |
-| Amazon.sa Associates | CONNECTED (provisional) | Tag qarinsa-21 live site-wide. Must refer qualifying sales within 180 days of 2026-10-31. Bank account linked by owner (2026-10-31). |
-| Boostiny (ArabyAds) | PENDING | Paused at step 3/5 — needs live site URL |
-| ArabClicks | REQUIRES HUMAN ACTION | Signup via WhatsApp / info@arabclicks.com (message drafted) |
-| Canva / Fiverr / PartnerStack | NOT STARTED | Register after site is live |
-| Google Search Console | CONNECTED | Ownership verified via HTML file (do not delete static/googlecf9187cf7e9fa8eb.html); sitemap submitted 2026-10-31 |
-| Weekly content task | CONNECTED | Scheduled task runs Sun & Wed 09:47 Riyadh |
+| GitHub repo `eabdulwahed1-debug/qarin-site` | CONNECTED | Pages from `main` / `docs` |
+| Domain qarinsa.com + HTTPS | CONNECTED | DNS check OK, Enforce HTTPS on; http and www redirect to https://qarinsa.com. Renew before 2027-10-31 |
+| Amazon.sa Associates (tag qarinsa-21) | CONNECTED | https://qarinsa.com added to the website list (2026-10-31). 3 qualifying sales needed by ~2027-04-29 |
+| AliExpress Portals | PENDING | Application submitted by owner; waiting for approval → add tracking ID to site.json `aliexpress_tracking_id` |
+| noon / eBay | ON HOLD | Removed from the site by owner decision until further notice |
+| Google Search Console | CONNECTED | Property https://qarinsa.com/ verified (HTML file); sitemap.xml submitted — success, 26 pages |
+| GoatCounter analytics | CONNECTED | Events: amz-momkid, pick, agent, search, compare |
+| Scheduled tasks | CONNECTED | Monthly best products (1st, 10:13), weekly tip (Sun 09:47), weekly report (Thu 09:37); weekly featured task disabled |
+| Boostiny / ArabClicks | PENDING | Owner to complete |
 
 ## 3. Content published (Rev 0)
 1. How to choose an air fryer (kitchen)
@@ -38,6 +38,7 @@ Owner decision: the site is now **Mom & Kids only** (speech/talking aids, focus 
 6. 2026-10-31: whole site made bilingual — English version of all 37 pages under /en/, language switcher, hreflang tags, bilingual weekly reports.
 7. 2026-10-31: concept change — home page is now a 3-step buying assistant (12 categories, budget, use → filtered Amazon.sa results sorted by reviews) + shop-by-budget rows + weekly featured products; guides moved below. Rebrand: Qarin logo, navy/orange theme.
 8. 2026-10-31: full redesign to Mom & Kids — new warm theme, logo, hero art; 4 section pages (need/speech, focus, travel, mom); finder with 6 needs; shop-by-need tiles (momkid.json); top search goes straight to Amazon.sa with tag. Old content removed.
+9. 2026-10-31: photo redesign (Unsplash), design system (Readex Pro + IBM Plex Sans Arabic), Khutwa assistant + instant search, price-compare page (Amazon + AliExpress), brand line 'by Qarin Group', monthly best-products block. Full review: 26 pages, 0 broken links, 72/72 Amazon links tagged, 0 JS errors, no mobile overflow.
 Plus (removed 2026-10-31): 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions
