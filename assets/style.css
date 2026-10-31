@@ -1,0 +1,89 @@
+:root {
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --ink: #1d2433;
+  --muted: #5d6677;
+  --line: #e6e1d8;
+  --accent: #0f6e5a;
+  --accent-ink: #ffffff;
+  --accent-soft: #e3f1ec;
+  --warn-soft: #fff4dc;
+  --radius: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121620;
+    --surface: #1a202c;
+    --ink: #e9ecf2;
+    --muted: #a3acbd;
+    --line: #2c3444;
+    --accent: #3cc19c;
+    --accent-ink: #0b1a15;
+    --accent-soft: #183229;
+    --warn-soft: #3a3020;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121620; --surface: #1a202c; --ink: #e9ecf2; --muted: #a3acbd;
+  --line: #2c3444; --accent: #3cc19c; --accent-ink: #0b1a15; --accent-soft: #183229; --warn-soft: #3a3020;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Tajawal", system-ui, "Segoe UI", Tahoma, sans-serif;
+  font-size: 18px;
+  line-height: 1.85;
+}
+a { color: var(--accent); }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+.site-header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-top: 12px; padding-bottom: 12px; }
+.brand { font-size: 28px; font-weight: 800; color: var(--ink); text-decoration: none; display: flex; align-items: baseline; gap: 10px; }
+.brand span { font-size: 14px; font-weight: 500; color: var(--muted); }
+nav { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 16px; }
+nav a:hover { color: var(--accent); }
+
+main { padding-top: 28px; padding-bottom: 48px; }
+article h1 { font-size: 34px; line-height: 1.4; margin: 0 0 12px; }
+article h2 { font-size: 25px; margin: 40px 0 10px; }
+article h3 { font-size: 20px; margin: 28px 0 8px; }
+article p, article li { color: var(--ink); }
+.lead { font-size: 20px; color: var(--muted); }
+.meta, .muted { color: var(--muted); font-size: 15px; }
+
+.hero { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; margin-bottom: 28px; }
+.hero h1 { font-size: 36px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+.card { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; text-decoration: none; color: var(--ink); transition: border-color .15s; }
+.card:hover { border-color: var(--accent); }
+.card h3 { margin: 6px 0; font-size: 19px; }
+.card p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 999px; }
+
+.disclosure { background: var(--warn-soft); border-radius: var(--radius); padding: 10px 16px; font-size: 15px; margin-bottom: 20px; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; margin: 20px 0; }
+.box h3 { margin-top: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0; background: var(--surface); border-radius: var(--radius); overflow: hidden; font-size: 16px; }
+th, td { border-bottom: 1px solid var(--line); padding: 10px 12px; text-align: right; vertical-align: top; }
+th { background: var(--accent-soft); }
+.table-scroll { overflow-x: auto; }
+
+.buy { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 8px 18px; border-radius: 10px; margin: 4px 0; }
+.buy:hover { filter: brightness(1.08); }
+
+.site-footer { border-top: 1px solid var(--line); background: var(--surface); padding: 20px 0; font-size: 15px; }
+.site-footer p { margin: 4px 0; }
+
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  article h1, .hero h1 { font-size: 28px; }
+  .brand span { display: none; }
+}

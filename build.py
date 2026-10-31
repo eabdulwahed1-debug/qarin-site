@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+"""Build the static site from content/*.html into docs/ (served by GitHub Pages).
+
+Each content file starts with a JSON header between <!--meta and -->:
+<!--meta
+{"slug": "guides/air-fryer", "title": "...", "description": "...", "category": "kitchen", "type": "guide", "date": "2026-10-31"}
+-->
+
+Shortcodes inside content:
+  [[amz:search words|label]]  -> Amazon.sa search link (adds tracking tag when site.json has one)
+  [[guides:category]]          -> list of guides in that category ("all" for every guide)
+"""
+import json
+import re
+import shutil
+from html import escape
+from pathlib import Path
+from urllib.parse import quote_plus
+
+ROOT = Path(__file__).parent
+CONTENT = ROOT / "content"
+OUT = ROOT / "docs"
+SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
+
+CATEGORIES = {
+    "kitchen": "المطبخ والمنزل",
+    "tech": "التقنية",
+    "beauty": "الجمال والعطور",
+    "kids": "الأطفال والأم",
+    "health": "الصحة وكبار السن",
+    "digital": "أدوات رقمية",
+    "deals": "العروض والمواسم",
+}
+
+NAV = [
+    ("", "الرئيسية"),
+    ("guides/", "أدلة الشراء"),
+    ("category/kitchen/", "المطبخ والمنزل"),
+    ("category/tech/", "التقنية"),
+    ("category/health/", "الصحة"),
+    ("category/deals/", "العروض"),
+]
+
+
+def parse(path):
+    raw = path.read_text(encoding="utf-8")
+    m = re.match(r"<!--meta\s*(\{.*?\})\s*-->\s*", raw, re.S)
+    if not m:
+        raise SystemExit(f"Missing meta header in {path}")
+    meta = json.loads(m.group(1))
+    meta["body"] = raw[m.end():]
+    return meta
+
+
+def rel(depth, target):
+    return "../" * depth + target
+
+
+def amz_link(words, label):
+    url = "https://www.amazon.sa/s?k=" + quote_plus(words)
+    if SITE.get("amazon_sa_tag"):
+        url += "&tag=" + quote_plus(SITE["amazon_sa_tag"])
+    return (f'<a class="buy" href="{escape(url)}" target="_blank" '
+            f'rel="sponsored nofollow noopener">{escape(label)}</a>')
+
+
+def guide_cards(pages, category, depth):
+    items = [p for p in pages if p.get("type") == "guide"
+             and (category == "all" or p.get("category") == category)]
+    items.sort(key=lambda p: p.get("date", ""), reverse=True)
+    if not items:
+        return '<p class="muted">أدلة هذا القسم قيد الإعداد وتُنشر قريباً.</p>'
+    cards = []
+    for p in items:
+        cat = CATEGORIES.get(p.get("category"), "")
+        cards.append(
+            f'<a class="card" href="{rel(depth, p["slug"] + "/")}">'
+            f'<span class="tag">{escape(cat)}</span>'
+            f'<h3>{escape(p["title"])}</h3>'
+            f'<p>{escape(p["description"])}</p></a>')
+    return '<div class="cards">' + "".join(cards) + "</div>"
+
+
+def render(page, pages):
+    slug = page["slug"].strip("/")
+    depth = 0 if slug == "" else slug.count("/") + 1
+    body = page["body"]
+    body = re.sub(r"\[\[amz:([^|\]]+)\|([^\]]+)\]\]", lambda m: amz_link(m.group(1).strip(), m.group(2).strip()), body)
+    body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, m.group(1), depth), body)
+    body = body.replace("{{root}}", rel(depth, ""))
+
+    nav = "".join(f'<a href="{rel(depth, href)}">{escape(label)}</a>' for href, label in NAV)
+    disclosure_note = ""
+    if page.get("type") == "guide":
+        disclosure_note = (
+            f'<aside class="disclosure">قد يحتوي هذا الدليل على روابط تسويق بالعمولة. '
+            f'إذا اشتريت عبرها قد نحصل على عمولة صغيرة دون أي تكلفة إضافية عليك. '
+            f'<a href="{rel(depth, "disclosure/")}">اقرأ سياسة الإفصاح</a>.</aside>')
+        updated = f'<p class="meta">آخر تحديث: {escape(page.get("date", ""))}</p>'
+    else:
+        updated = ""
+
+    title = page["title"] if slug == "" else f'{page["title"]} | {SITE["site_name"]}'
+    canonical = ""
+    if SITE.get("base_url"):
+        canonical = f'<link rel="canonical" href="{escape(SITE["base_url"].rstrip("/") + "/" + (slug + "/" if slug else ""))}">'
+
+    return f"""<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{escape(title)}</title>
+<meta name="description" content="{escape(page['description'])}">
+{canonical}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{rel(depth, 'assets/style.css')}">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{rel(depth, '')}">{escape(SITE['site_name'])}<span>{escape(SITE['tagline'])}</span></a>
+    <nav>{nav}</nav>
+  </div>
+</header>
+<main class="wrap">
+{disclosure_note}
+<article>
+{updated}
+{body}
+</article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><a href="{rel(depth, 'about/')}">من نحن</a> · <a href="{rel(depth, 'contact/')}">تواصل معنا</a> · <a href="{rel(depth, 'disclosure/')}">الإفصاح عن العمولة</a> · <a href="{rel(depth, 'privacy/')}">الخصوصية</a> · <a href="{rel(depth, 'terms/')}">الشروط</a></p>
+    <p class="muted">© {SITE['year']} {escape(SITE['site_name'])}. الأسعار والتوفر تتغير باستمرار؛ تحقق من صفحة المتجر قبل الشراء.</p>
+  </div>
+</footer>
+</body>
+</html>
+"""
+
+
+def main():
+    pages = [parse(p) for p in sorted(CONTENT.rglob("*.html"))]
+    if OUT.exists():
+        shutil.rmtree(OUT)
+    OUT.mkdir()
+    shutil.copytree(ROOT / "assets", OUT / "assets")
+    for page in pages:
+        slug = page["slug"].strip("/")
+        target = OUT / slug / "index.html" if slug else OUT / "index.html"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(render(page, pages), encoding="utf-8")
+    (OUT / ".nojekyll").write_text("", encoding="utf-8")
+    # sitemap (only when the domain is known)
+    if SITE.get("base_url"):
+        base = SITE["base_url"].rstrip("/")
+        urls = "".join(
+            f"<url><loc>{base}/{(p['slug'].strip('/') + '/') if p['slug'].strip('/') else ''}</loc></url>"
+            for p in pages)
+        (OUT / "sitemap.xml").write_text(
+            f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
+            encoding="utf-8")
+        (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
+    print(f"Built {len(pages)} pages into {OUT}")
+
+
+if __name__ == "__main__":
+    main()
