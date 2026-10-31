@@ -115,11 +115,11 @@ def render(page, pages):
     nav = "".join(f'<a href="{rel(depth, href)}">{escape(label)}</a>' for href, label in NAV)
     disclosure_note = ""
     if page.get("type") in CONTENT_TYPES:
-        disclosure_note = (
-            f'<aside class="disclosure">قد يحتوي هذا الدليل على روابط تسويق بالعمولة. '
-            f'إذا اشتريت عبرها قد نحصل على عمولة صغيرة دون أي تكلفة إضافية عليك. '
-            f'<a href="{rel(depth, "disclosure/")}">اقرأ سياسة الإفصاح</a>.</aside>')
-        updated = f'<p class="meta">آخر تحديث: {escape(page.get("date", ""))}</p>'
+        disclosure_note = ""
+        small_disclosure = (
+            f'<p class="disc-line">ⓘ يحتوي على روابط عمولة لا تغيّر السعر عليك · '
+            f'<a href="{rel(depth, "disclosure/")}">التفاصيل</a></p>')
+        updated = f'<p class="meta">آخر تحديث: {escape(page.get("date", ""))}</p>' + small_disclosure
     else:
         updated = ""
 
@@ -163,6 +163,7 @@ def render(page, pages):
   <div class="wrap">
     <p class="foot-brand"><span class="logo">ق</span>{escape(SITE['site_name'])} — {escape(SITE['tagline'])}</p>
     <p><a href="{rel(depth, 'about/')}">من نحن</a> · <a href="{rel(depth, 'contact/')}">تواصل معنا</a> · <a href="{rel(depth, 'disclosure/')}">الإفصاح عن العمولة</a> · <a href="{rel(depth, 'privacy/')}">الخصوصية</a> · <a href="{rel(depth, 'terms/')}">الشروط</a></p>
+    <p class="muted">بصفتنا مشاركين في برنامج أمازون للمسوقين بالعمولة، قد نحصل على عمولة من عمليات الشراء المؤهلة.</p>
     <p class="muted">© {SITE['year']} {escape(SITE['site_name'])}. الأسعار والتوفر تتغير باستمرار؛ تحقق من صفحة المتجر قبل الشراء.</p>
   </div>
 </footer>
