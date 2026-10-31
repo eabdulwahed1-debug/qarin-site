@@ -17,7 +17,7 @@
 | Integration | Status | Required human action |
 |---|---|---|
 | GitHub repo `eabdulwahed1-debug/qarin-site` | CONNECTED | — |
-| GitHub Pages hosting | PENDING | Enable Pages (Settings → Pages → main /docs) |
+| GitHub Pages hosting | CONNECTED | Live at https://eabdulwahed1-debug.github.io/qarin-site/ |
 | Domain | REQUIRES HUMAN ACTION | Purchase domain and send the name |
 | Amazon.sa Associates | REQUIRES HUMAN ACTION | Register after site is live; send Tracking ID |
 | Boostiny (ArabyAds) | PENDING | Paused at step 3/5 — needs live site URL |
@@ -32,7 +32,7 @@
 Plus: 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions
-1. Owner: enable GitHub Pages; buy domain.
+1. Owner: buy domain.
 2. Claude: set `base_url`, sitemap; add model comparison tables with verified prices.
 3. Owner: Amazon.sa registration → Claude inserts tag site-wide.
 4. Claude: weekly scheduled content + link/price refresh + monthly report.
