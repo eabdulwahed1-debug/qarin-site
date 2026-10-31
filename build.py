@@ -66,7 +66,8 @@ def amz_link(words, label):
     if SITE.get("amazon_sa_tag"):
         url += "&tag=" + quote_plus(SITE["amazon_sa_tag"])
     return (f'<a class="buy" href="{escape(url)}" target="_blank" '
-            f'rel="sponsored nofollow noopener">{escape(label)}</a>')
+            f'rel="sponsored nofollow noopener" data-goatcounter-click="amz:{escape(words)}" '
+            f'data-goatcounter-title="Amazon: {escape(label)}">{escape(label)}</a>')
 
 
 CAT_STYLE = {
@@ -146,6 +147,7 @@ def render(page, pages):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{rel(depth, 'assets/style.css')}">
+<script data-goatcounter="https://qarinsa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header class="site-header">
