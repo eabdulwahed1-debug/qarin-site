@@ -275,7 +275,9 @@ def render(page, pages, index):
                        f'<meta property="og:description" content="{escape(page["description"])}">\n'
                        f'<meta property="og:url" content="{escape(page_url)}">\n'
                        f'<meta property="og:locale" content="{"ar_SA" if lang == "ar" else "en_US"}">\n'
-                       f'<meta name="twitter:card" content="summary">\n')
+                       f'<meta property="og:image" content="{SITE["base_url"].rstrip("/")}/assets/og-image.png">\n'
+                       f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">\n'
+                       f'<meta name="twitter:card" content="summary_large_image">\n')
         # JSON-LD structured data
         base = SITE["base_url"].rstrip("/") + "/"
         home_url = base + ("" if lang == "ar" else "en/")
@@ -303,7 +305,7 @@ def render(page, pages, index):
                        "</script>\n")
     head_links += f'<link rel="icon" href="{rel(depth, "assets/favicon.svg")}" type="image/svg+xml">\n'
 
-    font_css = ("Tajawal:wght@400;500;700;800" if lang == "ar" else "Inter:wght@400;500;700;800")
+    font_css = ("IBM+Plex+Sans+Arabic:wght@400;500;600;700" if lang == "ar" else "Inter:wght@400;500;600;700;800")
     footer_links = " · ".join(f'<a href="{lang_root}{h}">{escape(lbl)}</a>' for h, lbl in t["footer_links"])
 
     return f"""<!doctype html>
@@ -322,7 +324,7 @@ def render(page, pages, index):
 <body class="lang-{lang}">
 <header class="site-header">
   <div class="wrap topbar">
-    <a class="brand" href="{lang_root}"><span class="logo">{t['logo']}</span>{escape(t['site_name'])}</a>
+    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'Qarin' if lang == 'ar' else 'قارن'} · {'قارن قبل ما تشتري' if lang == 'ar' else 'Compare before you buy'}</span></span></a>
     <form class="top-search" action="{lang_root}search/" role="search">
       <input name="q" type="search" placeholder="{escape(t['search_ph'])}" aria-label="{escape(t['search'])}">
       <button type="submit" aria-label="{escape(t['search'])}">🔍</button>
@@ -339,7 +341,7 @@ def render(page, pages, index):
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p class="foot-brand"><span class="logo">{t['logo']}</span>{escape(t['site_name'])} — {escape(t['tagline'])}</p>
+    <p class="foot-brand"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="32" height="32">{escape(t['site_name'])} — {escape(t['tagline'])}</p>
     <p>{footer_links} · <a href="{switch_href}" lang="{other}">{t['switch']}</a></p>
     <p class="muted">{escape(t['amazon_note'])}</p>
     <p class="muted">© {SITE['year']} {escape(t['site_name'])}. {escape(t['price_note'])}</p>
