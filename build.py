@@ -275,8 +275,7 @@ def momkid_block(lang, only=None):
 
 
 PICKS = json.loads((ROOT / "picks.json").read_text(encoding="utf-8")) if (ROOT / "picks.json").exists() else {"sections": {}}
-STORES = {"amazon": ("أمازون", "Amazon", "#ff9900"), "aliexpress": ("علي إكسبريس", "AliExpress", "#e43225"),
-          "ebay": ("إي باي", "eBay", "#0064d2")}
+STORES = {"amazon": ("أمازون", "Amazon", "#ff9900"), "aliexpress": ("علي إكسبريس", "AliExpress", "#e43225")}
 
 
 def picks_block(lang, section):
@@ -305,8 +304,8 @@ def picks_block(lang, section):
                    f'data-goatcounter-click="pick:{section}:{escape(it.get("store", "amazon"))}:{i}" data-goatcounter-title="Pick {escape(it["name_en"])}">{escape(btn)}</a>'
                    f'</div></div>')
     month = PICKS.get("month", "")
-    head = (f'<div class="section-head"><h2>🏆 أفضل منتجات الشهر</h2><small>اختيار {escape(month)} — مقارنة بين أمازون وعلي إكسبريس وإي باي</small></div>' if lang == "ar"
-            else f'<div class="section-head"><h2>🏆 Best products this month</h2><small>{escape(month)} picks — compared across Amazon, AliExpress and eBay</small></div>')
+    head = (f'<div class="section-head"><h2>🏆 أفضل منتجات الشهر</h2><small>اختيار {escape(month)} — مقارنة بين أمازون وعلي إكسبريس</small></div>' if lang == "ar"
+            else f'<div class="section-head"><h2>🏆 Best products this month</h2><small>{escape(month)} picks — compared across Amazon and AliExpress</small></div>')
     script = ("<script>document.querySelectorAll('.pk-video').forEach(function(b){b.addEventListener('click',function(){"
               "var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';"
               "f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');"
@@ -315,8 +314,7 @@ def picks_block(lang, section):
 
 
 def compare_block(lang, lang_root, depth, compact=False):
-    cfg = json.dumps({"amazon": SITE.get("amazon_sa_tag", ""), "ali": SITE.get("aliexpress_tracking_id", ""),
-                      "ebay": SITE.get("ebay_campaign_id", "")})
+    cfg = json.dumps({"amazon": SITE.get("amazon_sa_tag", ""), "ali": SITE.get("aliexpress_tracking_id", "")})
     ph = "اكتب اسم المنتج… مثال: قلم ناطق للأطفال" if lang == "ar" else "Type a product… e.g. talking pen for kids"
     btn = "قارن الأسعار" if lang == "ar" else "Compare prices"
     return (f'<form class="cmp-form{" cmp-compact" if compact else ""}" action="{lang_root}compare/" method="get" role="search">'

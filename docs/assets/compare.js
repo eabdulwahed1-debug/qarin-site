@@ -1,5 +1,5 @@
 /* Khutwa price-compare launcher: opens the same product search on several stores side by side.
-   Live prices need official APIs (Amazon PA-API, AliExpress & eBay APIs) — added once accounts are approved. */
+   Live prices need official APIs (Amazon PA-API, AliExpress API) — added once accounts are approved. */
 (function () {
   var box = document.getElementById('cmp-results');
   if (!box) return;
@@ -16,13 +16,7 @@
       note: ar ? 'شحن سريع داخل السعودية وإرجاع سهل' : 'Fast delivery in Saudi Arabia, easy returns' },
     { id: 'aliexpress', name: ar ? 'علي إكسبريس' : 'AliExpress', color: '#e43225', icon: '🔴',
       url: 'https://ar.aliexpress.com/wholesale?SearchText=' + e + '&SortType=total_tranpro_desc',
-      note: ar ? 'غالباً الأرخص، لكن الشحن أبطأ' : 'Often cheapest, slower shipping' },
-    { id: 'noon', name: ar ? 'نون' : 'noon', color: '#feee00', icon: '🟡',
-      url: 'https://www.noon.com/' + (ar ? 'saudi-ar' : 'saudi-en') + '/search/?q=' + e,
-      note: ar ? 'متجر محلي وتوصيل سريع' : 'Local store, fast delivery' },
-    { id: 'ebay', name: 'eBay', color: '#0064d2', icon: '🔵',
-      url: 'https://www.ebay.com/sch/i.html?_nkw=' + e + (cfg.ebay ? '&mkcid=1&mkrid=711-53200-19255-0&campid=' + encodeURIComponent(cfg.ebay) + '&toolid=10001' : ''),
-      note: ar ? 'خيارات أكثر من بائعين حول العالم، تأكد من الشحن للسعودية' : 'Global sellers — check shipping to Saudi Arabia' }
+      note: ar ? 'غالباً الأرخص، لكن الشحن أبطأ' : 'Often cheapest, slower shipping' }
   ];
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var h = '<h2 class="cmp-title">' + (ar ? 'نتائج «' : 'Results for “') + esc(q) + (ar ? '» في كل متجر' : '” in each store') + '</h2><div class="cmp-grid">';

@@ -208,7 +208,7 @@ article>p,article>ul,article>h2{max-width:780px}
 .cmp-box{background:#fff;border-radius:var(--radius);padding:22px;margin:22px 0;box-shadow:var(--shadow)}
 .cmp-box .cmp-form{max-width:none}
 .cmp-title{font-size:22px;margin:22px 0 12px}
-.cmp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cmp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .cmp-card{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:18px;text-decoration:none;color:var(--ink);background:#fff;border:2px solid color-mix(in srgb,var(--s) 40%,#fff);border-top-width:6px;transition:.15s}
 .cmp-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
 .cmp-ic{font-size:26px}
