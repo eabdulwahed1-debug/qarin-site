@@ -24,11 +24,14 @@ SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 
 CATEGORIES = {
     "kitchen": "المطبخ والمنزل",
-    "tech": "التقنية",
+    "tech": "جوالات ولابتوبات",
     "beauty": "الجمال والعطور",
     "kids": "الأطفال والأم",
     "health": "الصحة وكبار السن",
-    "digital": "أدوات رقمية",
+    "digital": "اشتراكات ومنتجات رقمية",
+    "books": "الكتب والقراءة",
+    "sports": "الرياضة واللياقة",
+    "travel": "السفر",
     "deals": "العروض والمواسم",
 }
 
@@ -68,11 +71,14 @@ def amz_link(words, label):
 
 CAT_STYLE = {
     "kitchen": ("🍳", "#ff7a1a"),
-    "tech": ("🎧", "#3b6cff"),
+    "tech": ("📱", "#3b6cff"),
     "beauty": ("✨", "#e2468f"),
     "kids": ("🧸", "#12a594"),
     "health": ("🩺", "#18a058"),
     "digital": ("💻", "#7c4dff"),
+    "books": ("📚", "#b5651d"),
+    "sports": ("🏋️", "#e5383b"),
+    "travel": ("✈️", "#0096c7"),
     "deals": ("🏷️", "#e8a400"),
 }
 
