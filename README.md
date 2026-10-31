@@ -1,4 +1,4 @@
-# خطوة · Khutwa (qarin-site)
+# عالم طفلي · Alam Tifli (qarin-site)
 
 Bilingual (Arabic + English) Mom & Kids website: speech and focus practice aids, travel-with-kids gear and mom & baby essentials, linking to Amazon.sa (affiliate tag).
 
@@ -10,7 +10,7 @@ Bilingual (Arabic + English) Mom & Kids website: speech and focus practice aids,
 - `finder.json` — the home-page buying assistant (category → budget → use) and the shop-by-budget rows; budgets in SAR, Amazon price filter uses halalas (×100).
 - `momkid.json` — shop-by-need tiles (speech, focus, travel, mom); each tile is a review-sorted Amazon.sa search.
 - `picks.json` — monthly best products per section (filled by the monthly scheduled task).
-- `assets/agent.js` — Khutwa shopping assistant + instant search (reads `docs/assets/catalog.json`, generated from momkid.json).
+- `assets/agent.js` — Alam Tifli shopping assistant + instant search (reads `docs/assets/catalog.json`, generated from momkid.json).
 - `assets/compare.js` — price-compare page (Amazon.sa + AliExpress; noon/eBay on hold).
 - `featured.json` — featured products of the week (refreshed by a scheduled task).
 - `build.py` — generates the site into `docs/` (served by GitHub Pages from `main` / `docs`).

@@ -1,4 +1,4 @@
-/* Khutwa shopping assistant ("مساعد خطوة") + instant search.
+/* Alam Tifli shopping assistant ("مساعد عالم طفلي") + instant search.
    Runs entirely in the browser on our own catalog (assets/catalog.json): understands need, child's age and
    budget in Arabic or English, then recommends subsections with review-sorted, tagged store links.
    No personal data is stored or sent anywhere. */
@@ -9,7 +9,7 @@
   var CAT = null, loading = null;
 
   var T = AR ? {
-    title: 'مساعد خطوة', sub: 'يختار لك الأنسب خلال ثوانٍ', open: 'اسأل مساعد خطوة',
+    title: 'مساعد عالم طفلي', sub: 'يختار لك الأنسب خلال ثوانٍ', open: 'اسأل مساعد عالم طفلي',
     hello: 'هلا! 👋 قل لي وش يحتاج طفلك، وكم عمره، وكم ميزانيتك تقريباً — وأنا أختار لك الأنسب.',
     example: 'مثال: «طفلي عمره 3 سنوات وتأخر في الكلام، ميزانيتي تحت 100 ريال»',
     ph: 'اكتب سؤالك…', send: 'إرسال', understood: 'فهمت', age: 'العمر', budget: 'الميزانية',
@@ -21,7 +21,7 @@
     chips: ['تأخر الكلام', 'التركيز والتشتت', 'السفر مع طفل', 'الرضاعة والرضيع', 'هدية تعليمية', 'سلامة البيت'],
     sugAsk: 'اسأل المساعد عن', sugAmz: 'ابحث في أمازون عن', sugCmp: 'قارن أسعار'
   } : {
-    title: 'Khutwa assistant', sub: 'Finds the right pick in seconds', open: 'Ask the Khutwa assistant',
+    title: 'Alam Tifli assistant', sub: 'Finds the right pick in seconds', open: 'Ask the Alam Tifli assistant',
     hello: "Hi! 👋 Tell me what your child needs, their age and roughly your budget — I'll pick the best options.",
     example: 'e.g. “My son is 3 and his speech is delayed, budget under 100 SAR”',
     ph: 'Type your question…', send: 'Send', understood: 'Got it', age: 'Age', budget: 'Budget',
@@ -118,7 +118,7 @@
     fab.onclick = function () { toggle(true); };
     panel = document.createElement('section');
     panel.className = 'kh-panel'; panel.hidden = true; panel.setAttribute('aria-label', T.title);
-    panel.innerHTML = '<header class="kh-head"><div class="kh-avatar">خ</div><div><b>' + esc(T.title) + '</b><small>' + esc(T.sub) +
+    panel.innerHTML = '<header class="kh-head"><div class="kh-avatar">ع</div><div><b>' + esc(T.title) + '</b><small>' + esc(T.sub) +
       '</small></div><button type="button" class="kh-x" aria-label="close">×</button></header><div class="kh-log" aria-live="polite"></div>' +
       '<form class="kh-form"><input type="text" autocomplete="off" placeholder="' + esc(T.ph) + '" aria-label="' + esc(T.ph) + '"><button type="submit">' + esc(T.send) + '</button></form>';
     document.body.appendChild(fab); document.body.appendChild(panel);
