@@ -7,7 +7,10 @@
 | Date | 2026-10-31 |
 | Status | In progress |
 
-## 1. Strategy
+## 0. Direction change — 2026-10-31
+Owner decision: the site is now **Mom & Kids only** (speech/talking aids, focus & attention aids, travel with kids, mom & baby, learning toys by age, home safety). All earlier general-category content (kitchen, tech, beauty, books, digital, sports, deals, blog, comparisons) was removed. Amazon.sa now; AliExpress Portals and eBay Partner Network under evaluation. Products are described as practice/routine aids, never as treatment.
+
+## 1. Strategy (original, superseded by section 0)
 - Channel: Arabic SEO content website (no social-media ads at start, so no Mawthooq licence needed for the site).
 - Track A (local): home, kitchen, tech, health, kids, beauty products for Saudi shoppers → Amazon.sa Associates, later Noon / Boostiny.
 - Track B (regional): digital tools (design, AI, freelancing) for the Arab world → Canva, Fiverr, PartnerStack programs.
@@ -34,7 +37,8 @@
 5. 2026-10-31: smartphones, laptops, monitors (tech); home gym (sports); travel essentials (travel); e-reader vs paper (books); digital subscriptions (digital)
 6. 2026-10-31: whole site made bilingual — English version of all 37 pages under /en/, language switcher, hreflang tags, bilingual weekly reports.
 7. 2026-10-31: concept change — home page is now a 3-step buying assistant (12 categories, budget, use → filtered Amazon.sa results sorted by reviews) + shop-by-budget rows + weekly featured products; guides moved below. Rebrand: Qarin logo, navy/orange theme.
-Plus: 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
+8. 2026-10-31: full redesign to Mom & Kids — new warm theme, logo, hero art; 4 section pages (need/speech, focus, travel, mom); finder with 6 needs; shop-by-need tiles (momkid.json); top search goes straight to Amazon.sa with tag. Old content removed.
+Plus (removed 2026-10-31): 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions
 1. Owner: update site URL in Amazon Associates and add qarinsa.com property in Search Console.
