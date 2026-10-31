@@ -267,6 +267,46 @@ def momkid_block(lang, only=None):
     return f'<div class="mk{" mk-single" if only else ""}">' + "".join(out) + '</div>' + (f'<p class="mk-note">{note}</p>' if show_note and not only else '')
 
 
+PICKS = json.loads((ROOT / "picks.json").read_text(encoding="utf-8")) if (ROOT / "picks.json").exists() else {"sections": {}}
+STORES = {"amazon": ("أمازون", "Amazon", "#ff9900"), "aliexpress": ("علي إكسبريس", "AliExpress", "#e43225"),
+          "ebay": ("إي باي", "eBay", "#0064d2")}
+
+
+def picks_block(lang, section):
+    """Monthly best products for one section: video (YouTube facade) or official affiliate image, store badge, CTA."""
+    items = PICKS.get("sections", {}).get(section, [])
+    if not items:
+        return ""
+    out = []
+    for i, it in enumerate(items, 1):
+        st_ar, st_en, st_col = STORES.get(it.get("store", "amazon"), STORES["amazon"])
+        store = st_ar if lang == "ar" else st_en
+        name = it["name_" + lang]
+        if it.get("youtube"):
+            vid = escape(it["youtube"])
+            media = (f'<button class="pk-media pk-video" type="button" data-yt="{vid}" aria-label="{"شغّل الفيديو" if lang == "ar" else "Play video"}: {escape(name)}">'
+                     f'<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="{escape(name)}" loading="lazy"><span class="pk-play">▶</span></button>')
+        elif it.get("image"):
+            media = f'<div class="pk-media"><img src="{escape(it["image"])}" alt="{escape(name)}" loading="lazy"></div>'
+        else:
+            media = f'<div class="pk-media pk-icon">{it.get("icon", "🎁")}</div>'
+        btn = (f"شوف السعر في {store}" if lang == "ar" else f"See price on {store}")
+        out.append(f'<div class="pk-card"><span class="pk-rank">#{i}</span>{media}<div class="pk-body">'
+                   f'<span class="pk-store" style="--s:{st_col}">{store}</span><h3>{escape(name)}</h3>'
+                   f'<p>{escape(it["why_" + lang])}</p>'
+                   f'<a class="buy" href="{escape(it["url"])}" target="_blank" rel="sponsored nofollow noopener" '
+                   f'data-goatcounter-click="pick:{section}:{escape(it.get("store", "amazon"))}:{i}" data-goatcounter-title="Pick {escape(it["name_en"])}">{escape(btn)}</a>'
+                   f'</div></div>')
+    month = PICKS.get("month", "")
+    head = (f'<div class="section-head"><h2>🏆 أفضل منتجات الشهر</h2><small>اختيار {escape(month)} — مقارنة بين أمازون وعلي إكسبريس وإي باي</small></div>' if lang == "ar"
+            else f'<div class="section-head"><h2>🏆 Best products this month</h2><small>{escape(month)} picks — compared across Amazon, AliExpress and eBay</small></div>')
+    script = ("<script>document.querySelectorAll('.pk-video').forEach(function(b){b.addEventListener('click',function(){"
+              "var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';"
+              "f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=b.getAttribute('aria-label');"
+              "b.replaceWith(f);f.className='pk-media pk-frame';});});</script>")
+    return f'<section class="picks-box">{head}<div class="pk-grid">{"".join(out)}</div></section>{script}'
+
+
 def section_cards(lang, lang_root):
     """Home page: one card per section with its subsection names."""
     more = "ادخل القسم ←" if lang == "ar" else "Open section →"
@@ -321,6 +361,7 @@ def render(page, pages, index):
     body = body.replace("[[pricebrowse]]", price_browse(lang))
     body = body.replace("[[momkid]]", momkid_block(lang))
     body = body.replace("[[sections]]", section_cards(lang, lang_root))
+    body = re.sub(r"\[\[picks:(\w+)\]\]", lambda m: picks_block(lang, m.group(1)), body)
     body = re.sub(r"\[\[momkid:(\w+)\]\]", lambda m: momkid_block(lang, m.group(1)), body)
     body = body.replace("[[featured]]", featured_cards(lang, lang_root))
     body = re.sub(r"\[\[latest:(\d+)\]\]", lambda m: guide_cards(pages, lang, "all", depth, limit=int(m.group(1))), body)
