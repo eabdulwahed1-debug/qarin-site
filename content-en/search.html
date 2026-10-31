@@ -1,0 +1,26 @@
+<!--meta
+{"slug": "search", "title": "Search", "description": "Search Qarin's buying guides, comparisons and articles.", "type": "page"}
+-->
+<h1>Search Qarin</h1>
+<input class="search-box" id="q" type="search" placeholder="e.g. air fryer, laptop, travel…" aria-label="Search">
+<div id="results">[[guides:all]]</div>
+<p id="none" class="muted" hidden>No results. Try another word.</p>
+<script>
+(function () {
+  var q = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#results .card'));
+  var none = document.getElementById('none');
+  function norm(s) { return (s || '').toLowerCase(); }
+  function run() {
+    var v = norm(q.value.trim()); var shown = 0;
+    cards.forEach(function (c) {
+      var hit = !v || norm(c.getAttribute('data-search')).indexOf(v) !== -1;
+      c.hidden = !hit; if (hit) shown++;
+    });
+    none.hidden = shown !== 0;
+  }
+  q.addEventListener('input', run);
+  var p = new URLSearchParams(location.search).get('q');
+  if (p) { q.value = p; run(); }
+})();
+</script>

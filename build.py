@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Build the static site from content/*.html into docs/ (served by GitHub Pages).
+"""Build the bilingual static site into docs/ (served by GitHub Pages).
+
+Arabic pages live in content/ and are published at /<slug>/.
+English pages live in content-en/ (same relative paths and slugs) and are published at /en/<slug>/.
 
 Each content file starts with a JSON header between <!--meta and -->:
 <!--meta
@@ -7,8 +10,10 @@ Each content file starts with a JSON header between <!--meta and -->:
 -->
 
 Shortcodes inside content:
-  [[amz:search words|label]]  -> Amazon.sa search link (adds tracking tag when site.json has one)
-  [[guides:category]]          -> list of guides in that category ("all" for every guide)
+  [[amz:search words|label]]  -> Amazon.sa search link (adds the tracking tag from site.json)
+  [[guides:category]]          -> cards for all guides/comparisons/articles in that category ("all" for every one)
+  [[list:type:category]]       -> cards for one content type (guide, comparison, article)
+  {{root}}                     -> root of the current language (use for internal links)
 """
 import json
 import re
@@ -18,57 +23,9 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 ROOT = Path(__file__).parent
-CONTENT = ROOT / "content"
+SOURCES = {"ar": ROOT / "content", "en": ROOT / "content-en"}
 OUT = ROOT / "docs"
 SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
-
-CATEGORIES = {
-    "kitchen": "المطبخ والمنزل",
-    "tech": "جوالات ولابتوبات",
-    "beauty": "الجمال والعطور",
-    "kids": "الأطفال والأم",
-    "health": "الصحة وكبار السن",
-    "digital": "اشتراكات ومنتجات رقمية",
-    "books": "الكتب والقراءة",
-    "sports": "الرياضة واللياقة",
-    "travel": "السفر",
-    "deals": "العروض والمواسم",
-}
-
-NAV = [
-    ("", "الرئيسية"),
-    ("guides/", "أدلة الشراء"),
-    ("comparisons/", "مقارنات"),
-    ("picks/", "اختيارات قارن"),
-    ("deals/", "العروض"),
-    ("categories/", "الأقسام"),
-    ("blog/", "المدونة"),
-    ("search/", "بحث"),
-]
-
-
-def parse(path):
-    raw = path.read_text(encoding="utf-8")
-    m = re.match(r"<!--meta\s*(\{.*?\})\s*-->\s*", raw, re.S)
-    if not m:
-        raise SystemExit(f"Missing meta header in {path}")
-    meta = json.loads(m.group(1))
-    meta["body"] = raw[m.end():]
-    return meta
-
-
-def rel(depth, target):
-    return "../" * depth + target
-
-
-def amz_link(words, label):
-    url = "https://www.amazon.sa/s?k=" + quote_plus(words)
-    if SITE.get("amazon_sa_tag"):
-        url += "&tag=" + quote_plus(SITE["amazon_sa_tag"])
-    return (f'<a class="buy" href="{escape(url)}" target="_blank" '
-            f'rel="sponsored nofollow noopener" data-goatcounter-click="amz:{escape(words)}" '
-            f'data-goatcounter-title="Amazon: {escape(label)}">{escape(label)}</a>')
-
 
 CAT_STYLE = {
     "kitchen": ("🍳", "#ff7a1a"),
@@ -83,85 +40,192 @@ CAT_STYLE = {
     "deals": ("🏷️", "#e8a400"),
 }
 
-CONTENT_TYPES = {"guide": "دليل شراء", "comparison": "مقارنة", "article": "مقال", "picks": "اختيارات"}
+L = {
+    "ar": {
+        "dir": "rtl",
+        "site_name": "قارن",
+        "logo": "ق",
+        "tagline": "أدلة شراء ومقارنات عربية صادقة",
+        "categories": {
+            "kitchen": "المطبخ والمنزل", "tech": "جوالات ولابتوبات", "beauty": "الجمال والعطور",
+            "kids": "الأطفال والأم", "health": "الصحة وكبار السن", "digital": "اشتراكات ومنتجات رقمية",
+            "books": "الكتب والقراءة", "sports": "الرياضة واللياقة", "travel": "السفر", "deals": "العروض والمواسم",
+        },
+        "types": {"guide": "دليل شراء", "comparison": "مقارنة", "article": "مقال"},
+        "cta": {"guide": "اعرض الدليل", "comparison": "قارن الآن", "article": "اقرأ المقال"},
+        "arrow": "←",
+        "nav": [("", "الرئيسية"), ("guides/", "أدلة الشراء"), ("comparisons/", "مقارنات"), ("picks/", "اختيارات قارن"),
+                ("deals/", "العروض"), ("categories/", "الأقسام"), ("blog/", "المدونة"), ("search/", "بحث")],
+        "empty": "أدلة هذا القسم قيد الإعداد وتُنشر قريباً.",
+        "updated": "آخر تحديث",
+        "disc": "ⓘ يحتوي على روابط عمولة لا تغيّر السعر عليك",
+        "details": "التفاصيل",
+        "search_ph": "ابحث عن منتج أو دليل…",
+        "search": "بحث",
+        "switch": "English",
+        "footer_links": [("about/", "من نحن"), ("contact/", "تواصل معنا"), ("disclosure/", "الإفصاح عن العمولة"),
+                         ("privacy/", "الخصوصية"), ("terms/", "الشروط")],
+        "amazon_note": "بصفتنا مشاركين في برنامج أمازون للمسوقين بالعمولة، قد نحصل على عمولة من عمليات الشراء المؤهلة.",
+        "price_note": "الأسعار والتوفر تتغير باستمرار؛ تحقق من صفحة المتجر قبل الشراء.",
+        "font": "Tajawal",
+    },
+    "en": {
+        "dir": "ltr",
+        "site_name": "Qarin",
+        "logo": "Q",
+        "tagline": "Honest buying guides and comparisons for Saudi shoppers",
+        "categories": {
+            "kitchen": "Kitchen & Home", "tech": "Phones & Laptops", "beauty": "Beauty & Fragrance",
+            "kids": "Baby & Kids", "health": "Health & Seniors", "digital": "Subscriptions & Digital",
+            "books": "Books & Reading", "sports": "Sports & Fitness", "travel": "Travel", "deals": "Deals & Seasons",
+        },
+        "types": {"guide": "Buying guide", "comparison": "Comparison", "article": "Article"},
+        "cta": {"guide": "Read the guide", "comparison": "Compare now", "article": "Read the article"},
+        "arrow": "→",
+        "nav": [("", "Home"), ("guides/", "Buying guides"), ("comparisons/", "Comparisons"), ("picks/", "Qarin picks"),
+                ("deals/", "Deals"), ("categories/", "Categories"), ("blog/", "Blog"), ("search/", "Search")],
+        "empty": "Guides for this section are being prepared and will be published soon.",
+        "updated": "Last updated",
+        "disc": "ⓘ Contains affiliate links that don't change your price",
+        "details": "Details",
+        "search_ph": "Search for a product or guide…",
+        "search": "Search",
+        "switch": "العربية",
+        "footer_links": [("about/", "About"), ("contact/", "Contact"), ("disclosure/", "Affiliate disclosure"),
+                         ("privacy/", "Privacy"), ("terms/", "Terms")],
+        "amazon_note": "As an Amazon Associate we earn from qualifying purchases.",
+        "price_note": "Prices and availability change often; check the store page before you buy.",
+        "font": "Inter",
+    },
+}
+
+CONTENT_TYPES = ("guide", "comparison", "article")
 
 
-def guide_cards(pages, category, depth, ctype=None):
-    items = [p for p in pages if p.get("type") in CONTENT_TYPES
+def parse(path, lang):
+    raw = path.read_text(encoding="utf-8")
+    m = re.match(r"<!--meta\s*(\{.*?\})\s*-->\s*", raw, re.S)
+    if not m:
+        raise SystemExit(f"Missing meta header in {path}")
+    meta = json.loads(m.group(1))
+    meta["body"] = raw[m.end():]
+    meta["lang"] = lang
+    meta["slug"] = meta["slug"].strip("/")
+    meta["out"] = meta["slug"] if lang == "ar" else ("en/" + meta["slug"]).strip("/")
+    return meta
+
+
+def rel(depth, target):
+    return "../" * depth + target
+
+
+def url_path(out):
+    return (out + "/") if out else ""
+
+
+def amz_link(words, label):
+    url = "https://www.amazon.sa/s?k=" + quote_plus(words)
+    if SITE.get("amazon_sa_tag"):
+        url += "&tag=" + quote_plus(SITE["amazon_sa_tag"])
+    return (f'<a class="buy" href="{escape(url)}" target="_blank" '
+            f'rel="sponsored nofollow noopener" data-goatcounter-click="amz:{escape(words)}" '
+            f'data-goatcounter-title="Amazon: {escape(label)}">{escape(label)}</a>')
+
+
+def guide_cards(pages, lang, category, depth, ctype=None):
+    t = L[lang]
+    items = [p for p in pages if p["lang"] == lang and p.get("type") in CONTENT_TYPES
              and (ctype is None or p.get("type") == ctype)
              and (category == "all" or p.get("category") == category)]
-    items.sort(key=lambda p: p.get("date", ""), reverse=True)
+    items.sort(key=lambda p: (p.get("date", ""), p["slug"]), reverse=True)
     if not items:
-        return '<p class="muted">أدلة هذا القسم قيد الإعداد وتُنشر قريباً.</p>'
+        return f'<p class="muted">{escape(t["empty"])}</p>'
     cards = []
     for p in items:
-        cat = CATEGORIES.get(p.get("category"), "")
-        kind = CONTENT_TYPES.get(p.get("type"), "")
+        cat = t["categories"].get(p.get("category"), "")
+        kind = t["types"].get(p.get("type"), "")
         icon, color = CAT_STYLE.get(p.get("category"), ("📘", "#3b6cff"))
         icon = p.get("icon", icon)
-        cta = "قارن الآن" if p.get("type") == "comparison" else ("اقرأ المقال" if p.get("type") == "article" else "اعرض الدليل")
         cards.append(
-            f'<a class="card" style="--c:{color}" href="{rel(depth, p["slug"] + "/")}" data-search="{escape(p["title"] + " " + p["description"] + " " + cat)}">'
+            f'<a class="card" style="--c:{color}" href="{rel(depth, url_path(p["out"]))}" '
+            f'data-search="{escape(p["title"] + " " + p["description"] + " " + cat)}">'
             f'<div class="card-media"><span class="card-icon">{icon}</span><span class="badge">{escape(kind)}</span></div>'
             f'<div class="card-body"><span class="card-cat">{escape(cat)}</span>'
             f'<h3>{escape(p["title"])}</h3>'
             f'<p>{escape(p["description"])}</p>'
-            f'<span class="card-cta">{cta} ←</span></div></a>')
+            f'<span class="card-cta">{escape(t["cta"][p["type"]])} {t["arrow"]}</span></div></a>')
     return '<div class="cards">' + "".join(cards) + "</div>"
 
 
-def render(page, pages):
-    slug = page["slug"].strip("/")
-    depth = 0 if slug == "" else slug.count("/") + 1
+def render(page, pages, index):
+    lang = page["lang"]
+    t = L[lang]
+    out = page["out"]
+    depth = 0 if out == "" else out.count("/") + 1
+    lang_root = rel(depth, "" if lang == "ar" else "en/")
+
     body = page["body"]
     body = re.sub(r"\[\[amz:([^|\]]+)\|([^\]]+)\]\]", lambda m: amz_link(m.group(1).strip(), m.group(2).strip()), body)
-    body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, m.group(1), depth), body)
-    body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, m.group(2), depth, m.group(1)), body)
-    body = body.replace("{{root}}", rel(depth, ""))
+    body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(1), depth), body)
+    body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(2), depth, m.group(1)), body)
+    body = body.replace("{{root}}", lang_root)
 
-    nav = "".join(f'<a href="{rel(depth, href)}">{escape(label)}</a>' for href, label in NAV)
-    disclosure_note = ""
+    nav = "".join(f'<a href="{lang_root}{href}">{escape(label)}</a>' for href, label in t["nav"])
+
+    # language switcher: counterpart page if it exists, otherwise the other language's home
+    other = "en" if lang == "ar" else "ar"
+    counterpart = index.get((other, page["slug"]))
+    other_out = counterpart["out"] if counterpart else ("" if other == "ar" else "en")
+    switch_href = rel(depth, url_path(other_out))
+
     if page.get("type") in CONTENT_TYPES:
-        disclosure_note = ""
-        small_disclosure = (
-            f'<p class="disc-line">ⓘ يحتوي على روابط عمولة لا تغيّر السعر عليك · '
-            f'<a href="{rel(depth, "disclosure/")}">التفاصيل</a></p>')
-        updated = f'<p class="meta">آخر تحديث: {escape(page.get("date", ""))}</p>' + small_disclosure
+        updated = (f'<p class="meta">{t["updated"]}: {escape(page.get("date", ""))}</p>'
+                   f'<p class="disc-line">{t["disc"]} · <a href="{lang_root}disclosure/">{t["details"]}</a></p>')
     else:
         updated = ""
 
-    title = page["title"] if slug == "" else f'{page["title"]} | {SITE["site_name"]}'
-    canonical = ""
+    title = page["title"] if page["slug"] == "" else f'{page["title"]} | {t["site_name"]}'
+    head_links = ""
     if SITE.get("base_url"):
-        canonical = f'<link rel="canonical" href="{escape(SITE["base_url"].rstrip("/") + "/" + (slug + "/" if slug else ""))}">'
+        base = SITE["base_url"].rstrip("/") + "/"
+        head_links += f'<link rel="canonical" href="{escape(base + url_path(out))}">\n'
+        for lg in ("ar", "en"):
+            p2 = index.get((lg, page["slug"]))
+            if p2:
+                head_links += f'<link rel="alternate" hreflang="{lg}" href="{escape(base + url_path(p2["out"]))}">\n'
+        ar_page = index.get(("ar", page["slug"]))
+        if ar_page:
+            head_links += f'<link rel="alternate" hreflang="x-default" href="{escape(base + url_path(ar_page["out"]))}">\n'
+
+    font_css = ("Tajawal:wght@400;500;700;800" if lang == "ar" else "Inter:wght@400;500;700;800")
+    footer_links = " · ".join(f'<a href="{lang_root}{h}">{escape(lbl)}</a>' for h, lbl in t["footer_links"])
 
     return f"""<!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="{lang}" dir="{t['dir']}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(page['description'])}">
-{canonical}
-<link rel="preconnect" href="https://fonts.googleapis.com">
+{head_links}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family={font_css}&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{rel(depth, 'assets/style.css')}">
 <script data-goatcounter="https://qarinsa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
-<body>
+<body class="lang-{lang}">
 <header class="site-header">
   <div class="wrap topbar">
-    <a class="brand" href="{rel(depth, '')}"><span class="logo">ق</span>{escape(SITE['site_name'])}</a>
-    <form class="top-search" action="{rel(depth, 'search/')}" role="search">
-      <input name="q" type="search" placeholder="ابحث عن منتج أو دليل…" aria-label="ابحث">
-      <button type="submit" aria-label="بحث">🔍</button>
+    <a class="brand" href="{lang_root}"><span class="logo">{t['logo']}</span>{escape(t['site_name'])}</a>
+    <form class="top-search" action="{lang_root}search/" role="search">
+      <input name="q" type="search" placeholder="{escape(t['search_ph'])}" aria-label="{escape(t['search'])}">
+      <button type="submit" aria-label="{escape(t['search'])}">🔍</button>
     </form>
+    <a class="lang-switch" href="{switch_href}" hreflang="{other}" lang="{other}">🌐 {t['switch']}</a>
   </div>
   <nav class="navbar"><div class="wrap">{nav}</div></nav>
 </header>
 <main class="wrap">
-{disclosure_note}
 <article class="{'doc' if page.get('type') in CONTENT_TYPES else ''}">
 {updated}
 {body}
@@ -169,10 +233,10 @@ def render(page, pages):
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p class="foot-brand"><span class="logo">ق</span>{escape(SITE['site_name'])} — {escape(SITE['tagline'])}</p>
-    <p><a href="{rel(depth, 'about/')}">من نحن</a> · <a href="{rel(depth, 'contact/')}">تواصل معنا</a> · <a href="{rel(depth, 'disclosure/')}">الإفصاح عن العمولة</a> · <a href="{rel(depth, 'privacy/')}">الخصوصية</a> · <a href="{rel(depth, 'terms/')}">الشروط</a></p>
-    <p class="muted">بصفتنا مشاركين في برنامج أمازون للمسوقين بالعمولة، قد نحصل على عمولة من عمليات الشراء المؤهلة.</p>
-    <p class="muted">© {SITE['year']} {escape(SITE['site_name'])}. الأسعار والتوفر تتغير باستمرار؛ تحقق من صفحة المتجر قبل الشراء.</p>
+    <p class="foot-brand"><span class="logo">{t['logo']}</span>{escape(t['site_name'])} — {escape(t['tagline'])}</p>
+    <p>{footer_links} · <a href="{switch_href}" lang="{other}">{t['switch']}</a></p>
+    <p class="muted">{escape(t['amazon_note'])}</p>
+    <p class="muted">© {SITE['year']} {escape(t['site_name'])}. {escape(t['price_note'])}</p>
   </div>
 </footer>
 </body>
@@ -181,7 +245,12 @@ def render(page, pages):
 
 
 def main():
-    pages = [parse(p) for p in sorted(CONTENT.rglob("*.html"))]
+    pages = []
+    for lang, src in SOURCES.items():
+        if src.exists():
+            pages += [parse(p, lang) for p in sorted(src.rglob("*.html"))]
+    index = {(p["lang"], p["slug"]): p for p in pages}
+
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
@@ -190,22 +259,24 @@ def main():
         for f in (ROOT / "static").iterdir():
             shutil.copy(f, OUT / f.name)
     for page in pages:
-        slug = page["slug"].strip("/")
-        target = OUT / slug / "index.html" if slug else OUT / "index.html"
+        target = OUT / page["out"] / "index.html" if page["out"] else OUT / "index.html"
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(render(page, pages), encoding="utf-8")
+        target.write_text(render(page, pages, index), encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
-    # sitemap (only when the domain is known)
+
     if SITE.get("base_url"):
-        base = SITE["base_url"].rstrip("/")
-        urls = "".join(
-            f"<url><loc>{base}/{(p['slug'].strip('/') + '/') if p['slug'].strip('/') else ''}</loc></url>"
-            for p in pages)
+        base = SITE["base_url"].rstrip("/") + "/"
+        urls = "".join(f"<url><loc>{base}{url_path(p['out'])}</loc></url>" for p in pages)
         (OUT / "sitemap.xml").write_text(
             f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
             encoding="utf-8")
-        (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n", encoding="utf-8")
-    print(f"Built {len(pages)} pages into {OUT}")
+        (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {base}sitemap.xml\n", encoding="utf-8")
+
+    counts = {lg: sum(1 for p in pages if p["lang"] == lg) for lg in SOURCES}
+    missing = [p["slug"] or "(home)" for p in pages if p["lang"] == "ar" and ("en", p["slug"]) not in index]
+    print(f"Built {len(pages)} pages into {OUT} — {counts}")
+    if missing:
+        print("No English version yet:", ", ".join(missing))
 
 
 if __name__ == "__main__":
