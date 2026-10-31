@@ -147,3 +147,15 @@ th { background: var(--navy); color: #fff; }
 body.lang-en { font-family: "Inter", system-ui, "Segoe UI", sans-serif; line-height: 1.7; }
 body.lang-en .hero::after { inset-inline-end: 24px; }
 @media (max-width: 640px) { .lang-switch { order: 2; margin-inline-start: auto; } }
+
+/* direct Amazon shopping tiles */
+.shop-box { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 18px 20px; margin: 0 0 24px; border-top: 5px solid #ff9900; }
+.shop-box .section-head { margin: 0 0 12px; }
+.shop-box .section-head small { color: var(--muted); font-size: 14px; }
+.shop-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; }
+.shop-tile { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 8px; border-radius: 14px; text-decoration: none; color: #fff; font-weight: 800; font-size: 15px; text-align: center; line-height: 1.35;
+  background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 60%, #fff)); box-shadow: 0 3px 10px rgba(20,26,46,.12); transition: transform .15s; }
+.shop-tile:hover { transform: translateY(-2px); }
+.shop-tile .ic { font-size: 32px; line-height: 1; filter: drop-shadow(0 3px 6px rgba(0,0,0,.2)); }
+@media (max-width: 640px) { .shop-tiles { grid-template-columns: repeat(3, 1fr); gap: 8px; } .shop-tile { font-size: 13px; padding: 12px 4px; } .shop-tile .ic { font-size: 28px; } }
+@media (max-width: 640px) { .shop-box .section-head { flex-direction: column; align-items: flex-start; gap: 0; } .shop-box .section-head h2 { font-size: 22px; } }

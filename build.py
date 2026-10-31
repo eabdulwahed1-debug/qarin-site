@@ -132,6 +132,49 @@ def amz_link(words, label):
             f'data-goatcounter-title="Amazon: {escape(label)}">{escape(label)}</a>')
 
 
+def amz_url(path_or_query, is_path=False):
+    if is_path:
+        url = "https://www.amazon.sa" + path_or_query
+        sep = "&" if "?" in url else "?"
+    else:
+        url = "https://www.amazon.sa/s?k=" + quote_plus(path_or_query)
+        sep = "&"
+    if SITE.get("amazon_sa_tag"):
+        url += sep + "tag=" + quote_plus(SITE["amazon_sa_tag"])
+    return url
+
+
+# Direct-to-Amazon shopping tiles for the home page: (icon, color, ar label, en label, ar query, en query, path)
+SHOP_TILES = [
+    ("🔥", "#e5383b", "عروض اليوم", "Today's deals", None, None, "/deals"),
+    ("🏆", "#e8a400", "الأكثر مبيعاً", "Best sellers", None, None, "/gp/bestsellers"),
+    ("📱", "#3b6cff", "جوالات", "Phones", "جوالات", "smartphones", None),
+    ("💻", "#5b4dff", "لابتوبات", "Laptops", "لابتوب", "laptop", None),
+    ("🖥️", "#0f7bd8", "شاشات", "Monitors", "شاشة كمبيوتر", "computer monitor", None),
+    ("🎧", "#7c4dff", "سماعات", "Earbuds", "سماعات لاسلكية", "wireless earbuds", None),
+    ("⌚", "#12a594", "ساعات ذكية", "Smartwatches", "ساعة ذكية", "smartwatch", None),
+    ("🍳", "#ff7a1a", "قلايات هوائية", "Air fryers", "قلاية هوائية", "air fryer", None),
+    ("🤖", "#18a058", "مكانس روبوت", "Robot vacuums", "مكنسة روبوت", "robot vacuum", None),
+    ("✨", "#e2468f", "عطور", "Fragrances", "عطور", "perfume", None),
+    ("🧸", "#f2994a", "ألعاب أطفال", "Kids' toys", "ألعاب أطفال", "kids toys", None),
+    ("🏋️", "#c0392b", "أدوات رياضية", "Fitness gear", "أدوات رياضية منزلية", "home fitness equipment", None),
+    ("🧳", "#0096c7", "شنط سفر", "Luggage", "شنطة سفر", "luggage suitcase", None),
+    ("📚", "#b5651d", "كتب", "Books", "كتب", "books", None),
+]
+
+
+def shop_tiles(lang):
+    out = []
+    for icon, color, ar, en, q_ar, q_en, path in SHOP_TILES:
+        label = ar if lang == "ar" else en
+        url = amz_url(path, True) if path else amz_url(q_ar if lang == "ar" else q_en)
+        out.append(
+            f'<a class="shop-tile" style="--c:{color}" href="{escape(url)}" target="_blank" '
+            f'rel="sponsored nofollow noopener" data-goatcounter-click="amz-tile:{escape(en)}" '
+            f'data-goatcounter-title="Amazon tile: {escape(en)}"><span class="ic">{icon}</span><b>{escape(label)}</b></a>')
+    return '<div class="shop-tiles">' + "".join(out) + "</div>"
+
+
 def guide_cards(pages, lang, category, depth, ctype=None):
     t = L[lang]
     items = [p for p in pages if p["lang"] == lang and p.get("type") in CONTENT_TYPES
@@ -166,6 +209,7 @@ def render(page, pages, index):
 
     body = page["body"]
     body = re.sub(r"\[\[amz:([^|\]]+)\|([^\]]+)\]\]", lambda m: amz_link(m.group(1).strip(), m.group(2).strip()), body)
+    body = body.replace("[[shop]]", shop_tiles(lang))
     body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(1), depth), body)
     body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(2), depth, m.group(1)), body)
     body = body.replace("{{root}}", lang_root)
