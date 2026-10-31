@@ -1,4 +1,4 @@
-# قارن (qarin-site)
+# خطوة · Khutwa (qarin-site)
 
 Bilingual (Arabic + English) Mom & Kids website: speech and focus practice aids, travel-with-kids gear and mom & baby essentials, linking to Amazon.sa (affiliate tag).
 

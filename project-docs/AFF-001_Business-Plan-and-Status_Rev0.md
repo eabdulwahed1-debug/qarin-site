@@ -7,7 +7,7 @@
 | Date | 2026-10-31 |
 | Status | In progress |
 
-## 0. Direction change — 2026-10-31
+## 0. Direction change — 2026-10-31 (brand renamed «خطوة · Khutwa», domain unchanged qarinsa.com)
 Owner decision: the site is now **Mom & Kids only** (speech/talking aids, focus & attention aids, travel with kids, mom & baby, learning toys by age, home safety). All earlier general-category content (kitchen, tech, beauty, books, digital, sports, deals, blog, comparisons) was removed. Amazon.sa now; AliExpress Portals and eBay Partner Network under evaluation. Products are described as practice/routine aids, never as treatment.
 
 ## 1. Strategy (original, superseded by section 0)

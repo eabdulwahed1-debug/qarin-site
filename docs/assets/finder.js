@@ -1,4 +1,4 @@
-/* Qarin buying assistant: category → budget → use → tailored Amazon.sa results */
+/* Khutwa buying assistant: category → budget → use → tailored Amazon.sa results */
 (function () {
   var root = document.getElementById('finder');
   if (!root || !window.QARIN_FINDER) return;

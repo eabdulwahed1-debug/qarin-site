@@ -39,8 +39,8 @@ CAT_STYLE = {
 L = {
     "ar": {
         "dir": "rtl",
-        "site_name": "قارن",
-        "logo": "ق",
+        "site_name": "خطوة",
+        "logo": "خ",
         "tagline": "كل ما تحتاجه الأم والطفل في مكان واحد",
         "categories": {"speech": "النطق والكلام", "focus": "التركيز والتشتت", "travel": "السفر مع الأطفال",
                        "mom": "الأم والرضيع", "toys": "ألعاب تعليمية", "safety": "سلامة الطفل"},
@@ -64,8 +64,8 @@ L = {
     },
     "en": {
         "dir": "ltr",
-        "site_name": "Qarin",
-        "logo": "Q",
+        "site_name": "Khutwa",
+        "logo": "K",
         "tagline": "Everything mom and child need, in one place",
         "categories": {"speech": "Speech & talking", "focus": "Focus & attention", "travel": "Travel with kids",
                        "mom": "Mom & baby", "toys": "Learning toys", "safety": "Home safety"},
@@ -353,7 +353,7 @@ def render(page, pages, index):
         # JSON-LD structured data
         base = SITE["base_url"].rstrip("/") + "/"
         home_url = base + ("" if lang == "ar" else "en/")
-        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Qarin / قارن", "url": base,
+        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Khutwa / خطوة", "url": base,
                   "logo": base + "assets/favicon.svg"}]
         if page["slug"] == "":
             graph.append({"@type": "WebSite", "name": t["site_name"], "url": home_url, "inLanguage": lang,
@@ -393,7 +393,7 @@ def render(page, pages, index):
 <body class="lang-{lang}">
 <header class="site-header">
   <div class="wrap topbar">
-    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'Qarin' if lang == 'ar' else 'قارن'} · {'للأم والطفل' if lang == 'ar' else 'Mom & Kids'}</span></span></a>
+    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'Khutwa' if lang == 'ar' else 'خطوة'} · {'للأم والطفل' if lang == 'ar' else 'Mom & Kids'}</span></span></a>
     <form class="top-search" action="https://www.amazon.sa/s" method="get" target="_blank" role="search" data-goatcounter-click="amz-search">
       <input name="k" type="search" placeholder="{escape(t['search_ph'])}" aria-label="{escape(t['search'])}" required>
       <input type="hidden" name="tag" value="{escape(SITE.get('amazon_sa_tag', ''))}">
