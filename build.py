@@ -39,8 +39,8 @@ CAT_STYLE = {
 L = {
     "ar": {
         "dir": "rtl",
-        "site_name": "عالم طفلي",
-        "logo": "ع",
+        "site_name": "قارن كيدز",
+        "logo": "ق",
         "tagline": "كل ما تحتاجه الأم والطفل في مكان واحد",
         "categories": {"speech": "النطق والكلام", "focus": "التركيز والتشتت", "travel": "السفر مع الأطفال",
                        "mom": "الأم والرضيع", "toys": "ألعاب تعليمية", "safety": "سلامة الطفل"},
@@ -65,8 +65,8 @@ L = {
     },
     "en": {
         "dir": "ltr",
-        "site_name": "Alam Tifli",
-        "logo": "A",
+        "site_name": "Qarin Kids",
+        "logo": "Q",
         "tagline": "Everything mom and child need, in one place",
         "categories": {"speech": "Speech & talking", "focus": "Focus & attention", "travel": "Travel with kids",
                        "mom": "Mom & baby", "toys": "Learning toys", "safety": "Home safety"},
@@ -438,7 +438,7 @@ def render(page, pages, index):
         # JSON-LD structured data
         base = SITE["base_url"].rstrip("/") + "/"
         home_url = base + ("" if lang == "ar" else "en/")
-        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Qarin Group — Alam Tifli / قارن جروب — عالم طفلي", "url": base,
+        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Qarin Kids by Qarin Group / قارن كيدز من قارن جروب", "url": base,
                   "logo": base + "assets/favicon.svg"}]
         if page["slug"] == "":
             graph.append({"@type": "WebSite", "name": t["site_name"], "url": home_url, "inLanguage": lang,
@@ -504,7 +504,7 @@ def render(page, pages, index):
     <p class="foot-brand"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="32" height="32">{escape(t['site_name'])} {'من قارن جروب' if lang == 'ar' else 'by Qarin Group'} — {escape(t['tagline'])}</p>
     <p>{footer_links} · <a href="{switch_href}" lang="{other}">{t['switch']}</a></p>
     <p class="muted">{escape(t['amazon_note'])}</p>
-    <p class="muted">{'الصور من <a href="https://unsplash.com/?utm_source=alamtifli&utm_medium=referral" rel="noopener">Unsplash</a> وهي صور توضيحية وليست صور المنتجات نفسها.' if lang == 'ar' else 'Photos from <a href="https://unsplash.com/?utm_source=alamtifli&utm_medium=referral" rel="noopener">Unsplash</a> — illustrative, not the actual products.'}</p>
+    <p class="muted">{'الصور من <a href="https://unsplash.com/?utm_source=qarinkids&utm_medium=referral" rel="noopener">Unsplash</a> وهي صور توضيحية وليست صور المنتجات نفسها.' if lang == 'ar' else 'Photos from <a href="https://unsplash.com/?utm_source=qarinkids&utm_medium=referral" rel="noopener">Unsplash</a> — illustrative, not the actual products.'}</p>
     <p class="muted">© {SITE['year']} {escape(t['site_name'])}. {escape(t['price_note'])}</p>
   </div>
 </footer>

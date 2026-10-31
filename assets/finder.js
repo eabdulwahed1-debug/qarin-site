@@ -1,4 +1,4 @@
-/* Alam Tifli buying assistant: category → budget → use → tailored Amazon.sa results */
+/* Qarin Kids buying assistant: category → budget → use → tailored Amazon.sa results */
 (function () {
   var root = document.getElementById('finder');
   if (!root || !window.QARIN_FINDER) return;

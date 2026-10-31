@@ -1,4 +1,4 @@
-/* Alam Tifli price-compare launcher: opens the same product search on several stores side by side.
+/* Qarin Kids price-compare launcher: opens the same product search on several stores side by side.
    Live prices need official APIs (Amazon PA-API, AliExpress API) — added once accounts are approved. */
 (function () {
   var box = document.getElementById('cmp-results');
