@@ -60,6 +60,10 @@
     var m = n.match(/(\d+(?:\.\d+)?)\s*(سنه|سنوات|سنين|سنتين|عام|اعوام|years?|yrs?|yo)(?![a-z])/);
     if (m) out.age = parseFloat(m[1]);
     else if (/سنتين|عمره سنتين/.test(n)) out.age = 2;
+    if (out.age == null) {
+      var en = n.match(/(son|daughter|child|kid|boy|girl|toddler|he|she|baby)\s+(?:is\s+|turned\s+|aged\s+)?(\d{1,2})(?!\d)(?!\s*(sar|riyal|ريال|%))/);
+      if (en) out.age = parseInt(en[2], 10);
+    }
     var mo = n.match(/(\d+)\s*(شهر|شهور|اشهر|months?)/);
     if (out.age == null && mo) out.age = parseInt(mo[1], 10) / 12;
     if (out.age == null && /(رضيع|مولود|حديث الولاده|newborn|infant)/.test(n)) out.age = 0.3;
