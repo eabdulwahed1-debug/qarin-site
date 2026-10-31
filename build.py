@@ -199,12 +199,60 @@ def featured_cards(lang, lang_root):
     return '<div class="feat-grid">' + "".join(out) + "</div>"
 
 
-def guide_cards(pages, lang, category, depth, ctype=None):
+FINDER = json.loads((ROOT / "finder.json").read_text(encoding="utf-8")) if (ROOT / "finder.json").exists() else {"categories": []}
+
+
+def budget_label(b, lang):
+    f = lambda n: f"{n:,}"
+    if lang == "ar":
+        if not b[0]: return f"أقل من {f(b[1])}"
+        if not b[1]: return f"+{f(b[0])}"
+        return f"{f(b[0])}–{f(b[1])}"
+    if not b[0]: return f"Under {f(b[1])}"
+    if not b[1]: return f"{f(b[0])}+"
+    return f"{f(b[0])}–{f(b[1])}"
+
+
+def amz_price_url(keywords, b):
+    url = "https://www.amazon.sa/s?k=" + quote_plus(keywords)
+    url += "&rh=" + quote_plus(f"p_36:{b[0] * 100 if b[0] else ''}-{b[1] * 100 if b[1] else ''}")
+    url += "&s=review-rank"
+    if SITE.get("amazon_sa_tag"):
+        url += "&tag=" + quote_plus(SITE["amazon_sa_tag"])
+    return url
+
+
+def finder_block(lang, lang_root, depth):
+    data = json.dumps(FINDER, ensure_ascii=False).replace("</", "<\\/")
+    return (f'<div id="finder" class="finder" data-root="{lang_root}"></div>'
+            f'<script>window.QARIN_FINDER={data};window.QARIN_TAG={json.dumps(SITE.get("amazon_sa_tag", ""))};</script>'
+            f'<script src="{rel(depth, "assets/finder.js")}" defer></script>')
+
+
+def price_browse(lang):
+    cur = "ريال" if lang == "ar" else "SAR"
+    rows = []
+    for c in FINDER.get("categories", []):
+        kw = c["kw_ar"] if lang == "ar" else c["kw_en"]
+        chips = "".join(
+            f'<a class="pb-chip" href="{escape(amz_price_url(kw, b))}" target="_blank" rel="sponsored nofollow noopener" '
+            f'data-goatcounter-click="amz-price:{c["id"]}:{b[0]}-{b[1]}" data-goatcounter-title="Price browse {c["en"]} {b[0]}-{b[1]}">'
+            f'{escape(budget_label(b, lang))}</a>' for b in c["budgets"])
+        rows.append(f'<div class="pb-row"><div class="pb-cat"><span class="pb-ic" style="--c:{c["color"]}">{c["icon"]}</span>'
+                    f'<b>{escape(c[lang])}</b></div><div class="pb-chips">{chips}</div></div>')
+    note = (f'<p class="pb-note">الأسعار ب{cur} — النتائج من أمازون السعودية مرتبة حسب تقييم المشترين</p>' if lang == "ar"
+            else f'<p class="pb-note">Prices in {cur} — results from Amazon.sa sorted by buyer reviews</p>')
+    return '<div class="pb">' + "".join(rows) + "</div>" + note
+
+
+def guide_cards(pages, lang, category, depth, ctype=None, limit=None):
     t = L[lang]
     items = [p for p in pages if p["lang"] == lang and p.get("type") in CONTENT_TYPES
              and (ctype is None or p.get("type") == ctype)
              and (category == "all" or p.get("category") == category)]
     items.sort(key=lambda p: (p.get("date", ""), p["slug"]), reverse=True)
+    if limit:
+        items = items[:limit]
     if not items:
         return f'<p class="muted">{escape(t["empty"])}</p>'
     cards = []
@@ -234,7 +282,10 @@ def render(page, pages, index):
     body = page["body"]
     body = re.sub(r"\[\[amz:([^|\]]+)\|([^\]]+)\]\]", lambda m: amz_link(m.group(1).strip(), m.group(2).strip()), body)
     body = body.replace("[[shop]]", shop_tiles(lang))
+    body = body.replace("[[finder]]", finder_block(lang, lang_root, depth))
+    body = body.replace("[[pricebrowse]]", price_browse(lang))
     body = body.replace("[[featured]]", featured_cards(lang, lang_root))
+    body = re.sub(r"\[\[latest:(\d+)\]\]", lambda m: guide_cards(pages, lang, "all", depth, limit=int(m.group(1))), body)
     body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(1), depth), body)
     body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(2), depth, m.group(1)), body)
     body = body.replace("{{root}}", lang_root)

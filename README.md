@@ -7,6 +7,8 @@ Bilingual (Arabic + English) product-review and buying-guide website for shopper
 - `content-en/` — English page sources with the same paths and slugs, published at `/en/<slug>/`. Every Arabic page must have an English twin (the build lists any that are missing).
 - `assets/style.css` — site styles (RTL, light/dark).
 - `site.json` — site name, domain (`base_url`) and the Amazon.sa tracking tag (`amazon_sa_tag`).
+- `finder.json` — the home-page buying assistant (category → budget → use) and the shop-by-budget rows; budgets in SAR, Amazon price filter uses halalas (×100).
+- `featured.json` — featured products of the week (refreshed by a scheduled task).
 - `build.py` — generates the site into `docs/` (served by GitHub Pages from `main` / `docs`).
 
 Build: `python3 build.py`

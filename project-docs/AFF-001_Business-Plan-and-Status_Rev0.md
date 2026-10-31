@@ -33,6 +33,7 @@
 4. How to choose a home blood-pressure monitor (health)
 5. 2026-10-31: smartphones, laptops, monitors (tech); home gym (sports); travel essentials (travel); e-reader vs paper (books); digital subscriptions (digital)
 6. 2026-10-31: whole site made bilingual — English version of all 37 pages under /en/, language switcher, hreflang tags, bilingual weekly reports.
+7. 2026-10-31: concept change — home page is now a 3-step buying assistant (12 categories, budget, use → filtered Amazon.sa results sorted by reviews) + shop-by-budget rows + weekly featured products; guides moved below. Rebrand: Qarin logo, navy/orange theme.
 Plus: 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions

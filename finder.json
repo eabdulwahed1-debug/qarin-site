@@ -1,0 +1,152 @@
+{
+  "categories": [
+    {
+      "id": "phones", "icon": "📱", "color": "#3b6cff",
+      "ar": "جوال", "en": "Phone",
+      "kw_ar": "جوال", "kw_en": "smartphone",
+      "guide": "guides/how-to-choose-smartphone",
+      "budgets": [[0, 1000], [1000, 2500], [2500, 4500], [4500, 0]],
+      "uses": [
+        {"ar": "استخدام يومي وسوشال", "en": "Everyday & social", "kw_ar": "جوال 256 جيجا", "kw_en": "smartphone 256gb", "tip_ar": "ركّز على البطارية و256 جيجا تخزين وضمان محلي.", "tip_en": "Focus on battery life, 256 GB storage and a local warranty."},
+        {"ar": "تصوير", "en": "Photography", "kw_ar": "جوال كاميرا احترافية", "kw_en": "smartphone pro camera", "tip_ar": "الكاميرا الرئيسية وثبات الفيديو أهم من عدد العدسات.", "tip_en": "The main camera and video stabilization matter more than the number of lenses."},
+        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "جوال العاب 120 هرتز", "kw_en": "gaming phone 120hz", "tip_ar": "معالج قوي وشاشة 120 هرتز وتبريد جيد.", "tip_en": "A strong chip, 120 Hz screen and good cooling."},
+        {"ar": "لكبار السن", "en": "For seniors", "kw_ar": "جوال كبار السن شاشة كبيرة", "kw_en": "senior phone big screen", "tip_ar": "شاشة كبيرة وصوت عالٍ وسهولة استخدام.", "tip_en": "Big screen, loud speaker and simple to use."}
+      ]
+    },
+    {
+      "id": "laptops", "icon": "💻", "color": "#5b4dff",
+      "ar": "لابتوب", "en": "Laptop",
+      "kw_ar": "لابتوب", "kw_en": "laptop",
+      "guide": "guides/how-to-choose-laptop",
+      "budgets": [[0, 2000], [2000, 4000], [4000, 7000], [7000, 0]],
+      "uses": [
+        {"ar": "دراسة", "en": "Study", "kw_ar": "لابتوب طلاب خفيف 16 جيجا", "kw_en": "student laptop lightweight 16gb", "tip_ar": "خفيف وبطارية طويلة و16 جيجا رام.", "tip_en": "Light, long battery life and 16 GB RAM."},
+        {"ar": "عمل ومكتب", "en": "Work & office", "kw_ar": "لابتوب 16 جيجا رام SSD", "kw_en": "laptop 16gb ram ssd", "tip_ar": "16 جيجا رام على الأقل وSSD وشاشة واضحة.", "tip_en": "At least 16 GB RAM, an SSD and a clear screen."},
+        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "لابتوب العاب", "kw_en": "gaming laptop", "tip_ar": "كرت شاشة منفصل وشاشة بمعدل تحديث عالٍ.", "tip_en": "A dedicated graphics card and a high refresh-rate screen."},
+        {"ar": "تصميم ومونتاج", "en": "Design & editing", "kw_ar": "لابتوب تصميم 32 جيجا", "kw_en": "laptop for video editing 32gb", "tip_ar": "معالج قوي و32 جيجا رام وشاشة بألوان دقيقة.", "tip_en": "A strong processor, 32 GB RAM and a color-accurate screen."}
+      ]
+    },
+    {
+      "id": "monitors", "icon": "🖥️", "color": "#0f7bd8",
+      "ar": "شاشة كمبيوتر", "en": "Monitor",
+      "kw_ar": "شاشة كمبيوتر", "kw_en": "computer monitor",
+      "guide": "guides/how-to-choose-monitor",
+      "budgets": [[0, 600], [600, 1200], [1200, 0]],
+      "uses": [
+        {"ar": "مكتب وعمل", "en": "Office work", "kw_ar": "شاشة 27 بوصة QHD IPS", "kw_en": "27 inch QHD IPS monitor", "tip_ar": "27 بوصة بدقة QHD هي التوازن الأفضل.", "tip_en": "27-inch QHD is the best balance."},
+        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "شاشة العاب 144 هرتز", "kw_en": "144hz gaming monitor", "tip_ar": "144 هرتز فأكثر، وتأكد أن كرت الشاشة يدعمها.", "tip_en": "144 Hz or more — make sure your graphics card supports it."},
+        {"ar": "تصميم", "en": "Design", "kw_ar": "شاشة 4K تصميم", "kw_en": "4k monitor for design", "tip_ar": "دقة 4K وألوان دقيقة.", "tip_en": "4K resolution and accurate color."}
+      ]
+    },
+    {
+      "id": "audio", "icon": "🎧", "color": "#7c4dff",
+      "ar": "سماعات", "en": "Earbuds & headphones",
+      "kw_ar": "سماعات لاسلكية", "kw_en": "wireless earbuds",
+      "guide": "category/tech",
+      "budgets": [[0, 150], [150, 500], [500, 0]],
+      "uses": [
+        {"ar": "استخدام يومي", "en": "Everyday", "kw_ar": "سماعات لاسلكية بلوتوث", "kw_en": "bluetooth wireless earbuds", "tip_ar": "بطارية طويلة وراحة في الأذن.", "tip_en": "Long battery life and a comfortable fit."},
+        {"ar": "عزل الضوضاء", "en": "Noise cancelling", "kw_ar": "سماعات عزل الضوضاء", "kw_en": "noise cancelling headphones", "tip_ar": "مفيدة في السفر والمكاتب المزعجة.", "tip_en": "Great for flights and noisy offices."},
+        {"ar": "رياضة", "en": "Sport", "kw_ar": "سماعات رياضية مقاومة للماء", "kw_en": "sport earbuds waterproof", "tip_ar": "ثابتة في الأذن ومقاومة للعرق.", "tip_en": "Secure fit and sweat-resistant."},
+        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "سماعة العاب", "kw_en": "gaming headset", "tip_ar": "مايك واضح وراحة لساعات طويلة.", "tip_en": "A clear mic and comfort for long sessions."}
+      ]
+    },
+    {
+      "id": "watches", "icon": "⌚", "color": "#12a594",
+      "ar": "ساعة ذكية", "en": "Smartwatch",
+      "kw_ar": "ساعة ذكية", "kw_en": "smartwatch",
+      "guide": "category/tech",
+      "budgets": [[0, 300], [300, 1000], [1000, 0]],
+      "uses": [
+        {"ar": "رياضة وصحة", "en": "Fitness & health", "kw_ar": "ساعة ذكية رياضية", "kw_en": "fitness smartwatch", "tip_ar": "تتبع النشاط والنوم وبطارية طويلة.", "tip_en": "Activity and sleep tracking with long battery life."},
+        {"ar": "استخدام يومي", "en": "Everyday", "kw_ar": "ساعة ذكية", "kw_en": "smartwatch", "tip_ar": "تأكد أنها متوافقة مع جوالك (آيفون أو أندرويد).", "tip_en": "Make sure it works with your phone (iPhone or Android)."},
+        {"ar": "للأطفال", "en": "For kids", "kw_ar": "ساعة ذكية اطفال", "kw_en": "kids smartwatch", "tip_ar": "تحديد الموقع والاتصال بالأهل.", "tip_en": "Location tracking and calling parents."}
+      ]
+    },
+    {
+      "id": "airfryer", "icon": "🍳", "color": "#ff7a1a",
+      "ar": "قلاية هوائية", "en": "Air fryer",
+      "kw_ar": "قلاية هوائية", "kw_en": "air fryer",
+      "guide": "guides/how-to-choose-air-fryer",
+      "budgets": [[0, 300], [300, 600], [600, 0]],
+      "uses": [
+        {"ar": "1–2 أشخاص", "en": "1–2 people", "kw_ar": "قلاية هوائية 3 لتر", "kw_en": "air fryer 3 liter", "tip_ar": "سعة 2–3 لتر تكفي.", "tip_en": "2–3 litres is enough."},
+        {"ar": "عائلة 3–4", "en": "Family of 3–4", "kw_ar": "قلاية هوائية 5 لتر", "kw_en": "air fryer 5 liter", "tip_ar": "سعة 4–6 لتر هي الأنسب.", "tip_en": "4–6 litres fits best."},
+        {"ar": "عائلة 5+ / عزائم", "en": "Family of 5+", "kw_ar": "قلاية هوائية سلتين", "kw_en": "dual basket air fryer", "tip_ar": "سلتين أو 7 لتر فأكثر.", "tip_en": "Two baskets or 7 litres and up."}
+      ]
+    },
+    {
+      "id": "vacuum", "icon": "🤖", "color": "#18a058",
+      "ar": "مكنسة", "en": "Vacuum",
+      "kw_ar": "مكنسة روبوت", "kw_en": "robot vacuum",
+      "guide": "guides/how-to-choose-robot-vacuum",
+      "budgets": [[0, 800], [800, 2000], [2000, 0]],
+      "uses": [
+        {"ar": "روبوت للتنظيف اليومي", "en": "Robot, daily cleaning", "kw_ar": "مكنسة روبوت ليدار", "kw_en": "robot vacuum lidar", "tip_ar": "ملاحة الليزر أهم من قوة الشفط.", "tip_en": "LiDAR navigation matters more than suction."},
+        {"ar": "روبوت مع مسح", "en": "Robot with mopping", "kw_ar": "مكنسة روبوت ممسحة", "kw_en": "robot vacuum and mop", "tip_ar": "اختر موديل يرفع الممسحة على السجاد.", "tip_en": "Pick one that lifts the mop on carpets."},
+        {"ar": "مكنسة لاسلكية يدوية", "en": "Cordless stick", "kw_ar": "مكنسة لاسلكية", "kw_en": "cordless stick vacuum", "tip_ar": "مدة البطارية ووزن خفيف.", "tip_en": "Battery runtime and light weight."}
+      ]
+    },
+    {
+      "id": "perfume", "icon": "✨", "color": "#e2468f",
+      "ar": "عطر", "en": "Fragrance",
+      "kw_ar": "عطر", "kw_en": "perfume",
+      "guide": "category/beauty",
+      "budgets": [[0, 150], [150, 400], [400, 0]],
+      "uses": [
+        {"ar": "رجالي", "en": "For men", "kw_ar": "عطر رجالي", "kw_en": "men perfume", "tip_ar": "اشترِ من البائع الرسمي لتضمن الأصلي.", "tip_en": "Buy from the official seller to be sure it's genuine."},
+        {"ar": "نسائي", "en": "For women", "kw_ar": "عطر نسائي", "kw_en": "women perfume", "tip_ar": "اشترِ من البائع الرسمي لتضمن الأصلي.", "tip_en": "Buy from the official seller to be sure it's genuine."},
+        {"ar": "عود وبخور", "en": "Oud & bakhoor", "kw_ar": "عطر عود", "kw_en": "oud perfume", "tip_ar": "اقرأ التقييمات عن الثبات.", "tip_en": "Check reviews for longevity."}
+      ]
+    },
+    {
+      "id": "kids", "icon": "🧸", "color": "#f2994a",
+      "ar": "ألعاب أطفال", "en": "Kids' toys",
+      "kw_ar": "ألعاب أطفال", "kw_en": "kids toys",
+      "guide": "category/kids",
+      "budgets": [[0, 100], [100, 300], [300, 0]],
+      "uses": [
+        {"ar": "رضّع (0–2)", "en": "Babies (0–2)", "kw_ar": "العاب رضع تعليمية", "kw_en": "baby educational toys", "tip_ar": "تأكد من الفئة العمرية المكتوبة على المنتج.", "tip_en": "Check the age rating on the product."},
+        {"ar": "3–6 سنوات", "en": "Ages 3–6", "kw_ar": "العاب تعليمية اطفال 3 سنوات", "kw_en": "educational toys age 3", "tip_ar": "ألعاب التركيب والتعلم مناسبة لهذا العمر.", "tip_en": "Building and learning toys suit this age."},
+        {"ar": "7–12 سنة", "en": "Ages 7–12", "kw_ar": "العاب ذكاء وتركيب", "kw_en": "stem building toys", "tip_ar": "ألعاب العلوم والتركيب تنمّي التفكير.", "tip_en": "STEM and building toys build thinking skills."}
+      ]
+    },
+    {
+      "id": "fitness", "icon": "🏋️", "color": "#c0392b",
+      "ar": "أدوات رياضية", "en": "Fitness gear",
+      "kw_ar": "أدوات رياضية منزلية", "kw_en": "home fitness equipment",
+      "guide": "guides/home-gym-starter-equipment",
+      "budgets": [[0, 200], [200, 800], [800, 0]],
+      "uses": [
+        {"ar": "تمارين قوة", "en": "Strength", "kw_ar": "دمبلز قابلة للتعديل", "kw_en": "adjustable dumbbells", "tip_ar": "الدمبلز القابلة للتعديل توفر المساحة.", "tip_en": "Adjustable dumbbells save space."},
+        {"ar": "كارديو", "en": "Cardio", "kw_ar": "جهاز مشي منزلي", "kw_en": "home treadmill", "tip_ar": "انظر قدرة المحرك المستمرة وعرض السير.", "tip_en": "Check continuous motor power and belt width."},
+        {"ar": "يوغا وإطالة", "en": "Yoga & stretching", "kw_ar": "سجادة يوغا", "kw_en": "yoga mat", "tip_ar": "سماكة مريحة وسطح لا ينزلق.", "tip_en": "Comfortable thickness and a non-slip surface."}
+      ]
+    },
+    {
+      "id": "travel", "icon": "🧳", "color": "#0096c7",
+      "ar": "سفر", "en": "Travel",
+      "kw_ar": "شنطة سفر", "kw_en": "luggage",
+      "guide": "guides/travel-essentials-checklist",
+      "budgets": [[0, 300], [300, 800], [800, 0]],
+      "uses": [
+        {"ar": "شنطة مقصورة", "en": "Cabin bag", "kw_ar": "شنطة سفر مقصورة", "kw_en": "cabin luggage", "tip_ar": "تأكد من مقاسات شركة الطيران.", "tip_en": "Check your airline's size limits."},
+        {"ar": "شنطة كبيرة", "en": "Large suitcase", "kw_ar": "شنطة سفر كبيرة صلبة", "kw_en": "large hard shell suitcase", "tip_ar": "الوزن الخفيف يوفر من الوزن المسموح.", "tip_en": "A lighter case saves baggage allowance."},
+        {"ar": "إكسسوارات سفر", "en": "Travel accessories", "kw_ar": "محول كهرباء عالمي للسفر", "kw_en": "universal travel adapter", "tip_ar": "محول عالمي وباور بانك 20000 مللي أمبير.", "tip_en": "A universal adapter and a 20,000 mAh power bank."}
+      ]
+    },
+    {
+      "id": "gifts", "icon": "🎁", "color": "#e8a400",
+      "ar": "هدية", "en": "Gift",
+      "kw_ar": "هدايا", "kw_en": "gifts",
+      "guide": "deals",
+      "budgets": [[0, 100], [100, 300], [300, 1000], [1000, 0]],
+      "uses": [
+        {"ar": "له", "en": "For him", "kw_ar": "هدايا رجالية", "kw_en": "gifts for men", "tip_ar": "العطور والساعات والإلكترونيات الصغيرة خيارات آمنة.", "tip_en": "Fragrances, watches and small gadgets are safe picks."},
+        {"ar": "لها", "en": "For her", "kw_ar": "هدايا نسائية", "kw_en": "gifts for women", "tip_ar": "العطور وأجهزة العناية خيارات محبوبة.", "tip_en": "Fragrances and beauty devices are popular."},
+        {"ar": "للأطفال", "en": "For kids", "kw_ar": "هدايا اطفال", "kw_en": "gifts for kids", "tip_ar": "انتبه للفئة العمرية.", "tip_en": "Mind the age rating."},
+        {"ar": "للوالدين", "en": "For parents", "kw_ar": "هدايا لكبار السن", "kw_en": "gifts for parents", "tip_ar": "أجهزة القياس المنزلية وأجهزة التدليك هدايا مفيدة.", "tip_en": "Home health monitors and massagers are useful gifts."}
+      ]
+    }
+  ]
+}
