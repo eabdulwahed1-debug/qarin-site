@@ -66,6 +66,16 @@ def amz_link(words, label):
             f'rel="sponsored nofollow noopener">{escape(label)}</a>')
 
 
+CAT_STYLE = {
+    "kitchen": ("🍳", "#ff7a1a"),
+    "tech": ("🎧", "#3b6cff"),
+    "beauty": ("✨", "#e2468f"),
+    "kids": ("🧸", "#12a594"),
+    "health": ("🩺", "#18a058"),
+    "digital": ("💻", "#7c4dff"),
+    "deals": ("🏷️", "#e8a400"),
+}
+
 CONTENT_TYPES = {"guide": "دليل شراء", "comparison": "مقارنة", "article": "مقال", "picks": "اختيارات"}
 
 
@@ -80,11 +90,16 @@ def guide_cards(pages, category, depth, ctype=None):
     for p in items:
         cat = CATEGORIES.get(p.get("category"), "")
         kind = CONTENT_TYPES.get(p.get("type"), "")
+        icon, color = CAT_STYLE.get(p.get("category"), ("📘", "#3b6cff"))
+        icon = p.get("icon", icon)
+        cta = "قارن الآن" if p.get("type") == "comparison" else ("اقرأ المقال" if p.get("type") == "article" else "اعرض الدليل")
         cards.append(
-            f'<a class="card" href="{rel(depth, p["slug"] + "/")}" data-search="{escape(p["title"] + " " + p["description"] + " " + cat)}">'
-            f'<span class="tag">{escape(kind)}</span> <span class="tag tag-soft">{escape(cat)}</span>'
+            f'<a class="card" style="--c:{color}" href="{rel(depth, p["slug"] + "/")}" data-search="{escape(p["title"] + " " + p["description"] + " " + cat)}">'
+            f'<div class="card-media"><span class="card-icon">{icon}</span><span class="badge">{escape(kind)}</span></div>'
+            f'<div class="card-body"><span class="card-cat">{escape(cat)}</span>'
             f'<h3>{escape(p["title"])}</h3>'
-            f'<p>{escape(p["description"])}</p></a>')
+            f'<p>{escape(p["description"])}</p>'
+            f'<span class="card-cta">{cta} ←</span></div></a>')
     return '<div class="cards">' + "".join(cards) + "</div>"
 
 
@@ -128,20 +143,25 @@ def render(page, pages):
 </head>
 <body>
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="{rel(depth, '')}">{escape(SITE['site_name'])}<span>{escape(SITE['tagline'])}</span></a>
-    <nav>{nav}</nav>
+  <div class="wrap topbar">
+    <a class="brand" href="{rel(depth, '')}"><span class="logo">ق</span>{escape(SITE['site_name'])}</a>
+    <form class="top-search" action="{rel(depth, 'search/')}" role="search">
+      <input name="q" type="search" placeholder="ابحث عن منتج أو دليل…" aria-label="ابحث">
+      <button type="submit" aria-label="بحث">🔍</button>
+    </form>
   </div>
+  <nav class="navbar"><div class="wrap">{nav}</div></nav>
 </header>
 <main class="wrap">
 {disclosure_note}
-<article>
+<article class="{'doc' if page.get('type') in CONTENT_TYPES else ''}">
 {updated}
 {body}
 </article>
 </main>
 <footer class="site-footer">
   <div class="wrap">
+    <p class="foot-brand"><span class="logo">ق</span>{escape(SITE['site_name'])} — {escape(SITE['tagline'])}</p>
     <p><a href="{rel(depth, 'about/')}">من نحن</a> · <a href="{rel(depth, 'contact/')}">تواصل معنا</a> · <a href="{rel(depth, 'disclosure/')}">الإفصاح عن العمولة</a> · <a href="{rel(depth, 'privacy/')}">الخصوصية</a> · <a href="{rel(depth, 'terms/')}">الشروط</a></p>
     <p class="muted">© {SITE['year']} {escape(SITE['site_name'])}. الأسعار والتوفر تتغير باستمرار؛ تحقق من صفحة المتجر قبل الشراء.</p>
   </div>
