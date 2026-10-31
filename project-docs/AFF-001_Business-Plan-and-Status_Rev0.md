@@ -23,16 +23,19 @@
 | Boostiny (ArabyAds) | PENDING | Paused at step 3/5 — needs live site URL |
 | ArabClicks | REQUIRES HUMAN ACTION | Signup via WhatsApp / info@arabclicks.com (message drafted) |
 | Canva / Fiverr / PartnerStack | NOT STARTED | Register after site is live |
+| Google Search Console | CONNECTED | Ownership verified via HTML file (do not delete static/googlecf9187cf7e9fa8eb.html); sitemap submitted 2026-10-31 |
+| Weekly content task | CONNECTED | Scheduled task runs Sun & Wed 09:47 Riyadh |
 
 ## 3. Content published (Rev 0)
 1. How to choose an air fryer (kitchen)
 2. How to choose a robot vacuum (kitchen)
 3. White Friday smart shopping (deals)
 4. How to choose a home blood-pressure monitor (health)
+5. 2026-10-31: smartphones, laptops, monitors (tech); home gym (sports); travel essentials (travel); e-reader vs paper (books); digital subscriptions (digital)
 Plus: 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions
 1. Owner: buy domain.
 2. Claude: set `base_url`, sitemap; add model comparison tables with verified prices.
-3. Owner: verify site in Google Search Console.
+3. Claude: recheck sitemap status in Search Console (first fetch showed 'couldn't fetch', usually temporary).
 4. Claude: weekly scheduled content + link/price refresh + monthly report.
