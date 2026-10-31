@@ -47,7 +47,7 @@ L = {
         "types": {"guide": "دليل شراء", "comparison": "مقارنة", "article": "مقال"},
         "cta": {"guide": "اعرض الدليل", "comparison": "قارن الآن", "article": "اقرأ المقال"},
         "arrow": "←",
-        "nav": [("", "الرئيسية"), ("need/speech/", "🗣️ النطق والكلام"), ("need/focus/", "🎯 التركيز"),
+        "nav": [("", "الرئيسية"), ("compare/", "🔎 قارن الأسعار"), ("need/speech/", "🗣️ النطق والكلام"), ("need/focus/", "🎯 التركيز"),
                 ("need/travel/", "🧳 السفر مع الأطفال"), ("need/mom/", "🤱 الأم والرضيع"),
                 ("need/toys/", "🧸 ألعاب تعليمية"), ("need/safety/", "🛡️ السلامة")],
         "empty": "أدلة هذا القسم قيد الإعداد وتُنشر قريباً.",
@@ -73,7 +73,7 @@ L = {
         "types": {"guide": "Buying guide", "comparison": "Comparison", "article": "Article"},
         "cta": {"guide": "Read the guide", "comparison": "Compare now", "article": "Read the article"},
         "arrow": "→",
-        "nav": [("", "Home"), ("need/speech/", "🗣️ Speech"), ("need/focus/", "🎯 Focus"),
+        "nav": [("", "Home"), ("compare/", "🔎 Compare prices"), ("need/speech/", "🗣️ Speech"), ("need/focus/", "🎯 Focus"),
                 ("need/travel/", "🧳 Travel with kids"), ("need/mom/", "🤱 Mom & baby"),
                 ("need/toys/", "🧸 Learning toys"), ("need/safety/", "🛡️ Safety")],
         "empty": "Guides for this section are being prepared and will be published soon.",
@@ -307,6 +307,17 @@ def picks_block(lang, section):
     return f'<section class="picks-box">{head}<div class="pk-grid">{"".join(out)}</div></section>{script}'
 
 
+def compare_block(lang, lang_root, depth, compact=False):
+    cfg = json.dumps({"amazon": SITE.get("amazon_sa_tag", ""), "ali": SITE.get("aliexpress_tracking_id", ""),
+                      "ebay": SITE.get("ebay_campaign_id", "")})
+    ph = "اكتب اسم المنتج… مثال: قلم ناطق للأطفال" if lang == "ar" else "Type a product… e.g. talking pen for kids"
+    btn = "قارن الأسعار" if lang == "ar" else "Compare prices"
+    return (f'<form class="cmp-form{" cmp-compact" if compact else ""}" action="{lang_root}compare/" method="get" role="search">'
+            f'<input name="q" type="search" placeholder="{ph}" required aria-label="{btn}"><button type="submit">🔎 {btn}</button></form>'
+            + ("" if compact else f'<div id="cmp-results" class="cmp-results"></div><script>window.KH_CMP={cfg};</script>'
+               f'<script src="{rel(depth, "assets/compare.js")}" defer></script>'))
+
+
 def section_cards(lang, lang_root):
     """Home page: one card per section with its subsection names."""
     more = "ادخل القسم ←" if lang == "ar" else "Open section →"
@@ -361,6 +372,8 @@ def render(page, pages, index):
     body = body.replace("[[pricebrowse]]", price_browse(lang))
     body = body.replace("[[momkid]]", momkid_block(lang))
     body = body.replace("[[sections]]", section_cards(lang, lang_root))
+    body = body.replace("[[compare]]", compare_block(lang, lang_root, depth))
+    body = body.replace("[[compare-mini]]", compare_block(lang, lang_root, depth, compact=True))
     body = re.sub(r"\[\[picks:(\w+)\]\]", lambda m: picks_block(lang, m.group(1)), body)
     body = re.sub(r"\[\[momkid:(\w+)\]\]", lambda m: momkid_block(lang, m.group(1)), body)
     body = body.replace("[[featured]]", featured_cards(lang, lang_root))
@@ -411,7 +424,7 @@ def render(page, pages, index):
         # JSON-LD structured data
         base = SITE["base_url"].rstrip("/") + "/"
         home_url = base + ("" if lang == "ar" else "en/")
-        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Khutwa / خطوة", "url": base,
+        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Qarin Group — Khutwa / قارن جروب — خطوة", "url": base,
                   "logo": base + "assets/favicon.svg"}]
         if page["slug"] == "":
             graph.append({"@type": "WebSite", "name": t["site_name"], "url": home_url, "inLanguage": lang,
@@ -451,7 +464,7 @@ def render(page, pages, index):
 <body class="lang-{lang}">
 <header class="site-header">
   <div class="wrap topbar">
-    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'Khutwa' if lang == 'ar' else 'خطوة'} · {'للأم والطفل' if lang == 'ar' else 'Mom & Kids'}</span></span></a>
+    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'من قارن جروب · للأم والطفل' if lang == 'ar' else 'by Qarin Group · Mom & Kids'}</span></span></a>
     <form class="top-search" action="https://www.amazon.sa/s" method="get" target="_blank" role="search" data-goatcounter-click="amz-search">
       <input name="k" type="search" placeholder="{escape(t['search_ph'])}" aria-label="{escape(t['search'])}" required>
       <input type="hidden" name="tag" value="{escape(SITE.get('amazon_sa_tag', ''))}">
@@ -469,7 +482,7 @@ def render(page, pages, index):
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <p class="foot-brand"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="32" height="32">{escape(t['site_name'])} — {escape(t['tagline'])}</p>
+    <p class="foot-brand"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="32" height="32">{escape(t['site_name'])} {'من قارن جروب' if lang == 'ar' else 'by Qarin Group'} — {escape(t['tagline'])}</p>
     <p>{footer_links} · <a href="{switch_href}" lang="{other}">{t['switch']}</a></p>
     <p class="muted">{escape(t['amazon_note'])}</p>
     <p class="muted">© {SITE['year']} {escape(t['site_name'])}. {escape(t['price_note'])}</p>
