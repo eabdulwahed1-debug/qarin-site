@@ -239,6 +239,12 @@ def price_browse(lang):
     return '<div class="pb">' + "".join(rows) + "</div>" + note
 
 
+def unsplash(photo_id, w=800, h=None):
+    """Unsplash CDN URL (free Unsplash License; hotlinked as Unsplash requires)."""
+    url = f"https://images.unsplash.com/{photo_id}?auto=format&fit=crop&w={w}&q=70"
+    return url + (f"&h={h}" if h else "")
+
+
 MOMKID = json.loads((ROOT / "momkid.json").read_text(encoding="utf-8")) if (ROOT / "momkid.json").exists() else {"groups": []}
 
 
@@ -255,7 +261,8 @@ def momkid_block(lang, only=None):
             url = "https://www.amazon.sa/s?k=" + quote_plus(kw) + "&s=review-rank" + (("&tag=" + quote_plus(tag)) if tag else "")
             tiles.append(f'<a class="mk-tile" href="{escape(url)}" target="_blank" rel="sponsored nofollow noopener" '
                          f'data-goatcounter-click="amz-momkid:{g["id"]}:{escape(it["en"])}" data-goatcounter-title="Mom&Kid {escape(it["en"])}">'
-                         f'<span class="mk-ic">{it["icon"]}</span><b>{escape(it[lang])}</b></a>')
+                         + (f'<span class="mk-ph"><img src="{unsplash(it["photo"], 480, 340)}" alt="" loading="lazy"></span>' if it.get("photo") else f'<span class="mk-ic">{it["icon"]}</span>')
+                         + f'<b>{escape(it[lang])}</b><span class="mk-go">{"شوف المنتجات" if lang == "ar" else "See products"}</span></a>')
         head = "" if only else (f'<div class="mk-head"><span class="mk-gic">{g["icon"]}</span>'
                                 f'<div><h3>{escape(g[lang])}</h3><small>{escape(g["sub_" + lang])}</small></div></div>')
         out.append(f'<div class="mk-group" id="mk-{g["id"]}" style="--c:{g["color"]}">{head}'
@@ -324,10 +331,12 @@ def section_cards(lang, lang_root):
     out = []
     for g in MOMKID.get("groups", []):
         subs = "".join(f'<li>{it["icon"]} {escape(it[lang])}</li>' for it in g["items"])
+        subs = "".join(f'<li>{escape(it[lang])}</li>' for it in g["items"][:4])
         out.append(f'<a class="sec-card" style="--c:{g["color"]}" href="{lang_root}need/{g["id"]}/">'
-                   f'<div class="sec-top"><span class="sec-ic">{g["icon"]}</span><div><h2>{escape(g[lang])}</h2>'
-                   f'<p>{escape(g["sub_" + lang])}</p></div></div><ul class="sec-subs">{subs}</ul>'
-                   f'<span class="sec-more">{more}</span></a>')
+                   f'<div class="sec-img"><img src="{unsplash(g["photo"], 720, 480)}" alt="{escape(g[lang])}" loading="lazy">'
+                   f'<span class="sec-badge">{g["icon"]} {len(g["items"])} {"أقسام" if lang == "ar" else "subsections"}</span></div>'
+                   f'<div class="sec-body"><h2>{escape(g[lang])}</h2><p>{escape(g["sub_" + lang])}</p>'
+                   f'<ul class="sec-subs">{subs}</ul><span class="sec-more">{more}</span></div></a>')
     return '<div class="sec-grid">' + "".join(out) + "</div>"
 
 
@@ -380,6 +389,12 @@ def render(page, pages, index):
     body = re.sub(r"\[\[latest:(\d+)\]\]", lambda m: guide_cards(pages, lang, "all", depth, limit=int(m.group(1))), body)
     body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(1), depth), body)
     body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(2), depth, m.group(1)), body)
+    grp = next((g for g in MOMKID.get("groups", []) if g["id"] == page.get("category")), None)
+    if grp and grp.get("photo"):
+        body = body.replace('<section class="need-hero" style="', f'<section class="need-hero has-img" style="--img:url({unsplash(grp["photo"], 1600, 600)});', 1)
+    if page["slug"] == "compare" and MOMKID.get("compare"):
+        body = body.replace('<section class="need-hero" style="', f'<section class="need-hero has-img" style="--img:url({unsplash(MOMKID["compare"], 1600, 600)});', 1)
+    body = body.replace("{{hero_photo}}", unsplash(MOMKID.get("hero", ""), 1100, 900))
     body = body.replace("{{root}}", lang_root)
 
     nav = "".join(f'<a href="{lang_root}{href}">{escape(label)}</a>' for href, label in t["nav"])
@@ -485,6 +500,7 @@ def render(page, pages, index):
     <p class="foot-brand"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="32" height="32">{escape(t['site_name'])} {'من قارن جروب' if lang == 'ar' else 'by Qarin Group'} — {escape(t['tagline'])}</p>
     <p>{footer_links} · <a href="{switch_href}" lang="{other}">{t['switch']}</a></p>
     <p class="muted">{escape(t['amazon_note'])}</p>
+    <p class="muted">{'الصور من <a href="https://unsplash.com/?utm_source=khutwa&utm_medium=referral" rel="noopener">Unsplash</a> وهي صور توضيحية وليست صور المنتجات نفسها.' if lang == 'ar' else 'Photos from <a href="https://unsplash.com/?utm_source=khutwa&utm_medium=referral" rel="noopener">Unsplash</a> — illustrative, not the actual products.'}</p>
     <p class="muted">© {SITE['year']} {escape(t['site_name'])}. {escape(t['price_note'])}</p>
   </div>
 </footer>
