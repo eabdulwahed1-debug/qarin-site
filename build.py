@@ -48,7 +48,8 @@ L = {
         "cta": {"guide": "اعرض الدليل", "comparison": "قارن الآن", "article": "اقرأ المقال"},
         "arrow": "←",
         "nav": [("", "الرئيسية"), ("need/speech/", "🗣️ النطق والكلام"), ("need/focus/", "🎯 التركيز"),
-                ("need/travel/", "🧳 السفر مع الأطفال"), ("need/mom/", "🤱 الأم والرضيع")],
+                ("need/travel/", "🧳 السفر مع الأطفال"), ("need/mom/", "🤱 الأم والرضيع"),
+                ("need/toys/", "🧸 ألعاب تعليمية"), ("need/safety/", "🛡️ السلامة")],
         "empty": "أدلة هذا القسم قيد الإعداد وتُنشر قريباً.",
         "updated": "آخر تحديث",
         "disc": "ⓘ يحتوي على روابط عمولة لا تغيّر السعر عليك",
@@ -73,7 +74,8 @@ L = {
         "cta": {"guide": "Read the guide", "comparison": "Compare now", "article": "Read the article"},
         "arrow": "→",
         "nav": [("", "Home"), ("need/speech/", "🗣️ Speech"), ("need/focus/", "🎯 Focus"),
-                ("need/travel/", "🧳 Travel with kids"), ("need/mom/", "🤱 Mom & baby")],
+                ("need/travel/", "🧳 Travel with kids"), ("need/mom/", "🤱 Mom & baby"),
+                ("need/toys/", "🧸 Learning toys"), ("need/safety/", "🛡️ Safety")],
         "empty": "Guides for this section are being prepared and will be published soon.",
         "updated": "Last updated",
         "disc": "ⓘ Contains affiliate links that don't change your price",
@@ -254,14 +256,28 @@ def momkid_block(lang, only=None):
             tiles.append(f'<a class="mk-tile" href="{escape(url)}" target="_blank" rel="sponsored nofollow noopener" '
                          f'data-goatcounter-click="amz-momkid:{g["id"]}:{escape(it["en"])}" data-goatcounter-title="Mom&Kid {escape(it["en"])}">'
                          f'<span class="mk-ic">{it["icon"]}</span><b>{escape(it[lang])}</b></a>')
-        out.append(f'<div class="mk-group" id="mk-{g["id"]}" style="--c:{g["color"]}"><div class="mk-head"><span class="mk-gic">{g["icon"]}</span>'
-                   f'<div><h3>{escape(g[lang])}</h3><small>{escape(g["sub_" + lang])}</small></div></div>'
+        head = "" if only else (f'<div class="mk-head"><span class="mk-gic">{g["icon"]}</span>'
+                                f'<div><h3>{escape(g[lang])}</h3><small>{escape(g["sub_" + lang])}</small></div></div>')
+        out.append(f'<div class="mk-group" id="mk-{g["id"]}" style="--c:{g["color"]}">{head}'
                    f'<div class="mk-tiles">{"".join(tiles)}</div></div>')
     note = ("ℹ️ هذه أدوات مساعدة للتدريب والتنظيم في البيت وليست علاجاً. إذا تأخر الكلام أو استمر التشتت، استشر أخصائي نطق أو طبيب أطفال."
             if lang == "ar" else
             "ℹ️ These are at-home practice and routine aids, not treatment. If speech is delayed or attention problems persist, see a speech therapist or paediatrician.")
     show_note = only in (None, "speech", "focus")
-    return '<div class="mk">' + "".join(out) + '</div>' + (f'<p class="mk-note">{note}</p>' if show_note and not only else '')
+    return f'<div class="mk{" mk-single" if only else ""}">' + "".join(out) + '</div>' + (f'<p class="mk-note">{note}</p>' if show_note and not only else '')
+
+
+def section_cards(lang, lang_root):
+    """Home page: one card per section with its subsection names."""
+    more = "ادخل القسم ←" if lang == "ar" else "Open section →"
+    out = []
+    for g in MOMKID.get("groups", []):
+        subs = "".join(f'<li>{it["icon"]} {escape(it[lang])}</li>' for it in g["items"])
+        out.append(f'<a class="sec-card" style="--c:{g["color"]}" href="{lang_root}need/{g["id"]}/">'
+                   f'<div class="sec-top"><span class="sec-ic">{g["icon"]}</span><div><h2>{escape(g[lang])}</h2>'
+                   f'<p>{escape(g["sub_" + lang])}</p></div></div><ul class="sec-subs">{subs}</ul>'
+                   f'<span class="sec-more">{more}</span></a>')
+    return '<div class="sec-grid">' + "".join(out) + "</div>"
 
 
 def guide_cards(pages, lang, category, depth, ctype=None, limit=None):
@@ -304,6 +320,7 @@ def render(page, pages, index):
     body = body.replace("[[finder]]", finder_block(lang, lang_root, depth))
     body = body.replace("[[pricebrowse]]", price_browse(lang))
     body = body.replace("[[momkid]]", momkid_block(lang))
+    body = body.replace("[[sections]]", section_cards(lang, lang_root))
     body = re.sub(r"\[\[momkid:(\w+)\]\]", lambda m: momkid_block(lang, m.group(1)), body)
     body = body.replace("[[featured]]", featured_cards(lang, lang_root))
     body = re.sub(r"\[\[latest:(\d+)\]\]", lambda m: guide_cards(pages, lang, "all", depth, limit=int(m.group(1))), body)
