@@ -184,6 +184,9 @@ def main():
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(ROOT / "assets", OUT / "assets")
+    if (ROOT / "static").exists():
+        for f in (ROOT / "static").iterdir():
+            shutil.copy(f, OUT / f.name)
     for page in pages:
         slug = page["slug"].strip("/")
         target = OUT / slug / "index.html" if slug else OUT / "index.html"
