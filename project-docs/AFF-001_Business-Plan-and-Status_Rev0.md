@@ -29,7 +29,7 @@
 2. How to choose a robot vacuum (kitchen)
 3. White Friday smart shopping (deals)
 4. How to choose a home blood-pressure monitor (health)
-Plus: home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
+Plus: 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions
 1. Owner: enable GitHub Pages; buy domain.

@@ -35,10 +35,12 @@ CATEGORIES = {
 NAV = [
     ("", "الرئيسية"),
     ("guides/", "أدلة الشراء"),
-    ("category/kitchen/", "المطبخ والمنزل"),
-    ("category/tech/", "التقنية"),
-    ("category/health/", "الصحة"),
-    ("category/deals/", "العروض"),
+    ("comparisons/", "مقارنات"),
+    ("picks/", "اختيارات قارن"),
+    ("deals/", "العروض"),
+    ("categories/", "الأقسام"),
+    ("blog/", "المدونة"),
+    ("search/", "بحث"),
 ]
 
 
@@ -64,8 +66,12 @@ def amz_link(words, label):
             f'rel="sponsored nofollow noopener">{escape(label)}</a>')
 
 
-def guide_cards(pages, category, depth):
-    items = [p for p in pages if p.get("type") == "guide"
+CONTENT_TYPES = {"guide": "دليل شراء", "comparison": "مقارنة", "article": "مقال", "picks": "اختيارات"}
+
+
+def guide_cards(pages, category, depth, ctype=None):
+    items = [p for p in pages if p.get("type") in CONTENT_TYPES
+             and (ctype is None or p.get("type") == ctype)
              and (category == "all" or p.get("category") == category)]
     items.sort(key=lambda p: p.get("date", ""), reverse=True)
     if not items:
@@ -73,9 +79,10 @@ def guide_cards(pages, category, depth):
     cards = []
     for p in items:
         cat = CATEGORIES.get(p.get("category"), "")
+        kind = CONTENT_TYPES.get(p.get("type"), "")
         cards.append(
-            f'<a class="card" href="{rel(depth, p["slug"] + "/")}">'
-            f'<span class="tag">{escape(cat)}</span>'
+            f'<a class="card" href="{rel(depth, p["slug"] + "/")}" data-search="{escape(p["title"] + " " + p["description"] + " " + cat)}">'
+            f'<span class="tag">{escape(kind)}</span> <span class="tag tag-soft">{escape(cat)}</span>'
             f'<h3>{escape(p["title"])}</h3>'
             f'<p>{escape(p["description"])}</p></a>')
     return '<div class="cards">' + "".join(cards) + "</div>"
@@ -87,11 +94,12 @@ def render(page, pages):
     body = page["body"]
     body = re.sub(r"\[\[amz:([^|\]]+)\|([^\]]+)\]\]", lambda m: amz_link(m.group(1).strip(), m.group(2).strip()), body)
     body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, m.group(1), depth), body)
+    body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, m.group(2), depth, m.group(1)), body)
     body = body.replace("{{root}}", rel(depth, ""))
 
     nav = "".join(f'<a href="{rel(depth, href)}">{escape(label)}</a>' for href, label in NAV)
     disclosure_note = ""
-    if page.get("type") == "guide":
+    if page.get("type") in CONTENT_TYPES:
         disclosure_note = (
             f'<aside class="disclosure">قد يحتوي هذا الدليل على روابط تسويق بالعمولة. '
             f'إذا اشتريت عبرها قد نحصل على عمولة صغيرة دون أي تكلفة إضافية عليك. '
