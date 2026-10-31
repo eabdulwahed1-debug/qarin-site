@@ -8,20 +8,20 @@
   var langRoot = root.getAttribute('data-root') || '';
   var T = {
     ar: {
-      q1: 'وش تبي تشتري؟', q2: 'كم ميزانيتك؟', q3: 'لإيش تبيه؟',
+      q1: 'وش تحتاج لطفلك؟', q2: 'كم ميزانيتك؟', q3: 'حدّد أكثر',
       step: 'الخطوة', of: 'من', back: 'رجوع', restart: 'ابدأ من جديد',
       resultTitle: 'جاهز! هذي أنسب الخيارات لك',
-      cta: 'اعرض أنسب الخيارات في أمازون', all: 'كل الخيارات بنفس الميزانية', guide: 'دليل الاختيار',
+      cta: 'اعرض أنسب الخيارات في أمازون', all: 'كل الخيارات بنفس الميزانية', guide: 'نصائح القسم',
       note: 'النتائج مرتبة حسب تقييم المشترين، وفي حدود ميزانيتك.',
       under: function (a) { return 'أقل من ' + a + ' ريال'; },
       over: function (a) { return 'أكثر من ' + a + ' ريال'; },
       range: function (a, b) { return a + ' – ' + b + ' ريال'; }
     },
     en: {
-      q1: 'What do you want to buy?', q2: "What's your budget?", q3: 'What will you use it for?',
+      q1: 'What do you need?', q2: "What's your budget?", q3: 'Narrow it down',
       step: 'Step', of: 'of', back: 'Back', restart: 'Start over',
       resultTitle: 'Done! Here are your best matches',
-      cta: 'Show my best matches on Amazon', all: 'All options in this budget', guide: 'Buying guide',
+      cta: 'Show my best matches on Amazon', all: 'All options in this budget', guide: 'Section tips',
       note: 'Results are sorted by buyer reviews and stay within your budget.',
       under: function (a) { return 'Under SAR ' + a; },
       over: function (a) { return 'Over SAR ' + a; },

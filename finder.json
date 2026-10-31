@@ -1,152 +1,352 @@
 {
-  "categories": [
+ "categories": [
+  {
+   "id": "speech",
+   "icon": "🗣️",
+   "color": "#ff6f61",
+   "ar": "النطق والكلام",
+   "en": "Speech & talking",
+   "kw_ar": "العاب تنمية النطق للاطفال",
+   "kw_en": "speech development toys kids",
+   "guide": "need/speech",
+   "budgets": [
+    [
+     0,
+     50
+    ],
+    [
+     50,
+     150
+    ],
+    [
+     150,
+     0
+    ]
+   ],
+   "uses": [
     {
-      "id": "phones", "icon": "📱", "color": "#3b6cff",
-      "ar": "جوال", "en": "Phone",
-      "kw_ar": "جوال", "kw_en": "smartphone",
-      "guide": "guides/how-to-choose-smartphone",
-      "budgets": [[0, 1000], [1000, 2500], [2500, 4500], [4500, 0]],
-      "uses": [
-        {"ar": "استخدام يومي وسوشال", "en": "Everyday & social", "kw_ar": "جوال 256 جيجا", "kw_en": "smartphone 256gb", "tip_ar": "ركّز على البطارية و256 جيجا تخزين وضمان محلي.", "tip_en": "Focus on battery life, 256 GB storage and a local warranty."},
-        {"ar": "تصوير", "en": "Photography", "kw_ar": "جوال كاميرا احترافية", "kw_en": "smartphone pro camera", "tip_ar": "الكاميرا الرئيسية وثبات الفيديو أهم من عدد العدسات.", "tip_en": "The main camera and video stabilization matter more than the number of lenses."},
-        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "جوال العاب 120 هرتز", "kw_en": "gaming phone 120hz", "tip_ar": "معالج قوي وشاشة 120 هرتز وتبريد جيد.", "tip_en": "A strong chip, 120 Hz screen and good cooling."},
-        {"ar": "لكبار السن", "en": "For seniors", "kw_ar": "جوال كبار السن شاشة كبيرة", "kw_en": "senior phone big screen", "tip_ar": "شاشة كبيرة وصوت عالٍ وسهولة استخدام.", "tip_en": "Big screen, loud speaker and simple to use."}
-      ]
+     "ar": "أول الكلمات (1–3 سنوات)",
+     "en": "First words (1–3 yrs)",
+     "kw_ar": "بطاقات كلام مصورة للاطفال",
+     "kw_en": "first words flash cards toddlers",
+     "tip_ar": "البطاقات المصورة تفيد أكثر لما تسمّي الصورة مع الطفل بصوت واضح وتنتظر يكررها.",
+     "tip_en": "Picture cards work best when you name the picture clearly and pause so the child can repeat."
     },
     {
-      "id": "laptops", "icon": "💻", "color": "#5b4dff",
-      "ar": "لابتوب", "en": "Laptop",
-      "kw_ar": "لابتوب", "kw_en": "laptop",
-      "guide": "guides/how-to-choose-laptop",
-      "budgets": [[0, 2000], [2000, 4000], [4000, 7000], [7000, 0]],
-      "uses": [
-        {"ar": "دراسة", "en": "Study", "kw_ar": "لابتوب طلاب خفيف 16 جيجا", "kw_en": "student laptop lightweight 16gb", "tip_ar": "خفيف وبطارية طويلة و16 جيجا رام.", "tip_en": "Light, long battery life and 16 GB RAM."},
-        {"ar": "عمل ومكتب", "en": "Work & office", "kw_ar": "لابتوب 16 جيجا رام SSD", "kw_en": "laptop 16gb ram ssd", "tip_ar": "16 جيجا رام على الأقل وSSD وشاشة واضحة.", "tip_en": "At least 16 GB RAM, an SSD and a clear screen."},
-        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "لابتوب العاب", "kw_en": "gaming laptop", "tip_ar": "كرت شاشة منفصل وشاشة بمعدل تحديث عالٍ.", "tip_en": "A dedicated graphics card and a high refresh-rate screen."},
-        {"ar": "تصميم ومونتاج", "en": "Design & editing", "kw_ar": "لابتوب تصميم 32 جيجا", "kw_en": "laptop for video editing 32gb", "tip_ar": "معالج قوي و32 جيجا رام وشاشة بألوان دقيقة.", "tip_en": "A strong processor, 32 GB RAM and a color-accurate screen."}
-      ]
+     "ar": "مخارج الحروف (3–6 سنوات)",
+     "en": "Letter sounds (3–6 yrs)",
+     "kw_ar": "العاب الحروف الناطقة للاطفال",
+     "kw_en": "phonics talking toys kids",
+     "tip_ar": "اختر لعبة تنطق الحرف بصوت واضح ويقدر الطفل يكرره بعدها.",
+     "tip_en": "Pick a toy that says each sound clearly so the child can repeat it."
     },
     {
-      "id": "monitors", "icon": "🖥️", "color": "#0f7bd8",
-      "ar": "شاشة كمبيوتر", "en": "Monitor",
-      "kw_ar": "شاشة كمبيوتر", "kw_en": "computer monitor",
-      "guide": "guides/how-to-choose-monitor",
-      "budgets": [[0, 600], [600, 1200], [1200, 0]],
-      "uses": [
-        {"ar": "مكتب وعمل", "en": "Office work", "kw_ar": "شاشة 27 بوصة QHD IPS", "kw_en": "27 inch QHD IPS monitor", "tip_ar": "27 بوصة بدقة QHD هي التوازن الأفضل.", "tip_en": "27-inch QHD is the best balance."},
-        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "شاشة العاب 144 هرتز", "kw_en": "144hz gaming monitor", "tip_ar": "144 هرتز فأكثر، وتأكد أن كرت الشاشة يدعمها.", "tip_en": "144 Hz or more — make sure your graphics card supports it."},
-        {"ar": "تصميم", "en": "Design", "kw_ar": "شاشة 4K تصميم", "kw_en": "4k monitor for design", "tip_ar": "دقة 4K وألوان دقيقة.", "tip_en": "4K resolution and accurate color."}
-      ]
+     "ar": "تقوية عضلات الفم",
+     "en": "Mouth-muscle practice",
+     "kw_ar": "oral motor speech therapy tools kids",
+     "kw_en": "oral motor speech therapy tools kids",
+     "tip_ar": "أدوات النفخ والصفارات تُستخدم عادة بإشراف أو توجيه أخصائي النطق.",
+     "tip_en": "Blow toys and whistles are usually used with guidance from a speech therapist."
     },
     {
-      "id": "audio", "icon": "🎧", "color": "#7c4dff",
-      "ar": "سماعات", "en": "Earbuds & headphones",
-      "kw_ar": "سماعات لاسلكية", "kw_en": "wireless earbuds",
-      "guide": "category/tech",
-      "budgets": [[0, 150], [150, 500], [500, 0]],
-      "uses": [
-        {"ar": "استخدام يومي", "en": "Everyday", "kw_ar": "سماعات لاسلكية بلوتوث", "kw_en": "bluetooth wireless earbuds", "tip_ar": "بطارية طويلة وراحة في الأذن.", "tip_en": "Long battery life and a comfortable fit."},
-        {"ar": "عزل الضوضاء", "en": "Noise cancelling", "kw_ar": "سماعات عزل الضوضاء", "kw_en": "noise cancelling headphones", "tip_ar": "مفيدة في السفر والمكاتب المزعجة.", "tip_en": "Great for flights and noisy offices."},
-        {"ar": "رياضة", "en": "Sport", "kw_ar": "سماعات رياضية مقاومة للماء", "kw_en": "sport earbuds waterproof", "tip_ar": "ثابتة في الأذن ومقاومة للعرق.", "tip_en": "Secure fit and sweat-resistant."},
-        {"ar": "ألعاب", "en": "Gaming", "kw_ar": "سماعة العاب", "kw_en": "gaming headset", "tip_ar": "مايك واضح وراحة لساعات طويلة.", "tip_en": "A clear mic and comfort for long sessions."}
-      ]
-    },
-    {
-      "id": "watches", "icon": "⌚", "color": "#12a594",
-      "ar": "ساعة ذكية", "en": "Smartwatch",
-      "kw_ar": "ساعة ذكية", "kw_en": "smartwatch",
-      "guide": "category/tech",
-      "budgets": [[0, 300], [300, 1000], [1000, 0]],
-      "uses": [
-        {"ar": "رياضة وصحة", "en": "Fitness & health", "kw_ar": "ساعة ذكية رياضية", "kw_en": "fitness smartwatch", "tip_ar": "تتبع النشاط والنوم وبطارية طويلة.", "tip_en": "Activity and sleep tracking with long battery life."},
-        {"ar": "استخدام يومي", "en": "Everyday", "kw_ar": "ساعة ذكية", "kw_en": "smartwatch", "tip_ar": "تأكد أنها متوافقة مع جوالك (آيفون أو أندرويد).", "tip_en": "Make sure it works with your phone (iPhone or Android)."},
-        {"ar": "للأطفال", "en": "For kids", "kw_ar": "ساعة ذكية اطفال", "kw_en": "kids smartwatch", "tip_ar": "تحديد الموقع والاتصال بالأهل.", "tip_en": "Location tracking and calling parents."}
-      ]
-    },
-    {
-      "id": "airfryer", "icon": "🍳", "color": "#ff7a1a",
-      "ar": "قلاية هوائية", "en": "Air fryer",
-      "kw_ar": "قلاية هوائية", "kw_en": "air fryer",
-      "guide": "guides/how-to-choose-air-fryer",
-      "budgets": [[0, 300], [300, 600], [600, 0]],
-      "uses": [
-        {"ar": "1–2 أشخاص", "en": "1–2 people", "kw_ar": "قلاية هوائية 3 لتر", "kw_en": "air fryer 3 liter", "tip_ar": "سعة 2–3 لتر تكفي.", "tip_en": "2–3 litres is enough."},
-        {"ar": "عائلة 3–4", "en": "Family of 3–4", "kw_ar": "قلاية هوائية 5 لتر", "kw_en": "air fryer 5 liter", "tip_ar": "سعة 4–6 لتر هي الأنسب.", "tip_en": "4–6 litres fits best."},
-        {"ar": "عائلة 5+ / عزائم", "en": "Family of 5+", "kw_ar": "قلاية هوائية سلتين", "kw_en": "dual basket air fryer", "tip_ar": "سلتين أو 7 لتر فأكثر.", "tip_en": "Two baskets or 7 litres and up."}
-      ]
-    },
-    {
-      "id": "vacuum", "icon": "🤖", "color": "#18a058",
-      "ar": "مكنسة", "en": "Vacuum",
-      "kw_ar": "مكنسة روبوت", "kw_en": "robot vacuum",
-      "guide": "guides/how-to-choose-robot-vacuum",
-      "budgets": [[0, 800], [800, 2000], [2000, 0]],
-      "uses": [
-        {"ar": "روبوت للتنظيف اليومي", "en": "Robot, daily cleaning", "kw_ar": "مكنسة روبوت ليدار", "kw_en": "robot vacuum lidar", "tip_ar": "ملاحة الليزر أهم من قوة الشفط.", "tip_en": "LiDAR navigation matters more than suction."},
-        {"ar": "روبوت مع مسح", "en": "Robot with mopping", "kw_ar": "مكنسة روبوت ممسحة", "kw_en": "robot vacuum and mop", "tip_ar": "اختر موديل يرفع الممسحة على السجاد.", "tip_en": "Pick one that lifts the mop on carpets."},
-        {"ar": "مكنسة لاسلكية يدوية", "en": "Cordless stick", "kw_ar": "مكنسة لاسلكية", "kw_en": "cordless stick vacuum", "tip_ar": "مدة البطارية ووزن خفيف.", "tip_en": "Battery runtime and light weight."}
-      ]
-    },
-    {
-      "id": "perfume", "icon": "✨", "color": "#e2468f",
-      "ar": "عطر", "en": "Fragrance",
-      "kw_ar": "عطر", "kw_en": "perfume",
-      "guide": "category/beauty",
-      "budgets": [[0, 150], [150, 400], [400, 0]],
-      "uses": [
-        {"ar": "رجالي", "en": "For men", "kw_ar": "عطر رجالي", "kw_en": "men perfume", "tip_ar": "اشترِ من البائع الرسمي لتضمن الأصلي.", "tip_en": "Buy from the official seller to be sure it's genuine."},
-        {"ar": "نسائي", "en": "For women", "kw_ar": "عطر نسائي", "kw_en": "women perfume", "tip_ar": "اشترِ من البائع الرسمي لتضمن الأصلي.", "tip_en": "Buy from the official seller to be sure it's genuine."},
-        {"ar": "عود وبخور", "en": "Oud & bakhoor", "kw_ar": "عطر عود", "kw_en": "oud perfume", "tip_ar": "اقرأ التقييمات عن الثبات.", "tip_en": "Check reviews for longevity."}
-      ]
-    },
-    {
-      "id": "kids", "icon": "🧸", "color": "#f2994a",
-      "ar": "ألعاب أطفال", "en": "Kids' toys",
-      "kw_ar": "ألعاب أطفال", "kw_en": "kids toys",
-      "guide": "category/kids",
-      "budgets": [[0, 100], [100, 300], [300, 0]],
-      "uses": [
-        {"ar": "رضّع (0–2)", "en": "Babies (0–2)", "kw_ar": "العاب رضع تعليمية", "kw_en": "baby educational toys", "tip_ar": "تأكد من الفئة العمرية المكتوبة على المنتج.", "tip_en": "Check the age rating on the product."},
-        {"ar": "3–6 سنوات", "en": "Ages 3–6", "kw_ar": "العاب تعليمية اطفال 3 سنوات", "kw_en": "educational toys age 3", "tip_ar": "ألعاب التركيب والتعلم مناسبة لهذا العمر.", "tip_en": "Building and learning toys suit this age."},
-        {"ar": "7–12 سنة", "en": "Ages 7–12", "kw_ar": "العاب ذكاء وتركيب", "kw_en": "stem building toys", "tip_ar": "ألعاب العلوم والتركيب تنمّي التفكير.", "tip_en": "STEM and building toys build thinking skills."}
-      ]
-    },
-    {
-      "id": "fitness", "icon": "🏋️", "color": "#c0392b",
-      "ar": "أدوات رياضية", "en": "Fitness gear",
-      "kw_ar": "أدوات رياضية منزلية", "kw_en": "home fitness equipment",
-      "guide": "guides/home-gym-starter-equipment",
-      "budgets": [[0, 200], [200, 800], [800, 0]],
-      "uses": [
-        {"ar": "تمارين قوة", "en": "Strength", "kw_ar": "دمبلز قابلة للتعديل", "kw_en": "adjustable dumbbells", "tip_ar": "الدمبلز القابلة للتعديل توفر المساحة.", "tip_en": "Adjustable dumbbells save space."},
-        {"ar": "كارديو", "en": "Cardio", "kw_ar": "جهاز مشي منزلي", "kw_en": "home treadmill", "tip_ar": "انظر قدرة المحرك المستمرة وعرض السير.", "tip_en": "Check continuous motor power and belt width."},
-        {"ar": "يوغا وإطالة", "en": "Yoga & stretching", "kw_ar": "سجادة يوغا", "kw_en": "yoga mat", "tip_ar": "سماكة مريحة وسطح لا ينزلق.", "tip_en": "Comfortable thickness and a non-slip surface."}
-      ]
-    },
-    {
-      "id": "travel", "icon": "🧳", "color": "#0096c7",
-      "ar": "سفر", "en": "Travel",
-      "kw_ar": "شنطة سفر", "kw_en": "luggage",
-      "guide": "guides/travel-essentials-checklist",
-      "budgets": [[0, 300], [300, 800], [800, 0]],
-      "uses": [
-        {"ar": "شنطة مقصورة", "en": "Cabin bag", "kw_ar": "شنطة سفر مقصورة", "kw_en": "cabin luggage", "tip_ar": "تأكد من مقاسات شركة الطيران.", "tip_en": "Check your airline's size limits."},
-        {"ar": "شنطة كبيرة", "en": "Large suitcase", "kw_ar": "شنطة سفر كبيرة صلبة", "kw_en": "large hard shell suitcase", "tip_ar": "الوزن الخفيف يوفر من الوزن المسموح.", "tip_en": "A lighter case saves baggage allowance."},
-        {"ar": "إكسسوارات سفر", "en": "Travel accessories", "kw_ar": "محول كهرباء عالمي للسفر", "kw_en": "universal travel adapter", "tip_ar": "محول عالمي وباور بانك 20000 مللي أمبير.", "tip_en": "A universal adapter and a 20,000 mAh power bank."}
-      ]
-    },
-    {
-      "id": "gifts", "icon": "🎁", "color": "#e8a400",
-      "ar": "هدية", "en": "Gift",
-      "kw_ar": "هدايا", "kw_en": "gifts",
-      "guide": "deals",
-      "budgets": [[0, 100], [100, 300], [300, 1000], [1000, 0]],
-      "uses": [
-        {"ar": "له", "en": "For him", "kw_ar": "هدايا رجالية", "kw_en": "gifts for men", "tip_ar": "العطور والساعات والإلكترونيات الصغيرة خيارات آمنة.", "tip_en": "Fragrances, watches and small gadgets are safe picks."},
-        {"ar": "لها", "en": "For her", "kw_ar": "هدايا نسائية", "kw_en": "gifts for women", "tip_ar": "العطور وأجهزة العناية خيارات محبوبة.", "tip_en": "Fragrances and beauty devices are popular."},
-        {"ar": "للأطفال", "en": "For kids", "kw_ar": "هدايا اطفال", "kw_en": "gifts for kids", "tip_ar": "انتبه للفئة العمرية.", "tip_en": "Mind the age rating."},
-        {"ar": "للوالدين", "en": "For parents", "kw_ar": "هدايا لكبار السن", "kw_en": "gifts for parents", "tip_ar": "أجهزة القياس المنزلية وأجهزة التدليك هدايا مفيدة.", "tip_en": "Home health monitors and massagers are useful gifts."}
-      ]
+     "ar": "القصص والقراءة",
+     "en": "Stories & reading",
+     "kw_ar": "قلم ناطق للاطفال",
+     "kw_en": "talking reading pen kids",
+     "tip_ar": "القلم الناطق يحتاج كتباً متوافقة معه — تأكد أن الكتب مشمولة أو متوفرة.",
+     "tip_en": "Talking pens need compatible books — check they're included or available."
     }
-  ]
+   ]
+  },
+  {
+   "id": "focus",
+   "icon": "🎯",
+   "color": "#5b7cfa",
+   "ar": "التركيز والتشتت",
+   "en": "Focus & attention",
+   "kw_ar": "العاب تنمية التركيز للاطفال",
+   "kw_en": "focus toys for kids",
+   "guide": "need/focus",
+   "budgets": [
+    [
+     0,
+     50
+    ],
+    [
+     50,
+     150
+    ],
+    [
+     150,
+     0
+    ]
+   ],
+   "uses": [
+    {
+     "ar": "تنظيم الوقت",
+     "en": "Managing time",
+     "kw_ar": "visual timer kids",
+     "kw_en": "visual timer kids",
+     "tip_ar": "المؤقت البصري يخلّي الطفل يشوف الوقت المتبقي بدل ما يسأل كل شوي.",
+     "tip_en": "A visual timer lets kids see time left instead of asking repeatedly."
+    },
+    {
+     "ar": "الهدوء والتهدئة",
+     "en": "Calming down",
+     "kw_ar": "العاب حسية للاطفال",
+     "kw_en": "sensory fidget toys kids",
+     "tip_ar": "اختر ألعاباً هادئة الصوت إذا بتستخدم في الصف أو وقت المذاكرة.",
+     "tip_en": "Choose quiet fidgets if they'll be used in class or homework time."
+    },
+    {
+     "ar": "وقت المذاكرة",
+     "en": "Homework time",
+     "kw_ar": "wobble cushion kids",
+     "kw_en": "wobble cushion kids",
+     "tip_ar": "وسادة الجلوس المتحركة تناسب الطفل اللي يتحرك كثير وهو جالس.",
+     "tip_en": "A wobble cushion suits kids who fidget a lot while seated."
+    },
+    {
+     "ar": "الضوضاء والإزعاج",
+     "en": "Noise sensitivity",
+     "kw_ar": "سماعات عزل الصوت للاطفال",
+     "kw_en": "kids noise cancelling earmuffs",
+     "tip_ar": "اختر مقاساً للأطفال بحزام قابل للتعديل.",
+     "tip_en": "Choose a kids' size with an adjustable band."
+    }
+   ]
+  },
+  {
+   "id": "travel",
+   "icon": "🧳",
+   "color": "#2ec4b6",
+   "ar": "السفر مع الأطفال",
+   "en": "Travel with kids",
+   "kw_ar": "مستلزمات سفر الاطفال",
+   "kw_en": "travel essentials for kids",
+   "guide": "need/travel",
+   "budgets": [
+    [
+     0,
+     100
+    ],
+    [
+     100,
+     400
+    ],
+    [
+     400,
+     0
+    ]
+   ],
+   "uses": [
+    {
+     "ar": "في الطائرة",
+     "en": "On the plane",
+     "kw_ar": "العاب سفر للاطفال",
+     "kw_en": "travel activities for kids airplane",
+     "tip_ar": "الألعاب الهادئة بدون قطع صغيرة أنسب للطائرة.",
+     "tip_en": "Quiet toys without small loose pieces work best on planes."
+    },
+    {
+     "ar": "التنقل والمشي",
+     "en": "Getting around",
+     "kw_ar": "عربية اطفال خفيفة للسفر",
+     "kw_en": "compact travel stroller cabin",
+     "tip_ar": "تأكد من مقاس العربية وهي مطوية وسياسة شركة الطيران.",
+     "tip_en": "Check the folded size and your airline's stroller policy."
+    },
+    {
+     "ar": "السيارة",
+     "en": "In the car",
+     "kw_ar": "مقعد سيارة اطفال سفر",
+     "kw_en": "travel car seat kids",
+     "tip_ar": "اختر المقعد حسب وزن الطفل وعمره المكتوب على المنتج.",
+     "tip_en": "Pick a car seat by the weight and age printed on the product."
+    },
+    {
+     "ar": "النوم في السفر",
+     "en": "Sleeping away",
+     "kw_ar": "سرير اطفال للسفر",
+     "kw_en": "travel crib portable",
+     "tip_ar": "السرير القابل للطي بحقيبة حمل يسهّل التنقل.",
+     "tip_en": "A foldable crib with a carry bag is easiest to travel with."
+    }
+   ]
+  },
+  {
+   "id": "mom",
+   "icon": "🤱",
+   "color": "#b07cf0",
+   "ar": "الأم والرضيع",
+   "en": "Mom & baby",
+   "kw_ar": "مستلزمات الرضع",
+   "kw_en": "baby essentials",
+   "guide": "need/mom",
+   "budgets": [
+    [
+     0,
+     150
+    ],
+    [
+     150,
+     500
+    ],
+    [
+     500,
+     0
+    ]
+   ],
+   "uses": [
+    {
+     "ar": "الرضاعة",
+     "en": "Feeding",
+     "kw_ar": "مضخة حليب",
+     "kw_en": "breast pump",
+     "tip_ar": "المضخات اللاسلكية أخف لكن غالباً أقل قوة من الكهربائية الكبيرة.",
+     "tip_en": "Wearable pumps are lighter but often less powerful than full electric ones."
+    },
+    {
+     "ar": "التعقيم",
+     "en": "Sterilizing",
+     "kw_ar": "جهاز تعقيم رضاعات",
+     "kw_en": "bottle sterilizer dryer",
+     "tip_ar": "الجهاز اللي يعقّم ويجفف معاً يوفّر وقتاً كثيراً.",
+     "tip_en": "A sterilizer that also dries saves a lot of time."
+    },
+    {
+     "ar": "المراقبة",
+     "en": "Monitoring",
+     "kw_ar": "كاميرا مراقبة اطفال",
+     "kw_en": "baby monitor camera",
+     "tip_ar": "قارن مدى الإشارة والرؤية الليلية في الوصف.",
+     "tip_en": "Compare range and night vision in the listing."
+    },
+    {
+     "ar": "الحمل والتنقل",
+     "en": "Carrying baby",
+     "kw_ar": "حمالة اطفال",
+     "kw_en": "baby carrier ergonomic",
+     "tip_ar": "الحمّالة اللي تدعم الورك والظهر أريح للطفل والأم.",
+     "tip_en": "Carriers that support hips and back are more comfortable for both."
+    }
+   ]
+  },
+  {
+   "id": "toys",
+   "icon": "🧸",
+   "color": "#ffb547",
+   "ar": "ألعاب تعليمية حسب العمر",
+   "en": "Learning toys by age",
+   "kw_ar": "العاب تعليمية للاطفال",
+   "kw_en": "educational toys kids",
+   "guide": null,
+   "budgets": [
+    [
+     0,
+     100
+    ],
+    [
+     100,
+     300
+    ],
+    [
+     300,
+     0
+    ]
+   ],
+   "uses": [
+    {
+     "ar": "0–1 سنة",
+     "en": "0–1 year",
+     "kw_ar": "العاب رضع حسية",
+     "kw_en": "baby sensory toys",
+     "tip_ar": "تأكد من الفئة العمرية المكتوبة على المنتج وخلوه من القطع الصغيرة.",
+     "tip_en": "Check the age rating and that there are no small parts."
+    },
+    {
+     "ar": "1–3 سنوات",
+     "en": "1–3 years",
+     "kw_ar": "العاب تعليمية اطفال سنتين",
+     "kw_en": "toddler learning toys",
+     "tip_ar": "ألعاب الأشكال والألوان والفرز تناسب هذا العمر.",
+     "tip_en": "Shape, colour and sorting toys suit this age."
+    },
+    {
+     "ar": "3–6 سنوات",
+     "en": "3–6 years",
+     "kw_ar": "العاب مونتيسوري",
+     "kw_en": "montessori toys age 3",
+     "tip_ar": "ألعاب التركيب والقصص التفاعلية تنمّي اللغة والتفكير.",
+     "tip_en": "Building toys and interactive stories build language and thinking."
+    },
+    {
+     "ar": "6–12 سنة",
+     "en": "6–12 years",
+     "kw_ar": "العاب علوم وتركيب للاطفال",
+     "kw_en": "stem kits for kids",
+     "tip_ar": "ألعاب العلوم والروبوتات البسيطة مناسبة لهذا العمر.",
+     "tip_en": "Science kits and simple robots suit this age."
+    }
+   ]
+  },
+  {
+   "id": "safety",
+   "icon": "🛡️",
+   "color": "#ef476f",
+   "ar": "سلامة الطفل في البيت",
+   "en": "Home safety",
+   "kw_ar": "ادوات سلامة الاطفال",
+   "kw_en": "baby proofing kit",
+   "guide": null,
+   "budgets": [
+    [
+     0,
+     50
+    ],
+    [
+     50,
+     200
+    ],
+    [
+     200,
+     0
+    ]
+   ],
+   "uses": [
+    {
+     "ar": "الأدراج والأفياش",
+     "en": "Drawers & sockets",
+     "kw_ar": "child safety locks",
+     "kw_en": "child safety locks cabinet",
+     "tip_ar": "اختر أقفالاً لاصقة إذا ما تبي تخرّم الأثاث.",
+     "tip_en": "Adhesive locks avoid drilling your furniture."
+    },
+    {
+     "ar": "الدرج والأبواب",
+     "en": "Stairs & doors",
+     "kw_ar": "بوابة امان للاطفال",
+     "kw_en": "baby safety gate",
+     "tip_ar": "قِس عرض المكان قبل الشراء.",
+     "tip_en": "Measure the opening before buying."
+    },
+    {
+     "ar": "زوايا الأثاث",
+     "en": "Furniture corners",
+     "kw_ar": "حماية زوايا الاثاث للاطفال",
+     "kw_en": "corner protectors baby",
+     "tip_ar": "الواقيات الشفافة ما تغيّر شكل الأثاث.",
+     "tip_en": "Clear guards keep furniture looking the same."
+    },
+    {
+     "ar": "قياس الحرارة",
+     "en": "Temperature checks",
+     "kw_ar": "ميزان حرارة اطفال",
+     "kw_en": "baby thermometer",
+     "tip_ar": "تأكد من طريقة القياس المناسبة لعمر طفلك حسب تعليمات المنتج.",
+     "tip_en": "Check which method suits your child's age in the product instructions."
+    }
+   ]
+  }
+ ]
 }

@@ -28,16 +28,12 @@ OUT = ROOT / "docs"
 SITE = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 
 CAT_STYLE = {
-    "kitchen": ("🍳", "#ff7a1a"),
-    "tech": ("📱", "#3b6cff"),
-    "beauty": ("✨", "#e2468f"),
-    "kids": ("🧸", "#12a594"),
-    "health": ("🩺", "#18a058"),
-    "digital": ("💻", "#7c4dff"),
-    "books": ("📚", "#b5651d"),
-    "sports": ("🏋️", "#e5383b"),
-    "travel": ("✈️", "#0096c7"),
-    "deals": ("🏷️", "#e8a400"),
+    "speech": ("🗣️", "#ff6f61"),
+    "focus": ("🎯", "#5b7cfa"),
+    "travel": ("🧳", "#2ec4b6"),
+    "mom": ("🤱", "#b07cf0"),
+    "toys": ("🧸", "#ffb547"),
+    "safety": ("🛡️", "#ef476f"),
 }
 
 L = {
@@ -45,22 +41,19 @@ L = {
         "dir": "rtl",
         "site_name": "قارن",
         "logo": "ق",
-        "tagline": "أدلة شراء ومقارنات عربية صادقة",
-        "categories": {
-            "kitchen": "المطبخ والمنزل", "tech": "جوالات ولابتوبات", "beauty": "الجمال والعطور",
-            "kids": "الأطفال والأم", "health": "الصحة وكبار السن", "digital": "اشتراكات ومنتجات رقمية",
-            "books": "الكتب والقراءة", "sports": "الرياضة واللياقة", "travel": "السفر", "deals": "العروض والمواسم",
-        },
+        "tagline": "كل ما تحتاجه الأم والطفل في مكان واحد",
+        "categories": {"speech": "النطق والكلام", "focus": "التركيز والتشتت", "travel": "السفر مع الأطفال",
+                       "mom": "الأم والرضيع", "toys": "ألعاب تعليمية", "safety": "سلامة الطفل"},
         "types": {"guide": "دليل شراء", "comparison": "مقارنة", "article": "مقال"},
         "cta": {"guide": "اعرض الدليل", "comparison": "قارن الآن", "article": "اقرأ المقال"},
         "arrow": "←",
-        "nav": [("", "الرئيسية"), ("guides/", "أدلة الشراء"), ("comparisons/", "مقارنات"), ("picks/", "اختيارات قارن"),
-                ("deals/", "العروض"), ("categories/", "الأقسام"), ("blog/", "المدونة"), ("search/", "بحث")],
+        "nav": [("", "الرئيسية"), ("need/speech/", "🗣️ النطق والكلام"), ("need/focus/", "🎯 التركيز"),
+                ("need/travel/", "🧳 السفر مع الأطفال"), ("need/mom/", "🤱 الأم والرضيع")],
         "empty": "أدلة هذا القسم قيد الإعداد وتُنشر قريباً.",
         "updated": "آخر تحديث",
         "disc": "ⓘ يحتوي على روابط عمولة لا تغيّر السعر عليك",
         "details": "التفاصيل",
-        "search_ph": "ابحث عن منتج أو دليل…",
+        "search_ph": "ابحث في أمازون عن منتج للطفل أو الأم…",
         "search": "بحث",
         "switch": "English",
         "footer_links": [("about/", "من نحن"), ("contact/", "تواصل معنا"), ("disclosure/", "الإفصاح عن العمولة"),
@@ -73,22 +66,19 @@ L = {
         "dir": "ltr",
         "site_name": "Qarin",
         "logo": "Q",
-        "tagline": "Honest buying guides and comparisons for Saudi shoppers",
-        "categories": {
-            "kitchen": "Kitchen & Home", "tech": "Phones & Laptops", "beauty": "Beauty & Fragrance",
-            "kids": "Baby & Kids", "health": "Health & Seniors", "digital": "Subscriptions & Digital",
-            "books": "Books & Reading", "sports": "Sports & Fitness", "travel": "Travel", "deals": "Deals & Seasons",
-        },
+        "tagline": "Everything mom and child need, in one place",
+        "categories": {"speech": "Speech & talking", "focus": "Focus & attention", "travel": "Travel with kids",
+                       "mom": "Mom & baby", "toys": "Learning toys", "safety": "Home safety"},
         "types": {"guide": "Buying guide", "comparison": "Comparison", "article": "Article"},
         "cta": {"guide": "Read the guide", "comparison": "Compare now", "article": "Read the article"},
         "arrow": "→",
-        "nav": [("", "Home"), ("guides/", "Buying guides"), ("comparisons/", "Comparisons"), ("picks/", "Qarin picks"),
-                ("deals/", "Deals"), ("categories/", "Categories"), ("blog/", "Blog"), ("search/", "Search")],
+        "nav": [("", "Home"), ("need/speech/", "🗣️ Speech"), ("need/focus/", "🎯 Focus"),
+                ("need/travel/", "🧳 Travel with kids"), ("need/mom/", "🤱 Mom & baby")],
         "empty": "Guides for this section are being prepared and will be published soon.",
         "updated": "Last updated",
         "disc": "ⓘ Contains affiliate links that don't change your price",
         "details": "Details",
-        "search_ph": "Search for a product or guide…",
+        "search_ph": "Search Amazon for kids & mom products…",
         "search": "Search",
         "switch": "العربية",
         "footer_links": [("about/", "About"), ("contact/", "Contact"), ("disclosure/", "Affiliate disclosure"),
@@ -196,7 +186,9 @@ def featured_cards(lang, lang_root):
             f'<div class="feat-body"><h3>{escape(name)}</h3><p>{escape(it["why_" + lang])}</p>'
             f'<div class="feat-actions"><a class="buy" href="{escape(url)}" target="_blank" rel="sponsored nofollow noopener" '
             f'data-goatcounter-click="amz-featured:{it["asin"]}" data-goatcounter-title="Featured: {escape(it["name_en"])}">{btn}</a>{guide}</div></div></div>')
-    return '<div class="feat-grid">' + "".join(out) + "</div>"
+    head = ('<div class="section-head"><h2>⭐ اختيارات الأسبوع</h2><small>منتجات مميزة للأم والطفل — تتجدد كل أسبوع</small></div>' if lang == "ar"
+            else '<div class="section-head"><h2>⭐ Picks of the week</h2><small>Standout mom & kids products — refreshed weekly</small></div>')
+    return '<section class="feat-box">' + head + '<div class="feat-grid">' + "".join(out) + "</div></section>"
 
 
 FINDER = json.loads((ROOT / "finder.json").read_text(encoding="utf-8")) if (ROOT / "finder.json").exists() else {"categories": []}
@@ -245,6 +237,33 @@ def price_browse(lang):
     return '<div class="pb">' + "".join(rows) + "</div>" + note
 
 
+MOMKID = json.loads((ROOT / "momkid.json").read_text(encoding="utf-8")) if (ROOT / "momkid.json").exists() else {"groups": []}
+
+
+def momkid_block(lang, only=None):
+    """Mom & child section: grouped tiles, each a review-sorted Amazon.sa search."""
+    tag = SITE.get("amazon_sa_tag", "")
+    out = []
+    for g in MOMKID.get("groups", []):
+        if only and g["id"] != only:
+            continue
+        tiles = []
+        for it in g["items"]:
+            kw = it["kw_ar"] if lang == "ar" else it["kw_en"]
+            url = "https://www.amazon.sa/s?k=" + quote_plus(kw) + "&s=review-rank" + (("&tag=" + quote_plus(tag)) if tag else "")
+            tiles.append(f'<a class="mk-tile" href="{escape(url)}" target="_blank" rel="sponsored nofollow noopener" '
+                         f'data-goatcounter-click="amz-momkid:{g["id"]}:{escape(it["en"])}" data-goatcounter-title="Mom&Kid {escape(it["en"])}">'
+                         f'<span class="mk-ic">{it["icon"]}</span><b>{escape(it[lang])}</b></a>')
+        out.append(f'<div class="mk-group" id="mk-{g["id"]}" style="--c:{g["color"]}"><div class="mk-head"><span class="mk-gic">{g["icon"]}</span>'
+                   f'<div><h3>{escape(g[lang])}</h3><small>{escape(g["sub_" + lang])}</small></div></div>'
+                   f'<div class="mk-tiles">{"".join(tiles)}</div></div>')
+    note = ("ℹ️ هذه أدوات مساعدة للتدريب والتنظيم في البيت وليست علاجاً. إذا تأخر الكلام أو استمر التشتت، استشر أخصائي نطق أو طبيب أطفال."
+            if lang == "ar" else
+            "ℹ️ These are at-home practice and routine aids, not treatment. If speech is delayed or attention problems persist, see a speech therapist or paediatrician.")
+    show_note = only in (None, "speech", "focus")
+    return '<div class="mk">' + "".join(out) + '</div>' + (f'<p class="mk-note">{note}</p>' if show_note and not only else '')
+
+
 def guide_cards(pages, lang, category, depth, ctype=None, limit=None):
     t = L[lang]
     items = [p for p in pages if p["lang"] == lang and p.get("type") in CONTENT_TYPES
@@ -284,6 +303,8 @@ def render(page, pages, index):
     body = body.replace("[[shop]]", shop_tiles(lang))
     body = body.replace("[[finder]]", finder_block(lang, lang_root, depth))
     body = body.replace("[[pricebrowse]]", price_browse(lang))
+    body = body.replace("[[momkid]]", momkid_block(lang))
+    body = re.sub(r"\[\[momkid:(\w+)\]\]", lambda m: momkid_block(lang, m.group(1)), body)
     body = body.replace("[[featured]]", featured_cards(lang, lang_root))
     body = re.sub(r"\[\[latest:(\d+)\]\]", lambda m: guide_cards(pages, lang, "all", depth, limit=int(m.group(1))), body)
     body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(1), depth), body)
@@ -336,10 +357,7 @@ def render(page, pages, index):
                   "logo": base + "assets/favicon.svg"}]
         if page["slug"] == "":
             graph.append({"@type": "WebSite", "name": t["site_name"], "url": home_url, "inLanguage": lang,
-                          "publisher": {"@id": base + "#org"},
-                          "potentialAction": {"@type": "SearchAction",
-                                              "target": home_url + "search/?q={search_term_string}",
-                                              "query-input": "required name=search_term_string"}})
+                          "publisher": {"@id": base + "#org"}})
         if page.get("type") in CONTENT_TYPES:
             graph.append({"@type": "Article", "headline": page["title"], "description": page["description"],
                           "inLanguage": lang, "datePublished": page.get("date"), "dateModified": page.get("date"),
@@ -356,7 +374,7 @@ def render(page, pages, index):
                        "</script>\n")
     head_links += f'<link rel="icon" href="{rel(depth, "assets/favicon.svg")}" type="image/svg+xml">\n'
 
-    font_css = ("IBM+Plex+Sans+Arabic:wght@400;500;600;700" if lang == "ar" else "Inter:wght@400;500;600;700;800")
+    font_css = ("Baloo+Bhaijaan+2:wght@500;600;700;800&family=Tajawal:wght@400;500;700" if lang == "ar" else "Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700")
     footer_links = " · ".join(f'<a href="{lang_root}{h}">{escape(lbl)}</a>' for h, lbl in t["footer_links"])
 
     return f"""<!doctype html>
@@ -375,9 +393,10 @@ def render(page, pages, index):
 <body class="lang-{lang}">
 <header class="site-header">
   <div class="wrap topbar">
-    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'Qarin' if lang == 'ar' else 'قارن'} · {'قارن قبل ما تشتري' if lang == 'ar' else 'Compare before you buy'}</span></span></a>
-    <form class="top-search" action="{lang_root}search/" role="search">
-      <input name="q" type="search" placeholder="{escape(t['search_ph'])}" aria-label="{escape(t['search'])}">
+    <a class="brand" href="{lang_root}" aria-label="{escape(t['site_name'])}"><img class="brand-mark" src="{rel(depth, 'assets/logo-mark.svg')}" alt="" width="40" height="40"><span class="brand-text"><span class="brand-name">{escape(t['site_name'])}</span><span class="brand-sub">{'Qarin' if lang == 'ar' else 'قارن'} · {'للأم والطفل' if lang == 'ar' else 'Mom & Kids'}</span></span></a>
+    <form class="top-search" action="https://www.amazon.sa/s" method="get" target="_blank" role="search" data-goatcounter-click="amz-search">
+      <input name="k" type="search" placeholder="{escape(t['search_ph'])}" aria-label="{escape(t['search'])}" required>
+      <input type="hidden" name="tag" value="{escape(SITE.get('amazon_sa_tag', ''))}">
       <button type="submit" aria-label="{escape(t['search'])}">🔍</button>
     </form>
     <a class="lang-switch" href="{switch_href}" hreflang="{other}" lang="{other}">🌐 {t['switch']}</a>

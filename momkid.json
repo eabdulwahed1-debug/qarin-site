@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "id": "speech", "icon": "🗣️", "color": "#e85d75",
+      "ar": "مساعدة النطق والكلام", "en": "Speech & talking practice",
+      "sub_ar": "أدوات تدريب في البيت تساعد الطفل على الكلام", "sub_en": "At-home practice tools that help children talk",
+      "items": [
+        {"icon": "🃏", "ar": "بطاقات الكلام المصورة", "en": "Picture flash cards", "kw_ar": "بطاقات تعليمية للاطفال عربي انجليزي", "kw_en": "talking flash cards kids"},
+        {"icon": "🖊️", "ar": "القلم الناطق", "en": "Talking reading pen", "kw_ar": "قلم ناطق للاطفال", "kw_en": "talking pen kids learning"},
+        {"icon": "📞", "ar": "سماعة سماع الصوت", "en": "Whisper phone", "kw_ar": "whisper phone speech", "kw_en": "whisper phone speech therapy"},
+        {"icon": "🫧", "ar": "ألعاب النفخ لعضلات الفم", "en": "Oral-motor blow toys", "kw_ar": "oral motor whistle kids speech", "kw_en": "oral motor whistle kids speech therapy"},
+        {"icon": "🧤", "ar": "دمى اليد للحكايات", "en": "Hand puppets", "kw_ar": "دمى يد للاطفال", "kw_en": "hand puppets kids"},
+        {"icon": "📚", "ar": "كتب صوتية تفاعلية", "en": "Interactive sound books", "kw_ar": "كتاب صوتي تفاعلي للاطفال", "kw_en": "interactive sound book toddlers"}
+      ]
+    },
+    {
+      "id": "focus", "icon": "🎯", "color": "#3b6cff",
+      "ar": "التركيز وتقليل التشتت", "en": "Focus & calm",
+      "sub_ar": "أدوات تنظّم وقت الطفل وتساعده يركّز", "sub_en": "Tools that structure the day and help children focus",
+      "items": [
+        {"icon": "⏳", "ar": "المؤقت البصري", "en": "Visual timer", "kw_ar": "visual timer kids", "kw_en": "visual timer kids"},
+        {"icon": "🗓️", "ar": "لوحة الروتين اليومي المصورة", "en": "Visual daily routine chart", "kw_ar": "لوحة روتين يومي للاطفال", "kw_en": "visual schedule chart kids"},
+        {"icon": "🌀", "ar": "ألعاب حسية وتهدئة", "en": "Sensory fidget toys", "kw_ar": "العاب حسية للاطفال", "kw_en": "sensory fidget toys kids"},
+        {"icon": "🧩", "ar": "ألغاز وتركيب حسب العمر", "en": "Age-graded puzzles", "kw_ar": "العاب تركيب وذكاء للاطفال", "kw_en": "puzzles for kids by age"},
+        {"icon": "🪑", "ar": "وسادة الجلوس المتحركة", "en": "Wobble seat cushion", "kw_ar": "wobble cushion kids", "kw_en": "wobble cushion kids"},
+        {"icon": "🎧", "ar": "سماعات عزل الضوضاء للأطفال", "en": "Kids' noise-cancelling earmuffs", "kw_ar": "سماعات عزل الصوت للاطفال", "kw_en": "kids noise cancelling earmuffs"}
+      ]
+    },
+    {
+      "id": "travel", "icon": "🧳", "color": "#16a085",
+      "ar": "تسهيل السفر مع الأطفال", "en": "Easier travel with kids",
+      "sub_ar": "مستلزمات تخلّي الرحلة أهدى للطفل والأهل", "sub_en": "Gear that makes trips calmer for kids and parents",
+      "items": [
+        {"icon": "👶", "ar": "عربية خفيفة تنطوي للطائرة", "en": "Compact travel stroller", "kw_ar": "عربية اطفال خفيفة للسفر", "kw_en": "compact travel stroller cabin"},
+        {"icon": "🚗", "ar": "مقعد سيارة للسفر", "en": "Travel car seat", "kw_ar": "مقعد سيارة اطفال سفر", "kw_en": "travel car seat kids"},
+        {"icon": "🎒", "ar": "شنطة ظهر للحفاضات", "en": "Diaper backpack", "kw_ar": "شنطة حفاضات ظهر", "kw_en": "diaper bag backpack"},
+        {"icon": "🎨", "ar": "ألعاب سفر هادئة", "en": "Quiet travel activities", "kw_ar": "العاب سفر للاطفال", "kw_en": "travel activities for kids airplane"},
+        {"icon": "🎧", "ar": "سماعات أطفال بصوت محدود", "en": "Volume-limited kids headphones", "kw_ar": "سماعات اطفال", "kw_en": "volume limited kids headphones"},
+        {"icon": "📱", "ar": "حافظة تابلت للأطفال", "en": "Kid-proof tablet case", "kw_ar": "كفر ايباد للاطفال", "kw_en": "kids tablet case shockproof"}
+      ]
+    },
+    {
+      "id": "mom", "icon": "🤱", "color": "#9b59b6",
+      "ar": "مستلزمات الأم والرضيع", "en": "Mom & baby essentials",
+      "sub_ar": "أجهزة توفّر وقت الأم وجهدها", "sub_en": "Devices that save mom time and effort",
+      "items": [
+        {"icon": "🍼", "ar": "مضخة حليب لاسلكية", "en": "Wearable breast pump", "kw_ar": "مضخة حليب لاسلكية", "kw_en": "wearable breast pump"},
+        {"icon": "♨️", "ar": "معقّم ومجفف الرضّاعات", "en": "Bottle sterilizer & dryer", "kw_ar": "جهاز تعقيم رضاعات", "kw_en": "bottle sterilizer dryer"},
+        {"icon": "📹", "ar": "شاشة مراقبة الطفل", "en": "Baby monitor", "kw_ar": "كاميرا مراقبة اطفال", "kw_en": "baby monitor camera"},
+        {"icon": "🫶", "ar": "حامل أطفال", "en": "Baby carrier", "kw_ar": "حمالة اطفال", "kw_en": "baby carrier ergonomic"},
+        {"icon": "🌡️", "ar": "مدفأة الحليب", "en": "Bottle warmer", "kw_ar": "جهاز تدفئة الحليب", "kw_en": "bottle warmer"},
+        {"icon": "🛏️", "ar": "سرير سفر للطفل", "en": "Travel crib", "kw_ar": "سرير اطفال للسفر", "kw_en": "travel crib portable"}
+      ]
+    }
+  ]
+}
