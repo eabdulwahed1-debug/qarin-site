@@ -54,7 +54,7 @@ L = {
         "updated": "آخر تحديث",
         "disc": "ⓘ يحتوي على روابط عمولة لا تغيّر السعر عليك",
         "details": "التفاصيل",
-        "search_ph": "ابحث في أمازون عن منتج للطفل أو الأم…",
+        "search_ph": "ابحث أو اسأل… مثال: قلم ناطق، طفلي 3 سنوات",
         "search": "بحث",
         "switch": "English",
         "footer_links": [("about/", "من نحن"), ("contact/", "تواصل معنا"), ("disclosure/", "الإفصاح عن العمولة"),
@@ -80,7 +80,7 @@ L = {
         "updated": "Last updated",
         "disc": "ⓘ Contains affiliate links that don't change your price",
         "details": "Details",
-        "search_ph": "Search Amazon for kids & mom products…",
+        "search_ph": "Search or ask… e.g. talking pen, my son is 3",
         "search": "Search",
         "switch": "العربية",
         "footer_links": [("about/", "About"), ("contact/", "Contact"), ("disclosure/", "Affiliate disclosure"),
@@ -432,8 +432,9 @@ def render(page, pages, index):
                        f'<meta property="og:title" content="{escape(page["title"])}">\n'
                        f'<meta property="og:description" content="{escape(page["description"])}">\n'
                        f'<meta property="og:url" content="{escape(page_url)}">\n'
-                       f'<meta property="og:locale" content="{"ar_SA" if lang == "ar" else "en_US"}">\n'
-                       f'<meta property="og:image" content="{SITE["base_url"].rstrip("/")}/assets/og-image.png">\n'
+                       f'<meta property="og:locale" content="{"ar_SA" if lang == "ar" else "en_US"}">\n' +
+                       (f'<meta property="og:image" content="{escape(unsplash(_g["photo"], 1200, 630))}">\n' if (_g := next((g for g in MOMKID.get("groups", []) if g["id"] == page.get("category")), None)) and _g.get("photo")
+                        else f'<meta property="og:image" content="{SITE["base_url"].rstrip("/")}/assets/og-image.png">\n') +
                        f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">\n'
                        f'<meta name="twitter:card" content="summary_large_image">\n')
         # JSON-LD structured data
@@ -444,6 +445,11 @@ def render(page, pages, index):
         if page["slug"] == "":
             graph.append({"@type": "WebSite", "name": t["site_name"], "url": home_url, "inLanguage": lang,
                           "publisher": {"@id": base + "#org"}})
+        _grp = next((g for g in MOMKID.get("groups", []) if g["id"] == page.get("category")), None)
+        if _grp and page["slug"].startswith("need/"):
+            graph.append({"@type": "CollectionPage", "name": page["title"], "url": page_url, "inLanguage": lang,
+                          "mainEntity": {"@type": "ItemList", "itemListElement": [
+                              {"@type": "ListItem", "position": i + 1, "name": it[lang]} for i, it in enumerate(_grp["items"])]}})
         if page.get("type") in CONTENT_TYPES:
             graph.append({"@type": "Article", "headline": page["title"], "description": page["description"],
                           "inLanguage": lang, "datePublished": page.get("date"), "dateModified": page.get("date"),
@@ -460,7 +466,7 @@ def render(page, pages, index):
                        "</script>\n")
     head_links += f'<link rel="icon" href="{rel(depth, "assets/favicon.svg")}" type="image/svg+xml">\n'
 
-    font_css = ("Baloo+Bhaijaan+2:wght@500;600;700;800&family=Tajawal:wght@400;500;700" if lang == "ar" else "Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700")
+    font_css = "Readex+Pro:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700"
     footer_links = " · ".join(f'<a href="{lang_root}{h}">{escape(lbl)}</a>' for h, lbl in t["footer_links"])
 
     return f"""<!doctype html>
@@ -504,6 +510,8 @@ def render(page, pages, index):
     <p class="muted">© {SITE['year']} {escape(t['site_name'])}. {escape(t['price_note'])}</p>
   </div>
 </footer>
+<script>window.KH_ROOT={json.dumps(rel(depth, ""))};window.KH_TAG={json.dumps(SITE.get("amazon_sa_tag", ""))};</script>
+<script src="{rel(depth, 'assets/agent.js')}" defer></script>
 </body>
 </html>
 """
@@ -528,6 +536,12 @@ def main():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(render(page, pages, index), encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
+    # catalog for the on-site assistant and instant search
+    cat = {"groups": [{"id": g["id"], "ar": g["ar"], "en": g["en"], "tags": g.get("tags", ""),
+                       "items": [{"ar": it["ar"], "en": it["en"], "kw_ar": it["kw_ar"], "kw_en": it["kw_en"],
+                                  "tags": it.get("tags", ""), "img": unsplash(it["photo"], 240, 180) if it.get("photo") else ""}
+                                 for it in g["items"]]} for g in MOMKID.get("groups", [])]}
+    (OUT / "assets" / "catalog.json").write_text(json.dumps(cat, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     if SITE.get("base_url"):
         base = SITE["base_url"].rstrip("/") + "/"

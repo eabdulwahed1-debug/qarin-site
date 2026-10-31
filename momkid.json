@@ -15,7 +15,8 @@
      "en": "Picture flash cards",
      "kw_ar": "بطاقات تعليمية للاطفال عربي انجليزي",
      "kw_en": "talking flash cards kids",
-     "photo": "photo-1785780224428-7b690d3d58bd"
+     "photo": "photo-1785780224428-7b690d3d58bd",
+     "tags": "بطاقات صور flash cards"
     },
     {
      "icon": "🖊️",
@@ -23,7 +24,8 @@
      "en": "Talking reading pen",
      "kw_ar": "قلم ناطق للاطفال",
      "kw_en": "talking pen kids learning",
-     "photo": "photo-1610552254576-9500a3e99999"
+     "photo": "photo-1610552254576-9500a3e99999",
+     "tags": "قلم ناطق pen"
     },
     {
      "icon": "📞",
@@ -31,7 +33,8 @@
      "en": "Whisper phone",
      "kw_ar": "whisper phone speech",
      "kw_en": "whisper phone speech therapy",
-     "photo": "photo-1758024375456-014f504e88d2"
+     "photo": "photo-1758024375456-014f504e88d2",
+     "tags": "سماعة صوت phone whisper"
     },
     {
      "icon": "🫧",
@@ -39,7 +42,8 @@
      "en": "Oral-motor blow toys",
      "kw_ar": "oral motor whistle kids speech",
      "kw_en": "oral motor whistle kids speech therapy",
-     "photo": "photo-1440288736878-766bd5839edb"
+     "photo": "photo-1440288736878-766bd5839edb",
+     "tags": "نفخ فقاعات صفارة عضلات الفم bubbles blow"
     },
     {
      "icon": "🧤",
@@ -47,7 +51,8 @@
      "en": "Hand puppets",
      "kw_ar": "دمى يد للاطفال",
      "kw_en": "hand puppets kids",
-     "photo": "photo-1574348996587-27da2f36ec46"
+     "photo": "photo-1574348996587-27da2f36ec46",
+     "tags": "دمى عرائس puppet"
     },
     {
      "icon": "📚",
@@ -55,10 +60,12 @@
      "en": "Interactive sound books",
      "kw_ar": "كتاب صوتي تفاعلي للاطفال",
      "kw_en": "interactive sound book toddlers",
-     "photo": "photo-1573222558254-add137b2ac03"
+     "photo": "photo-1573222558254-add137b2ac03",
+     "tags": "كتاب كتب قصص قصة صوتية book books story"
     }
    ],
-   "photo": "photo-1758598738003-3c2ea5c8b166"
+   "photo": "photo-1758598738003-3c2ea5c8b166",
+   "tags": "كلام نطق يتكلم الكلام حروف كلمات تأخر لغة مخارج تخاطب talk talking speech words language speak يتكلم ماتكلم تكلم ينطق نطقه كلامه تخاطب"
   },
   {
    "id": "focus",
@@ -75,7 +82,8 @@
      "en": "Visual timer",
      "kw_ar": "visual timer kids",
      "kw_en": "visual timer kids",
-     "photo": "photo-1499377193864-82682aefed04"
+     "photo": "photo-1499377193864-82682aefed04",
+     "tags": "مؤقت ساعة وقت timer"
     },
     {
      "icon": "🗓️",
@@ -83,7 +91,8 @@
      "en": "Visual daily routine chart",
      "kw_ar": "لوحة روتين يومي للاطفال",
      "kw_en": "visual schedule chart kids",
-     "photo": "photo-1676276375581-da33fe6d1c8b"
+     "photo": "photo-1676276375581-da33fe6d1c8b",
+     "tags": "روتين جدول schedule chart routine"
     },
     {
      "icon": "🌀",
@@ -91,7 +100,8 @@
      "en": "Sensory fidget toys",
      "kw_ar": "العاب حسية للاطفال",
      "kw_en": "sensory fidget toys kids",
-     "photo": "photo-1514435542839-ed9380d2e9f6"
+     "photo": "photo-1514435542839-ed9380d2e9f6",
+     "tags": "حسية توتر سبينر fidget sensory"
     },
     {
      "icon": "🧩",
@@ -99,7 +109,8 @@
      "en": "Age-graded puzzles",
      "kw_ar": "العاب تركيب وذكاء للاطفال",
      "kw_en": "puzzles for kids by age",
-     "photo": "photo-1759678444821-565ff103465c"
+     "photo": "photo-1759678444821-565ff103465c",
+     "tags": "ألغاز بزل puzzle"
     },
     {
      "icon": "🪑",
@@ -107,7 +118,8 @@
      "en": "Wobble seat cushion",
      "kw_ar": "wobble cushion kids",
      "kw_en": "wobble cushion kids",
-     "photo": "photo-1758525862357-27fb39545240"
+     "photo": "photo-1758525862357-27fb39545240",
+     "tags": "وسادة جلوس كرسي يتحرك cushion wobble seat"
     },
     {
      "icon": "🎧",
@@ -115,10 +127,12 @@
      "en": "Kids' noise-cancelling earmuffs",
      "kw_ar": "سماعات عزل الصوت للاطفال",
      "kw_en": "kids noise cancelling earmuffs",
-     "photo": "photo-1740995384593-3ad31accf950"
+     "photo": "photo-1740995384593-3ad31accf950",
+     "tags": "ضوضاء إزعاج ازعاج أصوات سماعات عزل noise earmuffs"
     }
    ],
-   "photo": "photo-1758612898701-e2f2958f219d"
+   "photo": "photo-1758612898701-e2f2958f219d",
+   "tags": "تركيز تشتت انتباه فرط حركة يذاكر مذاكرة هدوء تنظيم روتين يركز focus attention adhd calm homework hyperactive يتشتت مشتت تشتته ينتبه حركته"
   },
   {
    "id": "travel",
@@ -135,7 +149,8 @@
      "en": "Compact travel stroller",
      "kw_ar": "عربية اطفال خفيفة للسفر",
      "kw_en": "compact travel stroller cabin",
-     "photo": "photo-1636384919179-d936e55c5cca"
+     "photo": "photo-1636384919179-d936e55c5cca",
+     "tags": "عربية عربانة stroller pram"
     },
     {
      "icon": "🚗",
@@ -143,7 +158,8 @@
      "en": "Travel car seat",
      "kw_ar": "مقعد سيارة اطفال سفر",
      "kw_en": "travel car seat kids",
-     "photo": "photo-1516309229383-2001fee59b2b"
+     "photo": "photo-1516309229383-2001fee59b2b",
+     "tags": "كرسي مقعد سيارة car seat"
     },
     {
      "icon": "🎒",
@@ -151,7 +167,8 @@
      "en": "Diaper backpack",
      "kw_ar": "شنطة حفاضات ظهر",
      "kw_en": "diaper bag backpack",
-     "photo": "photo-1595174194121-4f2ea5615e91"
+     "photo": "photo-1595174194121-4f2ea5615e91",
+     "tags": "شنطة حقيبة حفاضات bag diaper"
     },
     {
      "icon": "🎨",
@@ -159,7 +176,8 @@
      "en": "Quiet travel activities",
      "kw_ar": "العاب سفر للاطفال",
      "kw_en": "travel activities for kids airplane",
-     "photo": "photo-1617117206620-b01f2919ff86"
+     "photo": "photo-1617117206620-b01f2919ff86",
+     "tags": "تسلية تلوين ألعاب سفر activities coloring"
     },
     {
      "icon": "🎧",
@@ -167,7 +185,8 @@
      "en": "Volume-limited kids headphones",
      "kw_ar": "سماعات اطفال",
      "kw_en": "volume limited kids headphones",
-     "photo": "photo-1723035092325-03ad613d3dae"
+     "photo": "photo-1723035092325-03ad613d3dae",
+     "tags": "سماعات headphones"
     },
     {
      "icon": "📱",
@@ -175,10 +194,12 @@
      "en": "Kid-proof tablet case",
      "kw_ar": "كفر ايباد للاطفال",
      "kw_en": "kids tablet case shockproof",
-     "photo": "photo-1495654794940-1c0cd2aeedc1"
+     "photo": "photo-1495654794940-1c0cd2aeedc1",
+     "tags": "ايباد آيباد تابلت جهاز tablet ipad case"
     }
    ],
-   "photo": "photo-1590008411086-6efbbf3e2cbf"
+   "photo": "photo-1590008411086-6efbbf3e2cbf",
+   "tags": "سفر مسافر طيارة طائرة رحلة مطار سياحة اجازة إجازة travel trip flight airport plane vacation holiday نسافر بنسافر سافر نسافر مسافرين طيران الطياره رحله رحلات"
   },
   {
    "id": "mom",
@@ -195,7 +216,8 @@
      "en": "Wearable breast pump",
      "kw_ar": "مضخة حليب لاسلكية",
      "kw_en": "wearable breast pump",
-     "photo": "photo-1567073931033-07972e6081bd"
+     "photo": "photo-1567073931033-07972e6081bd",
+     "tags": "مضخة شفاط pump"
     },
     {
      "icon": "♨️",
@@ -203,7 +225,8 @@
      "en": "Bottle sterilizer & dryer",
      "kw_ar": "جهاز تعقيم رضاعات",
      "kw_en": "bottle sterilizer dryer",
-     "photo": "photo-1623707430616-d9f956bcac2b"
+     "photo": "photo-1623707430616-d9f956bcac2b",
+     "tags": "تعقيم معقم sterilizer"
     },
     {
      "icon": "📹",
@@ -211,7 +234,8 @@
      "en": "Baby monitor",
      "kw_ar": "كاميرا مراقبة اطفال",
      "kw_en": "baby monitor camera",
-     "photo": "photo-1496458857386-d2388f1c03e8"
+     "photo": "photo-1496458857386-d2388f1c03e8",
+     "tags": "مراقبة كاميرا monitor camera"
     },
     {
      "icon": "🫶",
@@ -219,7 +243,8 @@
      "en": "Baby carrier",
      "kw_ar": "حمالة اطفال",
      "kw_en": "baby carrier ergonomic",
-     "photo": "photo-1685633224499-dd3759500e8f"
+     "photo": "photo-1685633224499-dd3759500e8f",
+     "tags": "حمالة حامل carrier sling"
     },
     {
      "icon": "🌡️",
@@ -227,7 +252,8 @@
      "en": "Bottle warmer",
      "kw_ar": "جهاز تدفئة الحليب",
      "kw_en": "bottle warmer",
-     "photo": "photo-1529567054786-fc5235fdd39e"
+     "photo": "photo-1529567054786-fc5235fdd39e",
+     "tags": "تدفئة تسخين دفاية warmer"
     },
     {
      "icon": "🛏️",
@@ -235,10 +261,12 @@
      "en": "Travel crib",
      "kw_ar": "سرير اطفال للسفر",
      "kw_en": "travel crib portable",
-     "photo": "photo-1458731909820-5850bdcaee0b"
+     "photo": "photo-1458731909820-5850bdcaee0b",
+     "tags": "سرير مهد crib bassinet"
     }
    ],
-   "photo": "photo-1773243086564-a444f7d8a61b"
+   "photo": "photo-1773243086564-a444f7d8a61b",
+   "tags": "ام أم الأم رضيع رضاعة حليب مولود حديث ولادة حامل نفاس mom mother baby newborn feeding breastfeeding infant"
   },
   {
    "id": "toys",
@@ -255,7 +283,8 @@
      "en": "Sensory baby toys (0–1)",
      "kw_ar": "العاب رضع حسية",
      "kw_en": "baby sensory toys",
-     "photo": "photo-1515488042361-ee00e0ddd4e4"
+     "photo": "photo-1515488042361-ee00e0ddd4e4",
+     "tags": "رضع حسية baby sensory"
     },
     {
      "icon": "🔷",
@@ -263,7 +292,8 @@
      "en": "Shapes & colours (1–3)",
      "kw_ar": "العاب الاشكال والالوان للاطفال",
      "kw_en": "toddler shape sorter toys",
-     "photo": "photo-1774464593838-85b320eb7453"
+     "photo": "photo-1774464593838-85b320eb7453",
+     "tags": "أشكال ألوان فرز shapes colours sorter"
     },
     {
      "icon": "🪵",
@@ -271,7 +301,8 @@
      "en": "Montessori toys (2–5)",
      "kw_ar": "العاب مونتيسوري",
      "kw_en": "montessori toys toddlers",
-     "photo": "photo-1685358262919-4694aab99015"
+     "photo": "photo-1685358262919-4694aab99015",
+     "tags": "مونتيسوري montessori"
     },
     {
      "icon": "🧱",
@@ -279,7 +310,8 @@
      "en": "Building blocks (3–8)",
      "kw_ar": "مكعبات تركيب للاطفال",
      "kw_en": "building blocks kids",
-     "photo": "photo-1575364289437-fb1479d52732"
+     "photo": "photo-1575364289437-fb1479d52732",
+     "tags": "مكعبات ليغو تركيب blocks lego"
     },
     {
      "icon": "🔬",
@@ -287,7 +319,8 @@
      "en": "Science kits (6–12)",
      "kw_ar": "العاب علوم للاطفال",
      "kw_en": "science kits for kids",
-     "photo": "photo-1758685734153-132c8620c1bd"
+     "photo": "photo-1758685734153-132c8620c1bd",
+     "tags": "علوم تجارب science kit"
     },
     {
      "icon": "🤖",
@@ -295,10 +328,12 @@
      "en": "Coding robots (8–12)",
      "kw_ar": "روبوت برمجة للاطفال",
      "kw_en": "coding robot for kids",
-     "photo": "photo-1527430253228-e93688616381"
+     "photo": "photo-1527430253228-e93688616381",
+     "tags": "روبوت برمجة robot coding"
     }
    ],
-   "photo": "photo-1685358268305-c621b38e75d8"
+   "photo": "photo-1685358268305-c621b38e75d8",
+   "tags": "لعبة ألعاب العاب تعليمية هدية هدايا لعب ذكاء toy toys gift play learning educational هديه لعبه العاب"
   },
   {
    "id": "safety",
@@ -315,7 +350,8 @@
      "en": "Cabinet & drawer locks",
      "kw_ar": "اقفال ادراج للاطفال",
      "kw_en": "child safety cabinet locks",
-     "photo": "photo-1676907228185-6869277a9f8f"
+     "photo": "photo-1676907228185-6869277a9f8f",
+     "tags": "أدراج خزانة قفل أقفال drawer cabinet lock"
     },
     {
      "icon": "🔌",
@@ -323,7 +359,8 @@
      "en": "Socket covers",
      "kw_ar": "اغطية افياش الكهرباء للاطفال",
      "kw_en": "outlet covers baby proofing",
-     "photo": "photo-1565049981953-379c9c2a5d48"
+     "photo": "photo-1565049981953-379c9c2a5d48",
+     "tags": "فيش أفياش كهرباء socket outlet"
     },
     {
      "icon": "🚧",
@@ -331,7 +368,8 @@
      "en": "Stair & door gates",
      "kw_ar": "بوابة امان للاطفال",
      "kw_en": "baby safety gate",
-     "photo": "photo-1775480772338-0743c8cf4b62"
+     "photo": "photo-1775480772338-0743c8cf4b62",
+     "tags": "بوابة درج stairs gate"
     },
     {
      "icon": "📐",
@@ -339,7 +377,8 @@
      "en": "Furniture corner guards",
      "kw_ar": "حماية زوايا الاثاث للاطفال",
      "kw_en": "corner protectors baby",
-     "photo": "photo-1581297756481-dc9be2ad5583"
+     "photo": "photo-1581297756481-dc9be2ad5583",
+     "tags": "زوايا طاولة corner guard"
     },
     {
      "icon": "🌡️",
@@ -347,7 +386,8 @@
      "en": "Kids' thermometer",
      "kw_ar": "ميزان حرارة اطفال",
      "kw_en": "baby thermometer",
-     "photo": "photo-1583947581879-41e4c88394c3"
+     "photo": "photo-1583947581879-41e4c88394c3",
+     "tags": "حرارة حمى ميزان thermometer fever"
     },
     {
      "icon": "🛁",
@@ -355,10 +395,12 @@
      "en": "Safe bath essentials",
      "kw_ar": "مستلزمات استحمام الاطفال",
      "kw_en": "baby bath safety",
-     "photo": "photo-1759408174159-eef292e8e2f0"
+     "photo": "photo-1759408174159-eef292e8e2f0",
+     "tags": "استحمام حمام بانيو bath"
     }
    ],
-   "photo": "photo-1508883006770-5e013e5e6f73"
+   "photo": "photo-1508883006770-5e013e5e6f73",
+   "tags": "سلامة حماية آمن امان أمان خطر حوادث safety safe protect childproof babyproof احمي نحمي حمايه"
   }
  ],
  "hero": "photo-1589169011402-8b2cbd1ee593",
