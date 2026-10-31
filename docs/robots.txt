@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eabdulwahed1-debug.github.io/qarin-site/sitemap.xml

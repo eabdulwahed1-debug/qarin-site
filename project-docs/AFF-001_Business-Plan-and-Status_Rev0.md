@@ -19,7 +19,7 @@
 | GitHub repo `eabdulwahed1-debug/qarin-site` | CONNECTED | — |
 | GitHub Pages hosting | CONNECTED | Live at https://eabdulwahed1-debug.github.io/qarin-site/ |
 | Domain | REQUIRES HUMAN ACTION | Purchase domain and send the name |
-| Amazon.sa Associates | CONNECTED (provisional) | Tag qarinsa-21 live site-wide. Must refer qualifying sales within 180 days of 2026-10-31. Payment and tax info pending (owner). |
+| Amazon.sa Associates | CONNECTED (provisional) | Tag qarinsa-21 live site-wide. Must refer qualifying sales within 180 days of 2026-10-31. Bank account linked by owner (2026-10-31). |
 | Boostiny (ArabyAds) | PENDING | Paused at step 3/5 — needs live site URL |
 | ArabClicks | REQUIRES HUMAN ACTION | Signup via WhatsApp / info@arabclicks.com (message drafted) |
 | Canva / Fiverr / PartnerStack | NOT STARTED | Register after site is live |
@@ -34,5 +34,5 @@ Plus: 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs came
 ## 4. Next actions
 1. Owner: buy domain.
 2. Claude: set `base_url`, sitemap; add model comparison tables with verified prices.
-3. Owner: complete Amazon payment and tax info.
+3. Owner: verify site in Google Search Console.
 4. Claude: weekly scheduled content + link/price refresh + monthly report.
