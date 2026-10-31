@@ -241,6 +241,43 @@ def render(page, pages, index):
         if ar_page:
             head_links += f'<link rel="alternate" hreflang="x-default" href="{escape(base + url_path(ar_page["out"]))}">\n'
 
+    # Open Graph / social cards
+    if SITE.get("base_url"):
+        page_url = SITE["base_url"].rstrip("/") + "/" + url_path(out)
+        head_links += (f'<meta property="og:type" content="{"article" if page.get("type") in CONTENT_TYPES else "website"}">\n'
+                       f'<meta property="og:site_name" content="{escape(t["site_name"])}">\n'
+                       f'<meta property="og:title" content="{escape(page["title"])}">\n'
+                       f'<meta property="og:description" content="{escape(page["description"])}">\n'
+                       f'<meta property="og:url" content="{escape(page_url)}">\n'
+                       f'<meta property="og:locale" content="{"ar_SA" if lang == "ar" else "en_US"}">\n'
+                       f'<meta name="twitter:card" content="summary">\n')
+        # JSON-LD structured data
+        base = SITE["base_url"].rstrip("/") + "/"
+        home_url = base + ("" if lang == "ar" else "en/")
+        graph = [{"@type": "Organization", "@id": base + "#org", "name": "Qarin / قارن", "url": base,
+                  "logo": base + "assets/favicon.svg"}]
+        if page["slug"] == "":
+            graph.append({"@type": "WebSite", "name": t["site_name"], "url": home_url, "inLanguage": lang,
+                          "publisher": {"@id": base + "#org"},
+                          "potentialAction": {"@type": "SearchAction",
+                                              "target": home_url + "search/?q={search_term_string}",
+                                              "query-input": "required name=search_term_string"}})
+        if page.get("type") in CONTENT_TYPES:
+            graph.append({"@type": "Article", "headline": page["title"], "description": page["description"],
+                          "inLanguage": lang, "datePublished": page.get("date"), "dateModified": page.get("date"),
+                          "mainEntityOfPage": page_url, "author": {"@id": base + "#org"},
+                          "publisher": {"@id": base + "#org"}})
+            crumbs = [(t["nav"][0][1], home_url)]
+            if page.get("category"):
+                crumbs.append((t["categories"].get(page["category"], ""), home_url + "category/" + page["category"] + "/"))
+            crumbs.append((page["title"], page_url))
+            graph.append({"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(crumbs)]})
+        head_links += ('<script type="application/ld+json">' +
+                       json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False) +
+                       "</script>\n")
+    head_links += f'<link rel="icon" href="{rel(depth, "assets/favicon.svg")}" type="image/svg+xml">\n'
+
     font_css = ("Tajawal:wght@400;500;700;800" if lang == "ar" else "Inter:wght@400;500;700;800")
     footer_links = " · ".join(f'<a href="{lang_root}{h}">{escape(lbl)}</a>' for h, lbl in t["footer_links"])
 
@@ -310,9 +347,15 @@ def main():
 
     if SITE.get("base_url"):
         base = SITE["base_url"].rstrip("/") + "/"
-        urls = "".join(f"<url><loc>{base}{url_path(p['out'])}</loc></url>" for p in pages)
+        def entry(p):
+            alts = "".join(
+                f'<xhtml:link rel="alternate" hreflang="{lg}" href="{base}{url_path(index[(lg, p["slug"])]["out"])}"/>'
+                for lg in ("ar", "en") if (lg, p["slug"]) in index)
+            lastmod = f"<lastmod>{p['date']}</lastmod>" if p.get("date") else ""
+            return f"<url><loc>{base}{url_path(p['out'])}</loc>{lastmod}{alts}</url>"
+        urls = "".join(entry(p) for p in pages)
         (OUT / "sitemap.xml").write_text(
-            f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>',
+            f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">{urls}</urlset>',
             encoding="utf-8")
         (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {base}sitemap.xml\n", encoding="utf-8")
 
