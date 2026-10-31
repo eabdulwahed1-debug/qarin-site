@@ -1,0 +1,35 @@
+{
+  "week": "2026-11-01",
+  "items": [
+    {
+      "asin": "B089TQWJKK",
+      "category": "kitchen",
+      "icon": "🍳",
+      "name_ar": "نينجا فودي مقلاة هوائية بسلتين 7.5 لتر (Dual Zone)",
+      "name_en": "Ninja Foodi Dual Zone Air Fryer, 7.5 L, two baskets",
+      "why_ar": "سلتان تطبخان صنفين في نفس الوقت، وسعة 7.5 لتر تناسب الأسر الكبيرة وعزائم رمضان. من أعلى القلايات تقييماً في أمازون السعودية.",
+      "why_en": "Two baskets cook two dishes at once, and 7.5 L suits big families and gatherings. One of the top-rated air fryers on Amazon.sa.",
+      "guide": "comparisons/air-fryer-single-vs-dual-basket"
+    },
+    {
+      "asin": "B0C6SPNVF5",
+      "category": "tech",
+      "icon": "🎧",
+      "name_ar": "سماعة JBL Tune 520BT اللاسلكية",
+      "name_en": "JBL Tune 520BT wireless headphones",
+      "why_ar": "سماعة بلوتوث من علامة معروفة بسعر معقول، وتقييماتها مرتفعة من آلاف المشترين. خيار عملي للدراسة والعمل والمواصلات.",
+      "why_en": "Bluetooth headphones from a well-known brand at a sensible price, rated highly by thousands of buyers. A practical pick for study, work and commuting.",
+      "guide": "category/tech"
+    },
+    {
+      "asin": "B0CVH26167",
+      "category": "travel",
+      "icon": "🔋",
+      "name_ar": "باور بانك سامسونج 20000 مللي أمبير 45 واط بثلاثة منافذ Type-C",
+      "name_en": "Samsung 20,000 mAh 45 W power bank, three USB-C ports",
+      "why_ar": "سعة 20000 مللي أمبير تعادل تقريباً 74 واط ساعة، أي ضمن الحد المسموح عادةً في حقيبة اليد بالطائرة. يشحن الجوال واللابتوب الخفيف بسرعة.",
+      "why_en": "20,000 mAh is about 74 Wh — within the usual carry-on limit for flights. Fast-charges phones and light laptops.",
+      "guide": "guides/travel-essentials-checklist"
+    }
+  ]
+}

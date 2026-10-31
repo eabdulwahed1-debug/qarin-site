@@ -175,6 +175,30 @@ def shop_tiles(lang):
     return '<div class="shop-tiles">' + "".join(out) + "</div>"
 
 
+FEATURED = json.loads((ROOT / "featured.json").read_text(encoding="utf-8")) if (ROOT / "featured.json").exists() else {"items": []}
+
+
+def featured_cards(lang, lang_root):
+    items = FEATURED.get("items", [])[:4]
+    if not items:
+        return ""
+    btn = "شوف السعر في أمازون" if lang == "ar" else "See price on Amazon"
+    more = "اقرأ الدليل" if lang == "ar" else "Read the guide"
+    out = []
+    for it in items:
+        icon = it.get("icon") or CAT_STYLE.get(it.get("category"), ("⭐", ""))[0]
+        color = CAT_STYLE.get(it.get("category"), ("", "#ff9900"))[1]
+        url = amz_url(f"/dp/{it['asin']}", True)
+        name = it["name_" + lang]
+        guide = f'<a class="feat-more" href="{lang_root}{it["guide"]}/">{more}</a>' if it.get("guide") else ""
+        out.append(
+            f'<div class="feat-card" style="--c:{color}"><div class="feat-icon">{icon}</div>'
+            f'<div class="feat-body"><h3>{escape(name)}</h3><p>{escape(it["why_" + lang])}</p>'
+            f'<div class="feat-actions"><a class="buy" href="{escape(url)}" target="_blank" rel="sponsored nofollow noopener" '
+            f'data-goatcounter-click="amz-featured:{it["asin"]}" data-goatcounter-title="Featured: {escape(it["name_en"])}">{btn}</a>{guide}</div></div></div>')
+    return '<div class="feat-grid">' + "".join(out) + "</div>"
+
+
 def guide_cards(pages, lang, category, depth, ctype=None):
     t = L[lang]
     items = [p for p in pages if p["lang"] == lang and p.get("type") in CONTENT_TYPES
@@ -210,6 +234,7 @@ def render(page, pages, index):
     body = page["body"]
     body = re.sub(r"\[\[amz:([^|\]]+)\|([^\]]+)\]\]", lambda m: amz_link(m.group(1).strip(), m.group(2).strip()), body)
     body = body.replace("[[shop]]", shop_tiles(lang))
+    body = body.replace("[[featured]]", featured_cards(lang, lang_root))
     body = re.sub(r"\[\[guides:(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(1), depth), body)
     body = re.sub(r"\[\[list:(\w+):(\w+)\]\]", lambda m: guide_cards(pages, lang, m.group(2), depth, m.group(1)), body)
     body = body.replace("{{root}}", lang_root)
