@@ -1,4 +1,314 @@
 {
- "month": "",
- "sections": {}
+ "month": "نوفمبر 2026",
+ "sections": {
+  "speech": [
+   {
+    "store": "amazon",
+    "name_ar": "بطاقات زينكايند الناطقة عربي/إنجليزي (510 كلمة)",
+    "name_en": "ZEENKIND Arabic–English Talking Flash Cards (510 words)",
+    "why_ar": "بطاقات ناطقة ثنائية اللغة لعمر 3–6 سنوات، مناسبة للبيت العربي لتكرار الكلمات مع الطفل يومياً كأداة تدريب ممتعة.",
+    "why_en": "Bilingual talking cards for ages 3–6 — a fit for Arabic-speaking homes to repeat everyday words together as a fun practice routine.",
+    "url": "https://www.amazon.sa/dp/B0CJ9GB8J6?tag=qarinsa-21",
+    "icon": "🗂️"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "قلم بيبي باص الناطق مع موسوعة (عربي وإنجليزي)",
+    "name_en": "BabyBus Talking Pen Set with Encyclopedia (Arabic & English)",
+    "why_ar": "قلم ناطق مع كتاب موسوعة بالعربي والإنجليزي لعمر 1–4 سنوات؛ يلمس الطفل الصورة فيسمع الكلمة ويقلّدها.",
+    "why_en": "A talking pen and picture encyclopedia in Arabic and English for ages 1–4: the child taps a picture, hears the word and repeats it.",
+    "url": "https://www.amazon.sa/dp/B0DCNRV3F7?tag=qarinsa-21",
+    "icon": "🖊️"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "دمى اليد ميليسا آند دوغ – أصدقاء حديقة الحيوان",
+    "name_en": "Melissa & Doug Zoo Friends Hand Puppets",
+    "why_ar": "دمى يد من علامة معروفة تشجّع اللعب التمثيلي والحوار بين الطفل والأهل بطريقة طبيعية.",
+    "why_en": "Hand puppets from a well-known toy brand that invite pretend play and natural back-and-forth conversation with parents.",
+    "url": "https://www.amazon.sa/dp/B00PZYQN70?tag=qarinsa-21",
+    "icon": "🧸"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "هواتف القراءة الهامسة سبيشل سبلايز (4 قطع)",
+    "name_en": "Special Supplies Phone Buddy Whisper Reading Phones (4-pack)",
+    "why_ar": "هاتف قراءة يُسمع الطفلَ صوته بوضوح وهو يقرأ بهمس؛ أداة تدريب على القراءة والنطق في البيت أو الصف.",
+    "why_en": "A whisper phone that lets kids hear their own voice clearly while reading softly — a reading and pronunciation practice tool for home or class.",
+    "url": "https://www.amazon.sa/dp/B0BPJV44LN?tag=qarinsa-21",
+    "icon": "📞"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "بطاقات QuTZ الناطقة (272 كلمة إنجليزية)",
+    "name_en": "QuTZ Talking Flash Cards (272 English sight words)",
+    "why_ar": "لعمر 2–4 سنوات لمن يريد تعريف طفله بكلمات إنجليزية أساسية بالصوت والصورة.",
+    "why_en": "For ages 2–4, if you want to introduce basic English words with sound and pictures.",
+    "url": "https://www.amazon.sa/dp/B0C2D9SFDP?tag=qarinsa-21",
+    "icon": "🔤"
+   }
+  ],
+  "focus": [
+   {
+    "store": "amazon",
+    "name_ar": "مؤقت تايم تايمر هوم MOD – 60 دقيقة",
+    "name_en": "Time Timer Home MOD — 60-minute visual timer",
+    "why_ar": "مؤقت بصري صامت من العلامة الأصلية يُظهر الوقت المتبقي كقرص ملوّن؛ مفيد لروتين الواجبات ووقت الشاشة.",
+    "why_en": "A silent visual timer from the original brand that shows remaining time as a coloured disc — handy for homework and screen-time routines.",
+    "url": "https://www.amazon.sa/dp/B08K9FQ92S?tag=qarinsa-21",
+    "icon": "⏳"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "مؤقت تايم تايمر بلس 60 دقيقة بمقبض",
+    "name_en": "Time Timer PLUS 60-minute desk timer with handle",
+    "why_ar": "نسخة أكبر بمقبض للحمل بين الغرف، تناسب الأسر التي تستخدم المؤقت في أكثر من مكان.",
+    "why_en": "A larger version with a carry handle — suits families who move the timer between rooms.",
+    "url": "https://www.amazon.sa/dp/B06XKC3KPD?tag=qarinsa-21",
+    "icon": "⏱️"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "واقي أذن للأطفال بروكيس لتقليل الضوضاء",
+    "name_en": "ProCase Kids Ear Protection Earmuffs",
+    "why_ar": "واقي أذن قابل للتعديل للأطفال لتخفيف الضوضاء في الأماكن المزدحمة أو أثناء المذاكرة.",
+    "why_en": "Adjustable kids' earmuffs to reduce noise in crowded places or during study time.",
+    "url": "https://www.amazon.sa/dp/B0B214QTTC?tag=qarinsa-21",
+    "icon": "🎧"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "واقي أذن سناغ للأطفال",
+    "name_en": "Snug Kids Earmuffs / Hearing Protectors",
+    "why_ar": "خيار شائع لدى الأهل لتقليل الأصوات العالية في المناسبات والسفر.",
+    "why_en": "A popular parent choice for cutting loud sounds at events and while travelling.",
+    "url": "https://www.amazon.sa/dp/B07SBCP5PP?tag=qarinsa-21",
+    "icon": "🔇"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "وسادة توماز المتمايلة للجلوس",
+    "name_en": "Tumaz Wobble Cushion (pump included)",
+    "why_ar": "وسادة جلوس متمايلة سميكة مع منفاخ، تمنح الطفل حركة خفيفة وهو جالس على مكتبه.",
+    "why_en": "A thick wobble seat with pump that lets children move a little while seated at the desk.",
+    "url": "https://www.amazon.sa/dp/B07P41X1K8?tag=qarinsa-21",
+    "icon": "🟢"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "لوحة المكافآت والمهام المغناطيسية (84 مهمة)",
+    "name_en": "Magnetic Reward & Chore Chart (84 chores, 272 stars)",
+    "why_ar": "لوحة روتين يومي بنجوم مغناطيسية لتنظيم مهام الطفل وتشجيعه على إنجازها.",
+    "why_en": "A daily-routine board with magnetic stars to organise a child's tasks and encourage follow-through.",
+    "url": "https://www.amazon.sa/dp/B0B2922H5L?tag=qarinsa-21",
+    "icon": "📋"
+   }
+  ],
+  "travel": [
+   {
+    "store": "amazon",
+    "name_ar": "عربة جي بي بوكيت+ أول سيتي المدمجة للسفر",
+    "name_en": "gb Pockit+ All City Ultra-Compact Travel Stroller",
+    "why_ar": "عربة خفيفة جداً تُطوى بحجم صغير مع مظلة كاملة ومسند قابل للإمالة؛ مناسبة لرحلات الطيران والإجازات.",
+    "why_en": "An ultra-compact, lightweight stroller with a full canopy and reclining seat — made for flights and holidays.",
+    "url": "https://www.amazon.sa/dp/B07RPCTVWP?tag=qarinsa-21",
+    "icon": "🛒"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "سماعات بيورو ساوند BT2200s بحد صوت آمن للأطفال",
+    "name_en": "Puro Sound Labs BT2200s Volume-Limited Kids' Headphones",
+    "why_ar": "سماعات بلوتوث للأطفال بخاصية تحديد مستوى الصوت، مفيدة للرحلات الطويلة.",
+    "why_en": "Bluetooth kids' headphones with a volume limit — useful on long trips.",
+    "url": "https://www.amazon.sa/dp/B08JG5JJD7?tag=qarinsa-21",
+    "icon": "🎧"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "سماعات جيه لاب JBuddies Studio للأطفال",
+    "name_en": "JLab JBuddies Studio Kids Headphones",
+    "why_ar": "سماعات سلكية قابلة للطي بحد صوت آمن وميكروفون، خيار اقتصادي للسفر.",
+    "why_en": "Foldable wired headphones with a safe-volume limiter and mic — a budget-friendly travel pick.",
+    "url": "https://www.amazon.sa/dp/B0C6FXHWV2?tag=qarinsa-21",
+    "icon": "🎵"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "دفتر واتر واو سفاري من ميليسا آند دوغ",
+    "name_en": "Melissa & Doug Safari On-the-Go Water Wow! Pad",
+    "why_ar": "تلوين بالماء بدون فوضى يُعاد استخدامه، لعمر 3 سنوات فأكثر، مثالي للطائرة والسيارة.",
+    "why_en": "Mess-free, reusable water colouring for ages 3+ — ideal on planes and car rides.",
+    "url": "https://www.amazon.sa/dp/B01B1TIJWE?tag=qarinsa-21",
+    "icon": "🎨"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "حقيبة ظهر سكيب هوب فورما للحفاضات",
+    "name_en": "Skip Hop Forma Diaper Bag Backpack",
+    "why_ar": "حقيبة ظهر متعددة الجيوب مع فرشة تغيير ومشابك للعربة، تنظّم أغراض الطفل في السفر.",
+    "why_en": "A multi-pocket backpack with changing pad and stroller clips to keep baby gear organised on the go.",
+    "url": "https://www.amazon.sa/dp/B0731TBBWF?tag=qarinsa-21",
+    "icon": "🎒"
+   }
+  ],
+  "mom": [
+   {
+    "store": "amazon",
+    "name_ar": "شفاط مومكوزي S12 برو اللاسلكي القابل للارتداء (قطعتان)",
+    "name_en": "Momcozy S12 Pro Wearable Hands-Free Breast Pump (2-pack)",
+    "why_ar": "شفاط لاسلكي يُلبس داخل حمالة الصدر بثلاثة أوضاع وتسعة مستويات وشاشة؛ يناسب الأم العاملة أو كثيرة التنقل.",
+    "why_en": "A wireless pump worn in the bra with 3 modes, 9 levels and a display — suits working or on-the-go mums.",
+    "url": "https://www.amazon.sa/dp/B0CWTSXNV4?tag=qarinsa-21",
+    "icon": "🍼"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "معقم ومجفف فيليبس أفنت بالبخار SCF293",
+    "name_en": "Philips Avent Premium Steam Sterilizer & Dryer SCF293",
+    "why_ar": "يعقّم حتى 6 رضّاعات بالبخار ويجففها في جهاز واحد من علامة موثوقة.",
+    "why_en": "Steam-sterilises and dries up to 6 bottles in one unit from a trusted brand.",
+    "url": "https://www.amazon.sa/dp/B08FD8VRYZ?tag=qarinsa-21",
+    "icon": "♨️"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "مدفئ الرضاعات السريع فيليبس أفنت SCF358",
+    "name_en": "Philips Avent Fast Bottle Warmer SCF358",
+    "why_ar": "تحكم ذكي بالحرارة وإيقاف تلقائي، يسهّل رضعات الليل.",
+    "why_en": "Smart temperature control and auto shut-off make night feeds easier.",
+    "url": "https://www.amazon.sa/dp/B0876T9DQZ?tag=qarinsa-21",
+    "icon": "🌡️"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "حمالة الأطفال إرغوبيبي أومني 360",
+    "name_en": "Ergobaby Omni 360 All-Position Baby Carrier",
+    "why_ar": "حمالة لكل الوضعيات من حديثي الولادة حتى الطفل الدارج مع دعم لأسفل الظهر.",
+    "why_en": "An all-position carrier from newborn to toddler with lumbar support.",
+    "url": "https://www.amazon.sa/dp/B0743L6R1T?tag=qarinsa-21",
+    "icon": "🤱"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "جهاز مراقبة الطفل بالفيديو فيليبس أفنت",
+    "name_en": "Philips Avent Video Baby Monitor",
+    "why_ar": "جهاز مراقبة بالفيديو من فيليبس أفنت لمتابعة نوم الطفل من غرفة أخرى.",
+    "why_en": "A Philips Avent video monitor to keep an eye on baby's sleep from another room.",
+    "url": "https://www.amazon.sa/dp/B0916ZCK3Q?tag=qarinsa-21",
+    "icon": "📹"
+   }
+  ],
+  "toys": [
+   {
+    "store": "amazon",
+    "name_ar": "بيت الجرو التفاعلي من فيشر برايس Laugh & Learn",
+    "name_en": "Fisher-Price Laugh & Learn Puppy's Activity Home",
+    "why_ar": "لعبة نشاط للرضّع والأطفال الصغار بأبواب وأزرار وأغانٍ تشجّع الاستكشاف والحركة.",
+    "why_en": "An activity house for babies and toddlers with doors, buttons and songs that encourage exploring and moving.",
+    "url": "https://www.amazon.sa/dp/B00F6N0MB8?tag=qarinsa-21",
+    "icon": "🐶"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "مكعب فرز الأشكال الخشبي ميليسا آند دوغ",
+    "name_en": "Melissa & Doug Shape Sorting Cube",
+    "why_ar": "لعبة خشبية كلاسيكية لعمر 1–3 لتعلّم الأشكال والألوان وتقوية التآزر بين اليد والعين.",
+    "why_en": "A classic wooden toy for ages 1–3 to learn shapes and colours and build hand–eye coordination.",
+    "url": "https://www.amazon.sa/dp/B00005RF5G?tag=qarinsa-21",
+    "icon": "🔷"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "متاهة الخرز الأولى ميليسا آند دوغ",
+    "name_en": "Melissa & Doug First Bead Maze",
+    "why_ar": "لعبة خشبية بأسلوب مونتيسوري لتحريك الخرز على المسارات، تدعم التركيز والمهارات الدقيقة.",
+    "why_en": "A Montessori-style wooden bead maze that supports concentration and fine-motor skills.",
+    "url": "https://www.amazon.sa/dp/B000SONEQA?tag=qarinsa-21",
+    "icon": "🧮"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "صندوق ليغو كلاسيك الإبداعي الكبير 10698",
+    "name_en": "LEGO Classic Large Creative Brick Box 10698",
+    "why_ar": "790 قطعة لعمر 4 سنوات فأكثر مع قاعدة خضراء ونوافذ وعجلات؛ بناء حر يكبر مع الطفل.",
+    "why_en": "790 pieces for ages 4+ with a green baseplate, windows and wheels — open-ended building that grows with the child.",
+    "url": "https://www.amazon.sa/dp/B00PY3EYQO?tag=qarinsa-21",
+    "icon": "🧱"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "مختبر ناشيونال جيوغرافيك ميغا للعلوم (75 تجربة)",
+    "name_en": "National Geographic Mega Science Lab (75 experiments)",
+    "why_ar": "مجموعة تجارب سهلة في علوم الأرض والكيمياء، هدية مناسبة لعمر 6–12 في الإجازات.",
+    "why_en": "Easy earth-science and chemistry experiments — a good holiday gift for ages 6–12.",
+    "url": "https://www.amazon.sa/dp/B09LRHSXW9?tag=qarinsa-21",
+    "icon": "🔬"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "روبوت البرمجة بوتلي من ليرننغ ريسورسز (77 قطعة)",
+    "name_en": "Learning Resources Botley Coding Robot Activity Set (77 pcs)",
+    "why_ar": "يتعلم الطفل أساسيات البرمجة بدون شاشة عبر توجيه الروبوت بالأوامر.",
+    "why_en": "Kids learn coding basics screen-free by programming the robot's moves.",
+    "url": "https://www.amazon.sa/dp/B077MRB975?tag=qarinsa-21",
+    "icon": "🤖"
+   }
+  ],
+  "safety": [
+   {
+    "store": "amazon",
+    "name_ar": "أقفال سيفتي فيرست المغناطيسية اللاصقة (8 أقفال + مفتاحان)",
+    "name_en": "Safety 1st Adhesive Magnetic Lock System (8 locks, 2 keys)",
+    "why_ar": "أقفال مخفية داخل الخزائن تُركّب باللاصق بدون حفر، مناسبة للشقق المستأجرة.",
+    "why_en": "Hidden in-cabinet locks that stick on without drilling — good for rented homes.",
+    "url": "https://www.amazon.sa/dp/B076QN2V4Q?tag=qarinsa-21",
+    "icon": "🔒"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "بوابة ريغالو إيزي ستيب للمداخل",
+    "name_en": "Regalo Easy Step Walk-Thru Gate",
+    "why_ar": "بوابة أمان بضغط على الجدار لفتحات 74–99 سم، تُفتح للمرور بيد واحدة.",
+    "why_en": "A pressure-mounted safety gate for 29–39 in openings that adults can walk through.",
+    "url": "https://www.amazon.sa/dp/B001OC5UMQ?tag=qarinsa-21",
+    "icon": "🚧"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "أغطية المقابس ليندام BabySecurity (8 قطع) للمقبس البريطاني",
+    "name_en": "Lindam BabySecurity UK Plug Socket Covers (8-pack)",
+    "why_ar": "مصممة للمقبس ثلاثي الأطراف المستخدم في السعودية لمنع العبث بالفتحات.",
+    "why_en": "Made for the 3-pin UK-type sockets used in Saudi homes to stop little fingers tampering.",
+    "url": "https://www.amazon.sa/dp/B078TGZ4MS?tag=qarinsa-21",
+    "icon": "🔌"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "حماية الزوايا السيليكون CalMyotis (12 قطعة)",
+    "name_en": "CalMyotis Silicone Corner Protectors (12-pack)",
+    "why_ar": "واقيات زوايا شفافة للطاولات والأثاث تخفف صدمات الطفل وهو يتعلّم المشي.",
+    "why_en": "Clear corner guards for tables and furniture to soften bumps while a child learns to walk.",
+    "url": "https://www.amazon.sa/dp/B0771L5HN5?tag=qarinsa-21",
+    "icon": "📐"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "ميزان حرارة الأذن براون ThermoScan 7",
+    "name_en": "Braun ThermoScan 7 Ear Thermometer (IRT 6525)",
+    "why_ar": "ميزان أذن بخاصية Age Precision ووضع ليلي؛ قراءة سريعة للأطفال، واستشيري الطبيب عند الحاجة.",
+    "why_en": "An ear thermometer with Age Precision and night mode for quick readings — always consult a doctor when needed.",
+    "url": "https://www.amazon.sa/dp/B09NWB542R?tag=qarinsa-21",
+    "icon": "🌡️"
+   },
+   {
+    "store": "amazon",
+    "name_ar": "غطاء صنبور الحوض سكيب هوب موبي",
+    "name_en": "Skip Hop Moby Bath Spout Cover",
+    "why_ar": "غطاء طري يناسب معظم الصنابير ليحمي رأس الطفل وقت الاستحمام.",
+    "why_en": "A soft universal spout cover that protects little heads at bath time.",
+    "url": "https://www.amazon.sa/dp/B001WAJVZM?tag=qarinsa-21",
+    "icon": "🛁"
+   }
+  ]
+ }
 }
