@@ -39,6 +39,7 @@ Owner decision: the site is now **Mom & Kids only** (speech/talking aids, focus 
 7. 2026-10-31: concept change — home page is now a 3-step buying assistant (12 categories, budget, use → filtered Amazon.sa results sorted by reviews) + shop-by-budget rows + weekly featured products; guides moved below. Rebrand: Qarin logo, navy/orange theme.
 8. 2026-10-31: full redesign to Mom & Kids — new warm theme, logo, hero art; 4 section pages (need/speech, focus, travel, mom); finder with 6 needs; shop-by-need tiles (momkid.json); top search goes straight to Amazon.sa with tag. Old content removed.
 9. 2026-10-31: photo redesign (Unsplash), design system (Readex Pro + IBM Plex Sans Arabic), Khutwa assistant + instant search, price-compare page (Amazon + AliExpress), brand line 'by Qarin Group', monthly best-products block. Full review: 26 pages, 0 broken links, 72/72 Amazon links tagged, 0 JS errors, no mobile overflow.
+10. 2026-11-01: weekly tip (speech) — «ألعاب تساعد الطفل على الكلام» / "Toys that help kids talk" at /tips/toys-that-help-kids-talk/ and /en/tips/toys-that-help-kids-talk/; added 'Helpful reads' list to the speech section page.
 Plus (removed 2026-10-31): 2 comparisons (air fryer single vs dual basket; robot vacuum LiDAR vs camera), 1 blog article (spotting fake reviews), Picks page, Deals calendar, Categories, Blog, client-side Search, home, guides index, 7 category pages, about, contact, disclosure, privacy, terms.
 
 ## 4. Next actions
